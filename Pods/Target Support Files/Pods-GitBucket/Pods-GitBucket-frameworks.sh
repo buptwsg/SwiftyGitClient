@@ -65,6 +65,15 @@ install_dsym() {
     echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${source}\" \"${DWARF_DSYM_FOLDER_PATH}\""
     rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${source}" "${DWARF_DSYM_FOLDER_PATH}"
   fi
+
+  local basename
+  basename="$(basename -s .framework.dSYM "$source")"
+  binary="${DWARF_DSYM_FOLDER_PATH}/${basename}.framework.dSYM/Contents/Resources/DWARF/${basename}"
+
+  # Strip invalid architectures so "fat" simulator / device frameworks work on device
+  if [[ "$(file "$binary")" == *"Mach-O dSYM companion"* ]]; then
+    strip_invalid_archs "$binary"
+  fi
 }
 
 # Signs a framework with the provided identity
@@ -105,13 +114,17 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
