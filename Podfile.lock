@@ -9,6 +9,7 @@ PODS:
     - ObjectMapper (~> 3.0)
   - Kingfisher (4.5.0)
   - ObjectMapper (3.1.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 5.0)
   - Kingfisher (~> 4.0)
   - ObjectMapper (~> 3.1)
+  - Toast-Swift (~> 3.0.1)
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -25,7 +27,8 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   Kingfisher: 26ae0473102b77b575da51960c932431e3745407
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: df6a3e9f91ba59784ea696617692e256f2cc0feb
+PODFILE CHECKSUM: 6b10cfcc000408a46d3a6685c2b5d62e87c7f7a2
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.4.0

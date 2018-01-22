@@ -12,4 +12,5 @@ target 'GitBucket' do
   pod 'Kingfisher', '~> 4.0'
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'ObjectMapper', '~> 3.1'
+  pod 'Toast-Swift', '~> 3.0.1'
 end
