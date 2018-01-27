@@ -13,4 +13,5 @@ target 'GitBucket' do
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'ObjectMapper', '~> 3.1'
   pod 'Toast-Swift', '~> 3.0.1'
+  pod 'OcticonsKit'
 end

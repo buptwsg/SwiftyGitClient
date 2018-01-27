@@ -36,6 +36,18 @@ class WXMiddleButtonTabBarController: UITabBarController {
         self.addChildViewController(navVC)
     }
     
+    func addChildViewController(_ childViewController: UIViewController, title: String, image: UIImage, selectedImage: UIImage? = nil) {
+        let navVC = WXNavigationController(rootViewController: childViewController)
+        childViewController.navigationItem.title = title
+        childViewController.tabBarItem.title = title
+        childViewController.tabBarItem.image = image;
+        if let _ = selectedImage {
+            childViewController.tabBarItem.selectedImage = selectedImage
+        }
+        
+        self.addChildViewController(navVC)
+    }
+    
     //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
