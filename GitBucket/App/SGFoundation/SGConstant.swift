@@ -71,7 +71,7 @@ enum SGAppColors: Int {
     case colorI6 = 0xEDEDED
     case colorI7 = 0xD9D9D9
     
-    func color() -> UIColor {
+    var color: UIColor {
         return UIColor.colorFromHex(hex: self.rawValue)
     }
 }

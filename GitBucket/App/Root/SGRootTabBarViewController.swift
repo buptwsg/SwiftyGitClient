@@ -32,25 +32,25 @@ class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButton
         let vc1 = UIViewController()
         vc1.view.backgroundColor = UIColor.red
         var normalImage = UIImage.octicon(with: .rss, textColor: UIColor.lightGray, size: iconSize)
-        var selectedImage = UIImage.octicon(with: .rss, textColor: SGAppColors.colorI3.color(), size: iconSize).withRenderingMode(.alwaysOriginal)
+        var selectedImage = UIImage.octicon(with: .rss, textColor: SGAppColors.colorI3.color, size: iconSize).withRenderingMode(.alwaysOriginal)
         self.addChildViewController(vc1, title: "News", image: normalImage, selectedImage: selectedImage)
         
         let vc2 = UIViewController()
         vc2.view.backgroundColor = UIColor.green
         normalImage = UIImage.octicon(with: .repo, textColor: UIColor.lightGray, size: iconSize)
-        selectedImage = UIImage.octicon(with: .repo, textColor: SGAppColors.colorI3.color(), size: iconSize).withRenderingMode(.alwaysOriginal)
+        selectedImage = UIImage.octicon(with: .repo, textColor: SGAppColors.colorI3.color, size: iconSize).withRenderingMode(.alwaysOriginal)
         self.addChildViewController(vc2, title: "Repositories", image: normalImage, selectedImage: selectedImage)
         
         let vc3 = UIViewController()
         vc3.view.backgroundColor = UIColor.blue
         normalImage = UIImage.octicon(with: .search, textColor: UIColor.lightGray, size: iconSize)
-        selectedImage = UIImage.octicon(with: .search, textColor: SGAppColors.colorI3.color(), size: iconSize).withRenderingMode(.alwaysOriginal)
+        selectedImage = UIImage.octicon(with: .search, textColor: SGAppColors.colorI3.color, size: iconSize).withRenderingMode(.alwaysOriginal)
         self.addChildViewController(vc3, title: "Search", image: normalImage, selectedImage: selectedImage)
         
         let vc4 = UIViewController()
         vc4.view.backgroundColor = UIColor.orange
         normalImage = UIImage.octicon(with: .person, textColor: UIColor.lightGray, size: iconSize)
-        selectedImage = UIImage.octicon(with: .person, textColor: SGAppColors.colorI3.color(), size: iconSize).withRenderingMode(.alwaysOriginal)
+        selectedImage = UIImage.octicon(with: .person, textColor: SGAppColors.colorI3.color, size: iconSize).withRenderingMode(.alwaysOriginal)
         self.addChildViewController(vc4, title: "Profile", image: normalImage, selectedImage: selectedImage)
     }
 
