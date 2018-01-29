@@ -33,7 +33,7 @@ class WXMiddleButtonTabBar: UITabBar {
         self.middleButton = button
         self.middleButtonCenterY = centerY
         button.sizeToFit()
-        self.addSubview(button)
+        addSubview(button)
         
         button.addTarget(self, action: #selector(middleButtonClicked), for: .touchUpInside)
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(middleButtonLongPressed(_:)))
@@ -46,7 +46,7 @@ class WXMiddleButtonTabBar: UITabBar {
         internalImageViewsArray = []
         internalLabelsArray = []
         super.init(frame: frame)
-        self.customizeAppearance()
+        customizeAppearance()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,7 +54,7 @@ class WXMiddleButtonTabBar: UITabBar {
         internalImageViewsArray = []
         internalLabelsArray = []
         super.init(coder: aDecoder)
-        self.customizeAppearance()
+        customizeAppearance()
     }
     
     override func didAddSubview(_ subview: UIView) {
@@ -98,7 +98,7 @@ class WXMiddleButtonTabBar: UITabBar {
         }
         
         if let _ = self.middleButton {
-            self.bringSubview(toFront: self.middleButton!)
+            bringSubview(toFront: self.middleButton!)
         }
     }
     

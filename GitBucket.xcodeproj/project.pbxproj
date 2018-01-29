@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8451D453149A0B38E3CE81B9 /* Pods_GitBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */; };
-		B21ADB4E201C355D006F3334 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ADB4D201C355D006F3334 /* UIColorExtension.swift */; };
+		B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */; };
 		B21ADB50201C8FC7006F3334 /* SGConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ADB4F201C8FC7006F3334 /* SGConstant.swift */; };
 		C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */; };
+		C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */; };
+		C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */; };
+		C646DE1F201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE1E201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift */; };
 		C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C695129E2012052A00D1DAB9 /* Main.storyboard */; };
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
@@ -23,9 +26,12 @@
 /* Begin PBXFileReference section */
 		7CC118CFC5690ABC5F31A33D /* Pods-GitBucket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBucket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBucket/Pods-GitBucket.release.xcconfig"; sourceTree = "<group>"; };
 		87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B21ADB4D201C355D006F3334 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B21ADB4F201C8FC7006F3334 /* SGConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGConstant.swift; sourceTree = "<group>"; };
 		C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRootTabBarViewController.swift; sourceTree = "<group>"; };
+		C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+WXBorderUIColor.swift"; sourceTree = "<group>"; };
+		C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+WXHelper.swift"; sourceTree = "<group>"; };
+		C646DE1E201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+WXAutoResizingMaskLayout.swift"; sourceTree = "<group>"; };
 		C69512972012052A00D1DAB9 /* GitBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C695129F2012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C69512A12012052A00D1DAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +76,10 @@
 		B21ADB4C201C3543006F3334 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B21ADB4D201C355D006F3334 /* UIColorExtension.swift */,
+				B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */,
+				C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */,
+				C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */,
+				C646DE1E201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,9 +306,12 @@
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				B21ADB50201C8FC7006F3334 /* SGConstant.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
-				B21ADB4E201C355D006F3334 /* UIColorExtension.swift in Sources */,
+				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
 				C6B9A15D2017530C00AD009D /* WXNavigationController.swift in Sources */,
+				C646DE1F201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift in Sources */,
 				C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */,
+				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
+				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
 				C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
