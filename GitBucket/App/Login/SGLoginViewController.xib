@@ -1,13 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SGLoginViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SGLoginViewController" customModule="GitBucket" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="ugC-fS-kuc" id="Hc0-aC-Wis"/>
+                <outlet property="nameIcon" destination="Pij-30-Pi2" id="61S-Yl-LtK"/>
+                <outlet property="nameTextField" destination="CTT-j0-7BL" id="ztX-kG-oRr"/>
+                <outlet property="passwordIcon" destination="S7c-0z-wG3" id="nO4-sG-xAq"/>
+                <outlet property="passwordTextField" destination="bOe-Gu-6n6" id="rtR-su-z8P"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +24,111 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lLr-1T-Tlt" userLabel="GithubLogo">
+                    <rect key="frame" x="142" y="117" width="90" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="2tC-w6-oaQ"/>
+                        <constraint firstAttribute="height" constant="90" id="5V6-Ia-CxS"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6b-4T-Fof" userLabel="Container">
+                    <rect key="frame" x="0.0" y="247.5" width="375" height="100"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pij-30-Pi2" userLabel="NameIcon">
+                            <rect key="frame" x="15" y="13" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="22" id="5ts-8w-Tnw"/>
+                                <constraint firstAttribute="height" constant="22" id="73z-lS-c4E"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub username or email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CTT-j0-7BL" userLabel="NameTextField">
+                            <rect key="frame" x="47" y="9" width="313" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="j1k-xG-2kl"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQA-XJ-cIe" userLabel="SeparatorLine">
+                            <rect key="frame" x="15" y="50" width="345" height="1"/>
+                            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="3en-ZY-heB"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S7c-0z-wG3" userLabel="PasswordIcon">
+                            <rect key="frame" x="15" y="68.5" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="2KN-Xf-TUR"/>
+                                <constraint firstAttribute="width" constant="22" id="YPK-6c-tUX"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GitHub password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bOe-Gu-6n6" userLabel="PasswordTextField">
+                            <rect key="frame" x="47" y="64.5" width="313" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Ovc-sP-Iz5"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="uQA-XJ-cIe" firstAttribute="centerY" secondItem="d6b-4T-Fof" secondAttribute="centerY" id="4Hm-cM-vhn"/>
+                        <constraint firstItem="CTT-j0-7BL" firstAttribute="leading" secondItem="Pij-30-Pi2" secondAttribute="trailing" constant="10" id="EOM-WP-2eG"/>
+                        <constraint firstItem="bOe-Gu-6n6" firstAttribute="top" secondItem="uQA-XJ-cIe" secondAttribute="bottom" constant="13.5" id="Edn-r9-1fZ"/>
+                        <constraint firstAttribute="height" constant="100" id="H5S-uM-BWW"/>
+                        <constraint firstAttribute="trailing" secondItem="bOe-Gu-6n6" secondAttribute="trailing" constant="15" id="Hvh-GF-iGf"/>
+                        <constraint firstAttribute="trailing" secondItem="uQA-XJ-cIe" secondAttribute="trailing" constant="15" id="Mrw-TU-g8A"/>
+                        <constraint firstItem="CTT-j0-7BL" firstAttribute="top" secondItem="d6b-4T-Fof" secondAttribute="top" constant="9" id="T5z-pI-OCp"/>
+                        <constraint firstItem="Pij-30-Pi2" firstAttribute="centerY" secondItem="CTT-j0-7BL" secondAttribute="centerY" id="T7A-2v-ITm"/>
+                        <constraint firstItem="S7c-0z-wG3" firstAttribute="centerY" secondItem="bOe-Gu-6n6" secondAttribute="centerY" id="Ts1-Lw-dHC"/>
+                        <constraint firstItem="S7c-0z-wG3" firstAttribute="leading" secondItem="d6b-4T-Fof" secondAttribute="leading" constant="15" id="Zvb-lp-u3f"/>
+                        <constraint firstItem="Pij-30-Pi2" firstAttribute="leading" secondItem="d6b-4T-Fof" secondAttribute="leading" constant="15" id="cjt-CM-KgB"/>
+                        <constraint firstAttribute="trailing" secondItem="CTT-j0-7BL" secondAttribute="trailing" constant="15" id="mrr-yC-ptu"/>
+                        <constraint firstItem="uQA-XJ-cIe" firstAttribute="leading" secondItem="d6b-4T-Fof" secondAttribute="leading" constant="15" id="oTd-sp-YWv"/>
+                        <constraint firstItem="bOe-Gu-6n6" firstAttribute="leading" secondItem="S7c-0z-wG3" secondAttribute="trailing" constant="10" id="u0w-2F-Wdr"/>
+                    </constraints>
+                </view>
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-fS-kuc" userLabel="LoginButton" customClass="SGButton" customModule="GitBucket" customModuleProvider="target">
+                    <rect key="frame" x="15" y="369.5" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="lL2-TL-4y9"/>
+                    </constraints>
+                    <state key="normal" title="Log In">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="loginToGithub:" destination="-1" eventType="touchUpInside" id="oHD-0T-E7T"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-eZ-bQS" userLabel="OAuthLoginButton">
+                    <rect key="frame" x="93" y="622" width="189" height="30"/>
+                    <state key="normal" title="OAuth2 Authorization Login">
+                        <color key="titleColor" red="0.3529411764705882" green="0.41960784313725491" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginThroughOAuth:" destination="-1" eventType="touchUpInside" id="LlW-rW-QbK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="d6b-4T-Fof" firstAttribute="leading" secondItem="rnh-5V-Kdp" secondAttribute="leading" id="0MQ-UZ-RYT"/>
+                <constraint firstItem="d6b-4T-Fof" firstAttribute="centerY" secondItem="rnh-5V-Kdp" secondAttribute="centerY" constant="-46" id="3kK-YC-sTw"/>
+                <constraint firstItem="rnh-5V-Kdp" firstAttribute="bottom" secondItem="dV9-eZ-bQS" secondAttribute="bottom" constant="15" id="CKg-eJ-gB9"/>
+                <constraint firstItem="ugC-fS-kuc" firstAttribute="leading" secondItem="rnh-5V-Kdp" secondAttribute="leading" constant="15" id="H6o-Mq-1lT"/>
+                <constraint firstItem="d6b-4T-Fof" firstAttribute="top" secondItem="lLr-1T-Tlt" secondAttribute="bottom" constant="40" id="L8p-DJ-3jj"/>
+                <constraint firstItem="dV9-eZ-bQS" firstAttribute="centerX" secondItem="rnh-5V-Kdp" secondAttribute="centerX" id="ThM-XJ-Pck"/>
+                <constraint firstItem="ugC-fS-kuc" firstAttribute="top" secondItem="d6b-4T-Fof" secondAttribute="bottom" constant="22" id="Vvu-40-dgC"/>
+                <constraint firstItem="rnh-5V-Kdp" firstAttribute="trailing" secondItem="ugC-fS-kuc" secondAttribute="trailing" constant="15" id="c1M-kk-Znm"/>
+                <constraint firstItem="lLr-1T-Tlt" firstAttribute="centerX" secondItem="d6b-4T-Fof" secondAttribute="centerX" id="p6Y-ef-eoK"/>
+                <constraint firstItem="rnh-5V-Kdp" firstAttribute="trailing" secondItem="d6b-4T-Fof" secondAttribute="trailing" id="tlA-Tb-h7u"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="rnh-5V-Kdp"/>
         </view>
     </objects>
 </document>

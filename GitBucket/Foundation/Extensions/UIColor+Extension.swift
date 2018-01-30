@@ -19,4 +19,18 @@ public extension UIColor {
         let b = hex & 0x0000ff
         return UIColor(red: 1.0 * CGFloat(r) / 255.0, green: 1.0 * CGFloat(g) / 255.0, blue: 1.0 * CGFloat(b) / 255.0, alpha: alpha)
     }
+    
+    func toImage(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage? {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContext(rect.size)
+        
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(self.cgColor)
+        context?.fill(rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
 }

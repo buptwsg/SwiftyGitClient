@@ -6,7 +6,7 @@
 //  Copyright © 2018年 CleanAirGames. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class AppData: NSSecureCoding {
     static var supportsSecureCoding: Bool {
