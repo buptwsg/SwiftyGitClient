@@ -24,6 +24,7 @@
 		C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4620201353001F2E01 /* SGAppColors.swift */; };
 		C646DE4E20202294001F2E01 /* SGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4D20202294001F2E01 /* SGButton.swift */; };
 		C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4F2020253E001F2E01 /* UIImage+Extensions.swift */; };
+		C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */; };
 		C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C695129E2012052A00D1DAB9 /* Main.storyboard */; };
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
@@ -52,6 +53,7 @@
 		C646DE4620201353001F2E01 /* SGAppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGAppColors.swift; sourceTree = "<group>"; };
 		C646DE4D20202294001F2E01 /* SGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGButton.swift; sourceTree = "<group>"; };
 		C646DE4F2020253E001F2E01 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGithubOAuth.swift; sourceTree = "<group>"; };
 		C69512972012052A00D1DAB9 /* GitBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C695129F2012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C69512A12012052A00D1DAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				C646DE3F202003DB001F2E01 /* SGGithubAPI.swift */,
+				C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
 				C646DE4E20202294001F2E01 /* SGButton.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
