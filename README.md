@@ -22,3 +22,11 @@ Non-Web application flow
 用户输入用户名和密码，利用Basic Authentication来得到OAuth的token。  
 
 参考应用中用了一个开源的项目实现的API，本项目决定自己实现API。  
+
+已知的一些iOS客户端：  
+CodeHub  
+Monkey for GitHub  
+PPHub  
+NapCat: 被人推荐，功能比较强大   
+
+目标：参照以上APP，做一个自己的客户端产品，但是要超越已有产品。  
