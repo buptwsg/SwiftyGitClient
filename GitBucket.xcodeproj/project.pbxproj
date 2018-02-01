@@ -19,12 +19,13 @@
 		C646DE38201F3B98001F2E01 /* SGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C646DE36201F3B98001F2E01 /* SGWebViewController.xib */; };
 		C646DE3A201F3BE2001F2E01 /* SGOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE39201F3BE2001F2E01 /* SGOAuthViewController.swift */; };
 		C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE3C201F3D6C001F2E01 /* AppData.swift */; };
-		C646DE40202003DB001F2E01 /* SGGithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE3F202003DB001F2E01 /* SGGithubAPI.swift */; };
 		C646DE4220200AA0001F2E01 /* SGBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4120200AA0001F2E01 /* SGBaseViewController.swift */; };
 		C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4620201353001F2E01 /* SGAppColors.swift */; };
 		C646DE4E20202294001F2E01 /* SGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4D20202294001F2E01 /* SGButton.swift */; };
 		C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4F2020253E001F2E01 /* UIImage+Extensions.swift */; };
 		C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */; };
+		C646DED42022DFA4001F2E01 /* SGGithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DED32022DFA4001F2E01 /* SGGithubClient.swift */; };
+		C646DED82023085F001F2E01 /* OAuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DED72023085F001F2E01 /* OAuthRouter.swift */; };
 		C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C695129E2012052A00D1DAB9 /* Main.storyboard */; };
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
@@ -48,12 +49,13 @@
 		C646DE36201F3B98001F2E01 /* SGWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGWebViewController.xib; sourceTree = "<group>"; };
 		C646DE39201F3BE2001F2E01 /* SGOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOAuthViewController.swift; sourceTree = "<group>"; };
 		C646DE3C201F3D6C001F2E01 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
-		C646DE3F202003DB001F2E01 /* SGGithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGithubAPI.swift; sourceTree = "<group>"; };
 		C646DE4120200AA0001F2E01 /* SGBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBaseViewController.swift; sourceTree = "<group>"; };
 		C646DE4620201353001F2E01 /* SGAppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGAppColors.swift; sourceTree = "<group>"; };
 		C646DE4D20202294001F2E01 /* SGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGButton.swift; sourceTree = "<group>"; };
 		C646DE4F2020253E001F2E01 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGithubOAuth.swift; sourceTree = "<group>"; };
+		C646DED32022DFA4001F2E01 /* SGGithubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGithubClient.swift; sourceTree = "<group>"; };
+		C646DED72023085F001F2E01 /* OAuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRouter.swift; sourceTree = "<group>"; };
 		C69512972012052A00D1DAB9 /* GitBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C695129F2012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C69512A12012052A00D1DAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,8 +140,9 @@
 		C646DE3E2020035F001F2E01 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				C646DE3F202003DB001F2E01 /* SGGithubAPI.swift */,
+				C646DED52022FD71001F2E01 /* Routers */,
 				C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */,
+				C646DED32022DFA4001F2E01 /* SGGithubClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -152,12 +155,28 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		C646DE4C2020227E001F2E01 /* UIControls */ = {
+		C646DE4C2020227E001F2E01 /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
 				C646DE4D20202294001F2E01 /* SGButton.swift */,
 			);
-			path = UIControls;
+			path = AppUI;
+			sourceTree = "<group>";
+		};
+		C646DED52022FD71001F2E01 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				C646DED620230840001F2E01 /* OAuth */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		C646DED620230840001F2E01 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				C646DED72023085F001F2E01 /* OAuthRouter.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		C695128E2012052A00D1DAB9 = {
@@ -223,7 +242,7 @@
 		C6B9A15420174AB700AD009D /* SGFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				C646DE4C2020227E001F2E01 /* UIControls */,
+				C646DE4C2020227E001F2E01 /* AppUI */,
 				C646DE4520201353001F2E01 /* Constants */,
 				C646DE3E2020035F001F2E01 /* API */,
 				C646DE3B201F3D4F001F2E01 /* AppData */,
@@ -392,9 +411,9 @@
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
 				C6B9A15D2017530C00AD009D /* WXNavigationController.swift in Sources */,
+				C646DED82023085F001F2E01 /* OAuthRouter.swift in Sources */,
 				C646DE1F201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift in Sources */,
 				C646DE3A201F3BE2001F2E01 /* SGOAuthViewController.swift in Sources */,
-				C646DE40202003DB001F2E01 /* SGGithubAPI.swift in Sources */,
 				C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */,
 				C646DE4220200AA0001F2E01 /* SGBaseViewController.swift in Sources */,
 				C646DE37201F3B98001F2E01 /* SGWebViewController.swift in Sources */,
@@ -405,6 +424,7 @@
 				C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,
 				C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */,
+				C646DED42022DFA4001F2E01 /* SGGithubClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,6 +35,7 @@ Non-Web application flow
   对于不会变化的头部，建议通过URLSessionConfiguration来设置，不要在每次请求的时候临时去设置。  
   但是，Authorization和Content-Type这两个头部例外。
 
+调试的时候，可以打印构造出来的HTTP请求。  
 
 
 
