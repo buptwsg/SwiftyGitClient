@@ -43,9 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: private methods
     private func setupInitialViewController() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let loginVC = SGLoginViewController()
-        let navVC = WXNavigationController(rootViewController: loginVC)
-        self.window?.rootViewController = navVC
+        if SGGithubOAuth.default.tokenExists {
+            self.window?.rootViewController = SGRootTabBarViewController.instance
+        }
+        else {
+            let loginVC = SGLoginViewController()
+            let navVC = WXNavigationController(rootViewController: loginVC)
+            self.window?.rootViewController = navVC
+        }
+
         self.window?.makeKeyAndVisible()
     }
 }

@@ -16,17 +16,32 @@ import Alamofire
  3. 实现OAuth认证的两个流程
  4. 刷新token，
  */
-class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
+class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
     static let `default`: SGGithubOAuth = {
-        return SGGithubOAuth()
+        let path = archivePath
+        if FileManager.default.fileExists(atPath: path) {
+            if let instance = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? SGGithubOAuth {
+                return instance
+            }
+            else {
+                return SGGithubOAuth()
+            }
+        }
+        else {
+            return SGGithubOAuth()
+        }
     }()
+    
+    var tokenExists: Bool {
+        return !accessToken.isEmpty
+    }
     
     private let sessionManager: SessionManager = SGGithubClient.sessionManager
     private var accessToken = ""
     private var refreshToken = ""
     private let clientID = "85381c27c9a597de5b1d"
     private let clientSecret = "d23a3c20af26060c1548263197180fe5f3e89106"
-    private let baseURLString: String = SGGithubClient.baseURL
+    private let baseURLString: String = SGGithubClient.baseURL//TODO: check if it is needed
     
     private let lock = NSLock()
     private var isRefreshing = false
@@ -35,7 +50,8 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
     private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?, _ refreshToken: String?) -> Void
     
     //MARK: Constructor
-    init() {
+    override init() {
+        super.init()
         commonInit()
     }
     
@@ -57,6 +73,7 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
             case .success:
                 if let json = response.result.value as? [String : Any], let token = json["token"], token is String {
                     self.accessToken = token as! String
+                    self.archiveAccessToken()
                     completion(true)
                 }
                 else {
@@ -95,6 +112,7 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
             case .success:
                 if let json = response.result.value as? [String: Any], let token = json["access_token"], token is String {
                     self.accessToken = token as! String
+                    self.archiveAccessToken()
                     completion(true, nil)
                 }
                 else {
@@ -108,17 +126,15 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
         }
     }
     //
-    //MARK: NSSecureCoding
-    
-    static var supportsSecureCoding: Bool {
-        return true
-    }
-    
+    //MARK: NSCoding
     required init?(coder aDecoder: NSCoder) {
-        
+        if let token = aDecoder.decodeObject(forKey: "accessToken") as? String {
+            self.accessToken = token
+        }
     }
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.accessToken, forKey: "accessToken")
     }
     
     //MARK: RequestAdapter
@@ -194,6 +210,21 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
                 }
                 
                 strongSelf.isRefreshing = false
+        }
+    }
+    
+    private static let archivePath: String = {
+        let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        return docURL.appendingPathComponent("oauth.archive").path
+    }()
+    
+    func archiveAccessToken() {
+        let path = type(of:self).archivePath
+        if NSKeyedArchiver.archiveRootObject(self, toFile: path) {
+            print("archive success")
+        }
+        else {
+            print("archive failed to path: \(path)")
         }
     }
 }
