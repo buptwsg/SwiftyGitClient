@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8451D453149A0B38E3CE81B9 /* Pods_GitBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */; };
 		B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */; };
+		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */; };
 		C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */; };
 		C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */; };
@@ -16,7 +17,6 @@
 		C646DE27201F3A56001F2E01 /* SGLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE25201F3A56001F2E01 /* SGLoginViewController.swift */; };
 		C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C646DE26201F3A56001F2E01 /* SGLoginViewController.xib */; };
 		C646DE37201F3B98001F2E01 /* SGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE35201F3B98001F2E01 /* SGWebViewController.swift */; };
-		C646DE38201F3B98001F2E01 /* SGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C646DE36201F3B98001F2E01 /* SGWebViewController.xib */; };
 		C646DE3A201F3BE2001F2E01 /* SGOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE39201F3BE2001F2E01 /* SGOAuthViewController.swift */; };
 		C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE3C201F3D6C001F2E01 /* AppData.swift */; };
 		C646DE4220200AA0001F2E01 /* SGBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4120200AA0001F2E01 /* SGBaseViewController.swift */; };
@@ -39,6 +39,7 @@
 		7CC118CFC5690ABC5F31A33D /* Pods-GitBucket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBucket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBucket/Pods-GitBucket.release.xcconfig"; sourceTree = "<group>"; };
 		87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRootTabBarViewController.swift; sourceTree = "<group>"; };
 		C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+WXBorderUIColor.swift"; sourceTree = "<group>"; };
 		C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+WXHelper.swift"; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		C646DE25201F3A56001F2E01 /* SGLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGLoginViewController.swift; sourceTree = "<group>"; };
 		C646DE26201F3A56001F2E01 /* SGLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGLoginViewController.xib; sourceTree = "<group>"; };
 		C646DE35201F3B98001F2E01 /* SGWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGWebViewController.swift; sourceTree = "<group>"; };
-		C646DE36201F3B98001F2E01 /* SGWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGWebViewController.xib; sourceTree = "<group>"; };
 		C646DE39201F3BE2001F2E01 /* SGOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOAuthViewController.swift; sourceTree = "<group>"; };
 		C646DE3C201F3D6C001F2E01 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		C646DE4120200AA0001F2E01 /* SGBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBaseViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 				C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */,
 				C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */,
 				C646DE1E201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift */,
+				B26E84402025938E00B73B66 /* NSURL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				C646DE35201F3B98001F2E01 /* SGWebViewController.swift */,
-				C646DE36201F3B98001F2E01 /* SGWebViewController.xib */,
 				C646DE4120200AA0001F2E01 /* SGBaseViewController.swift */,
 			);
 			path = ViewControllers;
@@ -322,7 +322,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C646DE38201F3B98001F2E01 /* SGWebViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
 				C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */,
 				C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */,
@@ -407,6 +406,7 @@
 			files = (
 				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
 				C646DE4E20202294001F2E01 /* SGButton.swift in Sources */,
+				B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,

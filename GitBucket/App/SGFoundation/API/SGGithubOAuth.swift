@@ -67,6 +67,15 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
         }
     }
     
+    var oauthWebFlowUrlRequest: URLRequest? {
+        do {
+            return try OAuthRouter.oauth(clientID: self.clientID).asURLRequest()
+        }
+        catch {
+            return nil
+        }
+    }
+    
     //MARK: NSSecureCoding
     
     static var supportsSecureCoding: Bool {

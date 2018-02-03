@@ -17,6 +17,10 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     
     //MARK: Life Cycle && Overrides
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +32,8 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
         self.passwordTextField.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)
         
         updateLoginButton()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetOauthCode(_:)), name: NSNotification.Name.SGOAuthDidGetTempCode, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +46,10 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     //MARK: IBActions
     @IBAction func loginToGithub(_ sender: SGButton) {
         SGGithubOAuth.default.createAssessTokenByBasicAuthorization(user: self.nameTextField.text!, password: self.passwordTextField.text!) { success in
@@ -48,11 +58,21 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginThroughOAuth(_ sender: UIButton) {
+        let oauthVC = SGOAuthViewController()
+        oauthVC.urlRequest = SGGithubOAuth.default.oauthWebFlowUrlRequest
+        navigationController?.pushViewController(oauthVC, animated: true)
     }
     
     @objc
     func textDidChanged(_ textField: UITextField) {
         updateLoginButton()
+    }
+    
+    @objc
+    func didGetOauthCode(_ notification: Notification) {
+        if let userInfo = notification.userInfo, let code = userInfo["code"] as? String {
+            print("code is : \(code)")
+        }
     }
     
     //MARK: Private
