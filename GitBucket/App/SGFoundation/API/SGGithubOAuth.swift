@@ -45,6 +45,9 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
     }
     
     //MARK: Public functions
+    /**
+     利用Basic Authorization来得到OAuth2的token
+    */
     func createAssessTokenByBasicAuthorization(user: String, password: String, completion: @escaping (_ success: Bool) -> Void) {
         let request = sessionManager.request(OAuthRouter.basic(user: user, password: password, clientID: clientID, clientSecret: clientSecret))
         debugPrint(request)
@@ -52,7 +55,7 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
             print(response)
             switch response.result {
             case .success:
-                if let response = response.result.value as? [String : Any], let token = response["token"], token is String {
+                if let json = response.result.value as? [String : Any], let token = json["token"], token is String {
                     self.accessToken = token as! String
                     completion(true)
                 }
@@ -67,6 +70,9 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
         }
     }
     
+    /**
+     基于Web的OAuth认证，创建相应的URLRequest
+    */
     var oauthWebFlowUrlRequest: URLRequest? {
         do {
             return try OAuthRouter.oauth(clientID: self.clientID).asURLRequest()
@@ -76,6 +82,32 @@ class SGGithubOAuth: NSSecureCoding, RequestAdapter, RequestRetrier {
         }
     }
     
+    /**
+     利用临时的token，去交换OAuth2的token
+    */
+    func exchangeAccessToken(code: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        let request = sessionManager.request(OAuthRouter.token(clientID: clientID, clientSecret: clientSecret, code: code))
+        debugPrint(request)
+        
+        request.validate().responseJSON { response in
+            print(response)
+            switch response.result {
+            case .success:
+                if let json = response.result.value as? [String: Any], let token = json["access_token"], token is String {
+                    self.accessToken = token as! String
+                    completion(true, nil)
+                }
+                else {
+                    completion(false, nil)
+                }
+                
+            case .failure(let error):
+                print("exchange access token failed: \(error)")
+                completion(false, error)
+            }
+        }
+    }
+    //
     //MARK: NSSecureCoding
     
     static var supportsSecureCoding: Bool {

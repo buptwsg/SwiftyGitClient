@@ -12,20 +12,21 @@ import Alamofire
 enum OAuthRouter: URLRequestConvertible {
     case basic(user: String, password: String, clientID: String, clientSecret: String)
     case oauth(clientID: String)
+    case token(clientID: String, clientSecret: String, code: String)
     
     var baseURL: String {
         switch self {
         case .basic:
             return SGGithubClient.baseURL
             
-        case .oauth:
+        case .oauth, .token:
             return "https://github.com"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .basic:
+        case .basic, .token:
             return .post
             
         case .oauth:
@@ -40,6 +41,9 @@ enum OAuthRouter: URLRequestConvertible {
             
         case .oauth:
             return "/login/oauth/authorize"
+            
+        case .token:
+            return "/login/oauth/access_token"
         }
     }
     
@@ -69,6 +73,15 @@ enum OAuthRouter: URLRequestConvertible {
                 "client_id": clientID
             ]
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .token(let clientID, let clientSecret, let code):
+            let params: Parameters = [
+                "client_id": clientID,
+                "client_secret": clientSecret,
+                "code": code
+            ]
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
         }
         
         return urlRequest

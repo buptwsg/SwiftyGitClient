@@ -10,6 +10,10 @@ import UIKit
 import OcticonsKit
 
 class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButtonTabBarDelegate {
+    static var instance: SGRootTabBarViewController  {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        return sb.instantiateInitialViewController() as! SGRootTabBarViewController
+    }
     
     required init?(coder aDecoder: NSCoder) {
         WXMiddleButtonTabBar.normalTextColor = UIColor.gray

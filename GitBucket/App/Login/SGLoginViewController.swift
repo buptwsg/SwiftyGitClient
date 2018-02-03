@@ -72,6 +72,15 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     func didGetOauthCode(_ notification: Notification) {
         if let userInfo = notification.userInfo, let code = userInfo["code"] as? String {
             print("code is : \(code)")
+            SGGithubOAuth.default.exchangeAccessToken(code: code) { success, error in
+                if success {
+                    let rootVC = SGRootTabBarViewController.instance
+                    self.view.window?.rootViewController = rootVC
+                }
+                else {
+                    self.view.makeToast("交换Token失败！")
+                }
+            }
         }
     }
     
