@@ -53,7 +53,7 @@ class WXMiddleButtonTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let myTabBar = WXMiddleButtonTabBar(frame: .zero)
-        self.setValue(myTabBar, forKey: "tabBar")
+        setValue(myTabBar, forKey: "tabBar")
     }
 
     override func didReceiveMemoryWarning() {

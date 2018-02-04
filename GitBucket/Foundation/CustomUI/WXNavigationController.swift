@@ -21,7 +21,9 @@ class WXNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let myNavigationBar = WXNavigationBar(frame: .zero)
+        setValue(myNavigationBar, forKey: "navigationBar")
     }
 
     override func didReceiveMemoryWarning() {

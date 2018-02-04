@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8451D453149A0B38E3CE81B9 /* Pods_GitBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */; };
 		B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */; };
+		B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225C70B2026F46400F492CA /* WXNavigationBar.swift */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
 		C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */; };
@@ -40,6 +41,7 @@
 		7CC118CFC5690ABC5F31A33D /* Pods-GitBucket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBucket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBucket/Pods-GitBucket.release.xcconfig"; sourceTree = "<group>"; };
 		87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B225C70B2026F46400F492CA /* WXNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXNavigationBar.swift; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
 		C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRootTabBarViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */,
 				C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */,
 				C6B9A15C2017530C00AD009D /* WXNavigationController.swift */,
+				B225C70B2026F46400F492CA /* WXNavigationBar.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
 				C646DE4E20202294001F2E01 /* SGButton.swift in Sources */,
 				B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */,
+				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
