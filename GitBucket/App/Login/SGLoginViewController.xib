@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SGLoginViewController" customModule="GitBucket" customModuleProvider="target">
             <connections>
+                <outlet property="githubIcon" destination="lLr-1T-Tlt" id="8rY-KK-GCl"/>
                 <outlet property="loginButton" destination="ugC-fS-kuc" id="Hc0-aC-Wis"/>
                 <outlet property="nameIcon" destination="Pij-30-Pi2" id="61S-Yl-LtK"/>
                 <outlet property="nameTextField" destination="CTT-j0-7BL" id="ztX-kG-oRr"/>

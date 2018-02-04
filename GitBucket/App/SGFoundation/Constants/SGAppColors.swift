@@ -72,6 +72,6 @@ enum SGAppColors: Int {
     case colorI7 = 0xD9D9D9
     
     var color: UIColor {
-        return UIColor.colorFromHex(hex: self.rawValue)
+        return UIColor(hex: self.rawValue)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImage {
     public class func image(from colorHex: Int) -> UIImage {
-        let color = UIColor.colorFromHex(hex: colorHex)
+        let color = UIColor(hex: colorHex)
         return color.toImage()!
     }
 }

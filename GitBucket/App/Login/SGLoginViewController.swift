@@ -15,6 +15,7 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordIcon: UIImageView!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var githubIcon: UIImageView!
     
     //MARK: Life Cycle && Overrides
     deinit {
@@ -27,6 +28,7 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
         let size = CGSize(width: 22, height: 22)
         self.nameIcon.image = UIImage.octicon(with: .person, textColor: UIColor.darkGray, size: size)
         self.passwordIcon.image = UIImage.octicon(with: .lock, textColor: UIColor.darkGray, size: size)
+        self.githubIcon.image = UIImage(named: "Icon-60")
         
         self.nameTextField.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)
         self.passwordTextField.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)

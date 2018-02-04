@@ -30,7 +30,7 @@ class SGButton: UIButton {
             return UIColor.white
             
         case UIControlState.disabled:
-            return UIColor.colorFromHex(hex: 0xCFCFCF)
+            return UIColor(hex: 0xCFCFCF)
             
         default:
             return UIColor.white

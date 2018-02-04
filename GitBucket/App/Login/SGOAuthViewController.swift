@@ -17,8 +17,7 @@ class SGOAuthViewController: SGWebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.title = "GitHub OAuth 认证"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +42,7 @@ class SGOAuthViewController: SGWebViewController {
                 }
             }
             else {
-                assert(false, "oauth code should be there!")
+                assert(false, "oauth code should not be here!")
                 decisionHandler(.allow)
             }
         }
