@@ -8,6 +8,7 @@
 
 import UIKit
 import OcticonsKit
+import MBProgressHUD
 
 class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: SGButton!
@@ -74,7 +75,12 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     func didGetOauthCode(_ notification: Notification) {
         if let userInfo = notification.userInfo, let code = userInfo["code"] as? String {
             print("code is : \(code)")
+            
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud.label.text = "正在完成认证，请稍候"
             SGGithubOAuth.default.exchangeAccessToken(code: code) { success, error in
+                MBProgressHUD.hide(for: self.view, animated: true)
+                
                 if success {
                     let rootVC = SGRootTabBarViewController.instance
                     self.view.window?.rootViewController = rootVC

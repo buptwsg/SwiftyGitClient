@@ -14,4 +14,5 @@ target 'GitBucket' do
   pod 'ObjectMapper', '~> 3.1'
   pod 'Toast-Swift', '~> 3.0.1'
   pod 'OcticonsKit'
+  pod 'MBProgressHUD', '~> 1.1.0'
 end
