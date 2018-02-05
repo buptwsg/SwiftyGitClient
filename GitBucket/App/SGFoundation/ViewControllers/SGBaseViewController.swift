@@ -29,11 +29,11 @@ class SGBaseViewController: UIViewController {
     private func setupBackButton() {
         //如果对应的NavigationController，栈中控制器的数量大于1，那么设置返回按钮
         if let count = self.navigationController?.viewControllers.count, count > 1 {
-            let normalImage = UIImage.octicon(with: .arrowSmallLeft, textColor: UIColor.darkGray, size: CGSize(width: 40, height: 40))
+            let normalImage = UIImage(named: "titlebar_back_normal")!
             let backButton = createCustomBarButton(normalImage: normalImage, selector: #selector(tapBackButton(_:)))
             
             let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-            fixedSpace.width = -WXNavigationBar.borderMarginForBarItem
+            fixedSpace.width = -18
             navigationItem.leftBarButtonItems = [fixedSpace, backButton]
         }
     }
@@ -41,7 +41,7 @@ class SGBaseViewController: UIViewController {
 
 extension UIViewController {
     func showDeinitToast() {
-        guard let keyWindow = self.view.window else {
+        guard let keyWindow = UIApplication.shared.keyWindow else {
             return
         }
         
@@ -65,5 +65,14 @@ extension UIViewController {
         button.addTarget(self, action: selector, for: .touchUpInside)
         
         return UIBarButtonItem(customView: button)
+    }
+    
+    func handleRequestError(_ error: Error?) {
+        if let nserror = error, (nserror as NSError).code == -1009 {
+            self.view.makeToast("您的网络不给力，请检查网络连接")
+        }
+        else {
+            self.view.makeToast("网络错误，请稍后再试")
+        }
     }
 }

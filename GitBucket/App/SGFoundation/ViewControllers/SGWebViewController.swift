@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import MBProgressHUD
 
 class SGWebViewController: SGBaseViewController, WKNavigationDelegate {
     var urlRequest: URLRequest?
@@ -41,15 +42,16 @@ class SGWebViewController: SGBaseViewController, WKNavigationDelegate {
     
     //MARK:WKNavigationDelegate
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("start to load")
+        MBProgressHUD.showAdded(to: webView, animated: true)
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        print("load failed")
+        MBProgressHUD.hide(for: webView, animated: true)
+        self.view.makeToast("网页加载失败，请稍后再试")
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("load finished")
+        MBProgressHUD.hide(for: webView, animated: true)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

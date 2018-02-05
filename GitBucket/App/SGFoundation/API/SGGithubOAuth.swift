@@ -64,7 +64,7 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
     /**
      利用Basic Authorization来得到OAuth2的token
     */
-    func createAssessTokenByBasicAuthorization(user: String, password: String, completion: @escaping (_ success: Bool) -> Void) {
+    func createAssessTokenByBasicAuthorization(user: String, password: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         let request = sessionManager.request(OAuthRouter.basic(user: user, password: password, clientID: clientID, clientSecret: clientSecret))
         debugPrint(request)
         request.validate().responseJSON{ response in
@@ -74,15 +74,15 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
                 if let json = response.result.value as? [String : Any], let token = json["token"], token is String {
                     self.accessToken = token as! String
                     self.archiveAccessToken()
-                    completion(true)
+                    completion(true, nil)
                 }
                 else {
-                    completion(false)
+                    completion(false, nil)
                 }
                 
             case .failure(let error):
                 print("create access token failed: \(error)")
-                completion(false)
+                completion(false, error)
             }
         }
     }

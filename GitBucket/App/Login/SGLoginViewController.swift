@@ -9,6 +9,7 @@
 import UIKit
 import OcticonsKit
 import MBProgressHUD
+import Alamofire
 
 class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: SGButton!
@@ -32,7 +33,9 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
         self.githubIcon.image = UIImage(named: "Icon-60")
         
         self.nameTextField.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)
+        self.nameTextField.delegate = self
         self.passwordTextField.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)
+        self.passwordTextField.delegate = self
         
         updateLoginButton()
         
@@ -55,8 +58,22 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     
     //MARK: IBActions
     @IBAction func loginToGithub(_ sender: SGButton) {
-        SGGithubOAuth.default.createAssessTokenByBasicAuthorization(user: self.nameTextField.text!, password: self.passwordTextField.text!) { success in
-            print("auth result is \(success)")
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "正在完成认证，请稍候"
+        
+        SGGithubOAuth.default.createAssessTokenByBasicAuthorization(user: self.nameTextField.text!, password: self.passwordTextField.text!) { success, error in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            
+            if success {
+                let rootVC = SGRootTabBarViewController.instance
+                self.view.window?.rootViewController = rootVC
+            }
+            else if let aferror = error as? AFError, aferror.responseCode == 401 {
+                self.view.makeToast("请输入正确的用户名和密码")
+            }
+            else {
+                self.handleRequestError(error)
+            }
         }
     }
     
@@ -90,6 +107,17 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    //MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.nameTextField {
+            self.passwordTextField.becomeFirstResponder()
+        }
+        else if textField == self.passwordTextField {
+            loginToGithub(self.loginButton)
+        }
+        return true
     }
     
     //MARK: Private
