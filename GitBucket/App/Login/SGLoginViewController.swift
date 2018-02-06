@@ -71,6 +71,9 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
             else if let aferror = error as? AFError, aferror.responseCode == 401 {
                 self.view.makeToast("请输入正确的用户名和密码")
             }
+            else if let aferror = error as? AFError, aferror.responseCode == 403 {
+                self.view.makeToast("用户名或密码错误次数太多，请稍后再试")
+            }
             else {
                 self.handleRequestError(error)
             }

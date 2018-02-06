@@ -15,4 +15,5 @@ target 'GitBucket' do
   pod 'Toast-Swift', '~> 3.0.1'
   pod 'OcticonsKit'
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'MJRefresh'
 end

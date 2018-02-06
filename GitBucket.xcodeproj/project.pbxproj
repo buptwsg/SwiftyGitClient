@@ -12,6 +12,15 @@
 		B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225C70B2026F46400F492CA /* WXNavigationBar.swift */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
+		C60748922029852600625849 /* OAuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748912029852600625849 /* OAuthRouter.swift */; };
+		C60748942029868E00625849 /* EventsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748932029868E00625849 /* EventsRouter.swift */; };
+		C60748A02029924100625849 /* SGNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607489E2029924100625849 /* SGNewsViewController.swift */; };
+		C60748A12029924100625849 /* SGNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C607489F2029924100625849 /* SGNewsViewController.xib */; };
+		C60748A32029936700625849 /* SGNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748A22029936700625849 /* SGNewsItem.swift */; };
+		C60748A52029938500625849 /* SGNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748A42029938500625849 /* SGNewsResponse.swift */; };
+		C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748A6202993FF00625849 /* SGNewsCell.swift */; };
+		C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60748A7202993FF00625849 /* SGNewsCell.xib */; };
+		C60748AB2029949100625849 /* SGNewsInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748AA2029949100625849 /* SGNewsInterface.swift */; };
 		C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */; };
 		C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */; };
 		C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */; };
@@ -27,7 +36,6 @@
 		C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE4F2020253E001F2E01 /* UIImage+Extensions.swift */; };
 		C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */; };
 		C646DED42022DFA4001F2E01 /* SGGithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DED32022DFA4001F2E01 /* SGGithubClient.swift */; };
-		C646DED82023085F001F2E01 /* OAuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DED72023085F001F2E01 /* OAuthRouter.swift */; };
 		C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C695129E2012052A00D1DAB9 /* Main.storyboard */; };
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
@@ -44,6 +52,15 @@
 		B225C70B2026F46400F492CA /* WXNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXNavigationBar.swift; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
+		C60748912029852600625849 /* OAuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthRouter.swift; sourceTree = "<group>"; };
+		C60748932029868E00625849 /* EventsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRouter.swift; sourceTree = "<group>"; };
+		C607489E2029924100625849 /* SGNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsViewController.swift; sourceTree = "<group>"; };
+		C607489F2029924100625849 /* SGNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGNewsViewController.xib; sourceTree = "<group>"; };
+		C60748A22029936700625849 /* SGNewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsItem.swift; sourceTree = "<group>"; };
+		C60748A42029938500625849 /* SGNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsResponse.swift; sourceTree = "<group>"; };
+		C60748A6202993FF00625849 /* SGNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsCell.swift; sourceTree = "<group>"; };
+		C60748A7202993FF00625849 /* SGNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGNewsCell.xib; sourceTree = "<group>"; };
+		C60748AA2029949100625849 /* SGNewsInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsInterface.swift; sourceTree = "<group>"; };
 		C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRootTabBarViewController.swift; sourceTree = "<group>"; };
 		C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+WXBorderUIColor.swift"; sourceTree = "<group>"; };
 		C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+WXHelper.swift"; sourceTree = "<group>"; };
@@ -59,7 +76,6 @@
 		C646DE4F2020253E001F2E01 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGithubOAuth.swift; sourceTree = "<group>"; };
 		C646DED32022DFA4001F2E01 /* SGGithubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGithubClient.swift; sourceTree = "<group>"; };
-		C646DED72023085F001F2E01 /* OAuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthRouter.swift; sourceTree = "<group>"; };
 		C69512972012052A00D1DAB9 /* GitBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C695129F2012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C69512A12012052A00D1DAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +128,52 @@
 				B26E84402025938E00B73B66 /* NSURL+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C60748992029908000625849 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				C607489A2029922F00625849 /* Controller */,
+				C607489B2029922F00625849 /* Interface */,
+				C607489C2029922F00625849 /* Model */,
+				C607489D2029922F00625849 /* View */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		C607489A2029922F00625849 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C607489E2029924100625849 /* SGNewsViewController.swift */,
+				C607489F2029924100625849 /* SGNewsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C607489B2029922F00625849 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				C60748AA2029949100625849 /* SGNewsInterface.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		C607489C2029922F00625849 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C60748A22029936700625849 /* SGNewsItem.swift */,
+				C60748A42029938500625849 /* SGNewsResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C607489D2029922F00625849 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C60748A6202993FF00625849 /* SGNewsCell.swift */,
+				C60748A7202993FF00625849 /* SGNewsCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C646DE20201F3A01001F2E01 /* Login */ = {
@@ -171,17 +233,10 @@
 		C646DED52022FD71001F2E01 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				C646DED620230840001F2E01 /* OAuth */,
+				C60748912029852600625849 /* OAuthRouter.swift */,
+				C60748932029868E00625849 /* EventsRouter.swift */,
 			);
 			path = Routers;
-			sourceTree = "<group>";
-		};
-		C646DED620230840001F2E01 /* OAuth */ = {
-			isa = PBXGroup;
-			children = (
-				C646DED72023085F001F2E01 /* OAuthRouter.swift */,
-			);
-			path = OAuth;
 			sourceTree = "<group>";
 		};
 		C695128E2012052A00D1DAB9 = {
@@ -238,9 +293,10 @@
 		C6B9A15320174AB700AD009D /* App */ = {
 			isa = PBXGroup;
 			children = (
-				C646DE20201F3A01001F2E01 /* Login */,
-				C6B9A15420174AB700AD009D /* SGFoundation */,
 				C6B9A15520174AB700AD009D /* Root */,
+				C646DE20201F3A01001F2E01 /* Login */,
+				C60748992029908000625849 /* News */,
+				C6B9A15420174AB700AD009D /* SGFoundation */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -328,6 +384,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
+				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
 				C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */,
 				C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */,
@@ -369,6 +427,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/OcticonsKit/OcticonsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
@@ -381,6 +440,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OcticonsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
@@ -415,25 +475,31 @@
 				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
 				C646DE4E20202294001F2E01 /* SGButton.swift in Sources */,
 				B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */,
+				C60748942029868E00625849 /* EventsRouter.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
+				C60748AB2029949100625849 /* SGNewsInterface.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
 				C6B9A15D2017530C00AD009D /* WXNavigationController.swift in Sources */,
-				C646DED82023085F001F2E01 /* OAuthRouter.swift in Sources */,
 				C646DE1F201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift in Sources */,
 				C646DE3A201F3BE2001F2E01 /* SGOAuthViewController.swift in Sources */,
 				C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */,
 				C646DE4220200AA0001F2E01 /* SGBaseViewController.swift in Sources */,
 				C646DE37201F3B98001F2E01 /* SGWebViewController.swift in Sources */,
+				C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */,
 				C646DE27201F3A56001F2E01 /* SGLoginViewController.swift in Sources */,
+				C60748A32029936700625849 /* SGNewsItem.swift in Sources */,
+				C60748A52029938500625849 /* SGNewsResponse.swift in Sources */,
 				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
 				C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */,
 				C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,
+				C60748A02029924100625849 /* SGNewsViewController.swift in Sources */,
 				C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */,
 				C646DED42022DFA4001F2E01 /* SGGithubClient.swift in Sources */,
+				C60748922029852600625849 /* OAuthRouter.swift in Sources */,
 				B26E84432025DCA200B73B66 /* SGToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

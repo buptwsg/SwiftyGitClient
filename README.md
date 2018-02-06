@@ -66,3 +66,12 @@ OAuth认证流程不能正常工作，无法登录。
 ## NapCat
 居然也是OAuth流程不工作，不知道是公司网络的原因，还是APP自身的问题。 
 
+# API
+## GET /users/:username/received_events
+Watch仓库，或是关注用户以后，都会收到事件。如果当前用户是被认证的，那么能够看到私有的事件。否则只能看到公开的事件。
+
+## GET /users/:username/events
+List public events performed by a user
+
+ 
+
