@@ -16,11 +16,31 @@
 		C60748942029868E00625849 /* EventsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748932029868E00625849 /* EventsRouter.swift */; };
 		C60748A02029924100625849 /* SGNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607489E2029924100625849 /* SGNewsViewController.swift */; };
 		C60748A12029924100625849 /* SGNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C607489F2029924100625849 /* SGNewsViewController.xib */; };
-		C60748A32029936700625849 /* SGNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748A22029936700625849 /* SGNewsItem.swift */; };
-		C60748A52029938500625849 /* SGNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748A42029938500625849 /* SGNewsResponse.swift */; };
 		C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748A6202993FF00625849 /* SGNewsCell.swift */; };
 		C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60748A7202993FF00625849 /* SGNewsCell.xib */; };
-		C60748AB2029949100625849 /* SGNewsInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748AA2029949100625849 /* SGNewsInterface.swift */; };
+		C60748D3202AAD5700625849 /* SGObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748D2202AAD5700625849 /* SGObject.swift */; };
+		C60748D5202AAF8900625849 /* SGEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748D4202AAF8900625849 /* SGEvent.swift */; };
+		C60748D8202ACC5A00625849 /* SGDateStringTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748D7202ACC5A00625849 /* SGDateStringTransform.swift */; };
+		C60748DA202AD29F00625849 /* SGForkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748D9202AD29F00625849 /* SGForkEvent.swift */; };
+		C60748DC202AD76700625849 /* SGPublicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748DB202AD76700625849 /* SGPublicEvent.swift */; };
+		C60748DE202AD77400625849 /* SGWatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748DD202AD77400625849 /* SGWatchEvent.swift */; };
+		C60748E0202AD86D00625849 /* SGPushEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748DF202AD86D00625849 /* SGPushEvent.swift */; };
+		C60748EE202AE47300625849 /* SGRefEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748ED202AE47300625849 /* SGRefEvent.swift */; };
+		C60748F0202AE8D000625849 /* SGCommitComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748EF202AE8D000625849 /* SGCommitComment.swift */; };
+		C60748F2202AEAD800625849 /* SGComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748F1202AEAD800625849 /* SGComment.swift */; };
+		C60748F4202AEAE500625849 /* SGReviewComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748F3202AEAE500625849 /* SGReviewComment.swift */; };
+		C60748F6202AF00200625849 /* SGCommitCommentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748F5202AF00200625849 /* SGCommitCommentEvent.swift */; };
+		C60748F8202AF15A00625849 /* SGIssueCommentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748F7202AF15A00625849 /* SGIssueCommentEvent.swift */; };
+		C60748FA202AF16D00625849 /* SGIssueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748F9202AF16D00625849 /* SGIssueEvent.swift */; };
+		C60748FC202AF17B00625849 /* SGMemberEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748FB202AF17B00625849 /* SGMemberEvent.swift */; };
+		C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748FD202AF18B00625849 /* SGPullRequestCommentEvent.swift */; };
+		C6074900202AF19600625849 /* SGPullRequestEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748FF202AF19600625849 /* SGPullRequestEvent.swift */; };
+		C6074902202AF24500625849 /* SGIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074901202AF24500625849 /* SGIssue.swift */; };
+		C6074904202AF25800625849 /* SGIssueComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074903202AF25800625849 /* SGIssueComment.swift */; };
+		C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074905202B06BC00625849 /* SGPullRequest.swift */; };
+		C6074908202B0B0F00625849 /* SGPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074907202B0B0F00625849 /* SGPlan.swift */; };
+		C607490A202B0C9900625849 /* SGEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074909202B0C9900625849 /* SGEntity.swift */; };
+		C607490C202B115A00625849 /* SGRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607490B202B115A00625849 /* SGRepository.swift */; };
 		C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */; };
 		C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */; };
 		C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */; };
@@ -56,11 +76,31 @@
 		C60748932029868E00625849 /* EventsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRouter.swift; sourceTree = "<group>"; };
 		C607489E2029924100625849 /* SGNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsViewController.swift; sourceTree = "<group>"; };
 		C607489F2029924100625849 /* SGNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGNewsViewController.xib; sourceTree = "<group>"; };
-		C60748A22029936700625849 /* SGNewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsItem.swift; sourceTree = "<group>"; };
-		C60748A42029938500625849 /* SGNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsResponse.swift; sourceTree = "<group>"; };
 		C60748A6202993FF00625849 /* SGNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsCell.swift; sourceTree = "<group>"; };
 		C60748A7202993FF00625849 /* SGNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGNewsCell.xib; sourceTree = "<group>"; };
-		C60748AA2029949100625849 /* SGNewsInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsInterface.swift; sourceTree = "<group>"; };
+		C60748D2202AAD5700625849 /* SGObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGObject.swift; sourceTree = "<group>"; };
+		C60748D4202AAF8900625849 /* SGEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEvent.swift; sourceTree = "<group>"; };
+		C60748D7202ACC5A00625849 /* SGDateStringTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGDateStringTransform.swift; sourceTree = "<group>"; };
+		C60748D9202AD29F00625849 /* SGForkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGForkEvent.swift; sourceTree = "<group>"; };
+		C60748DB202AD76700625849 /* SGPublicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPublicEvent.swift; sourceTree = "<group>"; };
+		C60748DD202AD77400625849 /* SGWatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGWatchEvent.swift; sourceTree = "<group>"; };
+		C60748DF202AD86D00625849 /* SGPushEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPushEvent.swift; sourceTree = "<group>"; };
+		C60748ED202AE47300625849 /* SGRefEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRefEvent.swift; sourceTree = "<group>"; };
+		C60748EF202AE8D000625849 /* SGCommitComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCommitComment.swift; sourceTree = "<group>"; };
+		C60748F1202AEAD800625849 /* SGComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGComment.swift; sourceTree = "<group>"; };
+		C60748F3202AEAE500625849 /* SGReviewComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGReviewComment.swift; sourceTree = "<group>"; };
+		C60748F5202AF00200625849 /* SGCommitCommentEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCommitCommentEvent.swift; sourceTree = "<group>"; };
+		C60748F7202AF15A00625849 /* SGIssueCommentEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGIssueCommentEvent.swift; sourceTree = "<group>"; };
+		C60748F9202AF16D00625849 /* SGIssueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGIssueEvent.swift; sourceTree = "<group>"; };
+		C60748FB202AF17B00625849 /* SGMemberEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMemberEvent.swift; sourceTree = "<group>"; };
+		C60748FD202AF18B00625849 /* SGPullRequestCommentEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPullRequestCommentEvent.swift; sourceTree = "<group>"; };
+		C60748FF202AF19600625849 /* SGPullRequestEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPullRequestEvent.swift; sourceTree = "<group>"; };
+		C6074901202AF24500625849 /* SGIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGIssue.swift; sourceTree = "<group>"; };
+		C6074903202AF25800625849 /* SGIssueComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGIssueComment.swift; sourceTree = "<group>"; };
+		C6074905202B06BC00625849 /* SGPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPullRequest.swift; sourceTree = "<group>"; };
+		C6074907202B0B0F00625849 /* SGPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPlan.swift; sourceTree = "<group>"; };
+		C6074909202B0C9900625849 /* SGEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEntity.swift; sourceTree = "<group>"; };
+		C607490B202B115A00625849 /* SGRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepository.swift; sourceTree = "<group>"; };
 		C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRootTabBarViewController.swift; sourceTree = "<group>"; };
 		C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+WXBorderUIColor.swift"; sourceTree = "<group>"; };
 		C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+WXHelper.swift"; sourceTree = "<group>"; };
@@ -134,8 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				C607489A2029922F00625849 /* Controller */,
-				C607489B2029922F00625849 /* Interface */,
-				C607489C2029922F00625849 /* Model */,
 				C607489D2029922F00625849 /* View */,
 			);
 			path = Events;
@@ -150,23 +188,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		C607489B2029922F00625849 /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				C60748AA2029949100625849 /* SGNewsInterface.swift */,
-			);
-			path = Interface;
-			sourceTree = "<group>";
-		};
-		C607489C2029922F00625849 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C60748A22029936700625849 /* SGNewsItem.swift */,
-				C60748A42029938500625849 /* SGNewsResponse.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		C607489D2029922F00625849 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +195,99 @@
 				C60748A7202993FF00625849 /* SGNewsCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C60748C9202AABD400625849 /* Commits */ = {
+			isa = PBXGroup;
+			children = (
+				C60748EF202AE8D000625849 /* SGCommitComment.swift */,
+			);
+			path = Commits;
+			sourceTree = "<group>";
+		};
+		C60748CA202AABD400625849 /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				C6074901202AF24500625849 /* SGIssue.swift */,
+				C6074903202AF25800625849 /* SGIssueComment.swift */,
+			);
+			path = Issues;
+			sourceTree = "<group>";
+		};
+		C60748CB202AABD400625849 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C6074907202B0B0F00625849 /* SGPlan.swift */,
+				C6074909202B0C9900625849 /* SGEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		C60748CC202AABD400625849 /* Gists */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gists;
+			sourceTree = "<group>";
+		};
+		C60748CD202AABD400625849 /* BaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				C60748D2202AAD5700625849 /* SGObject.swift */,
+				C60748F1202AEAD800625849 /* SGComment.swift */,
+				C60748F3202AEAE500625849 /* SGReviewComment.swift */,
+			);
+			path = BaseModels;
+			sourceTree = "<group>";
+		};
+		C60748CE202AABD500625849 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+				C6074905202B06BC00625849 /* SGPullRequest.swift */,
+			);
+			path = PullRequests;
+			sourceTree = "<group>";
+		};
+		C60748CF202AABD500625849 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				C60748F5202AF00200625849 /* SGCommitCommentEvent.swift */,
+				C60748D4202AAF8900625849 /* SGEvent.swift */,
+				C60748D9202AD29F00625849 /* SGForkEvent.swift */,
+				C60748F7202AF15A00625849 /* SGIssueCommentEvent.swift */,
+				C60748F9202AF16D00625849 /* SGIssueEvent.swift */,
+				C60748FB202AF17B00625849 /* SGMemberEvent.swift */,
+				C60748DB202AD76700625849 /* SGPublicEvent.swift */,
+				C60748FD202AF18B00625849 /* SGPullRequestCommentEvent.swift */,
+				C60748FF202AF19600625849 /* SGPullRequestEvent.swift */,
+				C60748DF202AD86D00625849 /* SGPushEvent.swift */,
+				C60748ED202AE47300625849 /* SGRefEvent.swift */,
+				C60748DD202AD77400625849 /* SGWatchEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		C60748D0202AABD500625849 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C607490B202B115A00625849 /* SGRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C60748D1202AABD500625849 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		C60748D6202ACBE800625849 /* Transforms */ = {
+			isa = PBXGroup;
+			children = (
+				C60748D7202ACC5A00625849 /* SGDateStringTransform.swift */,
+			);
+			path = Transforms;
 			sourceTree = "<group>";
 		};
 		C646DE20201F3A01001F2E01 /* Login */ = {
@@ -206,7 +320,17 @@
 		C646DE3E2020035F001F2E01 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				C60748CD202AABD400625849 /* BaseModels */,
+				C60748C9202AABD400625849 /* Commits */,
+				C60748CB202AABD400625849 /* Entities */,
+				C60748CF202AABD500625849 /* Events */,
+				C60748CC202AABD400625849 /* Gists */,
+				C60748CA202AABD400625849 /* Issues */,
+				C60748D1202AABD500625849 /* Notifications */,
+				C60748CE202AABD500625849 /* PullRequests */,
+				C60748D0202AABD500625849 /* Repositories */,
 				C646DED52022FD71001F2E01 /* Routers */,
+				C60748D6202ACBE800625849 /* Transforms */,
 				C646DEB72021D602001F2E01 /* SGGithubOAuth.swift */,
 				C646DED32022DFA4001F2E01 /* SGGithubClient.swift */,
 			);
@@ -472,34 +596,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C607490A202B0C9900625849 /* SGEntity.swift in Sources */,
+				C60748DE202AD77400625849 /* SGWatchEvent.swift in Sources */,
+				C60748F6202AF00200625849 /* SGCommitCommentEvent.swift in Sources */,
 				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
+				C60748EE202AE47300625849 /* SGRefEvent.swift in Sources */,
+				C60748F0202AE8D000625849 /* SGCommitComment.swift in Sources */,
 				C646DE4E20202294001F2E01 /* SGButton.swift in Sources */,
+				C60748DA202AD29F00625849 /* SGForkEvent.swift in Sources */,
 				B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */,
+				C60748F2202AEAD800625849 /* SGComment.swift in Sources */,
 				C60748942029868E00625849 /* EventsRouter.swift in Sources */,
+				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
-				C60748AB2029949100625849 /* SGNewsInterface.swift in Sources */,
+				C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
+				C60748D8202ACC5A00625849 /* SGDateStringTransform.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
+				C60748E0202AD86D00625849 /* SGPushEvent.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
 				C6B9A15D2017530C00AD009D /* WXNavigationController.swift in Sources */,
 				C646DE1F201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift in Sources */,
 				C646DE3A201F3BE2001F2E01 /* SGOAuthViewController.swift in Sources */,
 				C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */,
+				C60748F4202AEAE500625849 /* SGReviewComment.swift in Sources */,
 				C646DE4220200AA0001F2E01 /* SGBaseViewController.swift in Sources */,
+				C6074902202AF24500625849 /* SGIssue.swift in Sources */,
 				C646DE37201F3B98001F2E01 /* SGWebViewController.swift in Sources */,
+				C607490C202B115A00625849 /* SGRepository.swift in Sources */,
 				C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */,
+				C6074904202AF25800625849 /* SGIssueComment.swift in Sources */,
 				C646DE27201F3A56001F2E01 /* SGLoginViewController.swift in Sources */,
-				C60748A32029936700625849 /* SGNewsItem.swift in Sources */,
-				C60748A52029938500625849 /* SGNewsResponse.swift in Sources */,
+				C60748D5202AAF8900625849 /* SGEvent.swift in Sources */,
 				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
+				C6074900202AF19600625849 /* SGPullRequestEvent.swift in Sources */,
+				C60748F8202AF15A00625849 /* SGIssueCommentEvent.swift in Sources */,
 				C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */,
 				C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */,
+				C6074908202B0B0F00625849 /* SGPlan.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,
 				C60748A02029924100625849 /* SGNewsViewController.swift in Sources */,
 				C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */,
+				C60748FC202AF17B00625849 /* SGMemberEvent.swift in Sources */,
+				C60748FA202AF16D00625849 /* SGIssueEvent.swift in Sources */,
 				C646DED42022DFA4001F2E01 /* SGGithubClient.swift in Sources */,
 				C60748922029852600625849 /* OAuthRouter.swift in Sources */,
+				C60748DC202AD76700625849 /* SGPublicEvent.swift in Sources */,
+				C60748D3202AAD5700625849 /* SGObject.swift in Sources */,
 				B26E84432025DCA200B73B66 /* SGToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
