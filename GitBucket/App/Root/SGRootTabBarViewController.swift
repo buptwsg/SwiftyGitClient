@@ -37,7 +37,7 @@ class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButton
         vc1.view.backgroundColor = UIColor.red
         var normalImage = UIImage.octicon(with: .rss, textColor: UIColor.lightGray, size: iconSize)
         var selectedImage = UIImage.octicon(with: .rss, textColor: SGAppColors.colorI3.color, size: iconSize).withRenderingMode(.alwaysOriginal)
-        self.addChildViewController(vc1, title: "News", image: normalImage, selectedImage: selectedImage)
+        self.addChildViewController(vc1, title: "Events", image: normalImage, selectedImage: selectedImage)
         
         let vc2 = UIViewController()
         vc2.view.backgroundColor = UIColor.green

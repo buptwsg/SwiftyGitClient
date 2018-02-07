@@ -130,7 +130,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C60748992029908000625849 /* News */ = {
+		C60748992029908000625849 /* Events */ = {
 			isa = PBXGroup;
 			children = (
 				C607489A2029922F00625849 /* Controller */,
@@ -138,7 +138,7 @@
 				C607489C2029922F00625849 /* Model */,
 				C607489D2029922F00625849 /* View */,
 			);
-			path = News;
+			path = Events;
 			sourceTree = "<group>";
 		};
 		C607489A2029922F00625849 /* Controller */ = {
@@ -295,7 +295,7 @@
 			children = (
 				C6B9A15520174AB700AD009D /* Root */,
 				C646DE20201F3A01001F2E01 /* Login */,
-				C60748992029908000625849 /* News */,
+				C60748992029908000625849 /* Events */,
 				C6B9A15420174AB700AD009D /* SGFoundation */,
 			);
 			path = App;
