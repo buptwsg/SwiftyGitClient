@@ -40,6 +40,7 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
     var userName: String?
     var user: SGUser? {
         didSet {
+            headerView?.user = user
             buildCellDatas()
             tableView.reloadData()
         }
@@ -47,11 +48,14 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
     var cellDatas: [[SGProfileCellData]] = []
     
     @IBOutlet weak var tableView: UITableView!
+    var headerView: SGProfileHeaderView?
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        headerView = SGProfileHeaderView.instantiateFromNib()
+        tableView.tableHeaderView = headerView
         tableView.tableFooterView = UIView()
         tableView.register(SGTableViewCellStyleValue1.self, forCellReuseIdentifier: SGTableViewCellStyleValue1.reuseIdentifier)
         fetchUserInfo()

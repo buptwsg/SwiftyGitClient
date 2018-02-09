@@ -69,6 +69,9 @@
 		C6A2BAD3202C3C9000928E2F /* SGTableViewCellStyleValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */; };
 		C6A2BAD5202D501B00928E2F /* SGFontIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD4202D501B00928E2F /* SGFontIcon.swift */; };
 		C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAD7202D744200928E2F /* octicons.ttf */; };
+		C6A2BADA202D7E8500928E2F /* SGProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD9202D7E8500928E2F /* SGProfileHeaderView.swift */; };
+		C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BADB202D7E9600928E2F /* SGProfileHeaderView.xib */; };
+		C6A2BADE202D854B00928E2F /* SGFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BADD202D854B00928E2F /* SGFollowButton.swift */; };
 		C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15620174AB700AD009D /* AppDelegate.swift */; };
 		C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */; };
 		C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */; };
@@ -141,6 +144,9 @@
 		C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTableViewCellStyleValue1.swift; sourceTree = "<group>"; };
 		C6A2BAD4202D501B00928E2F /* SGFontIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFontIcon.swift; sourceTree = "<group>"; };
 		C6A2BAD7202D744200928E2F /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
+		C6A2BAD9202D7E8500928E2F /* SGProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGProfileHeaderView.swift; sourceTree = "<group>"; };
+		C6A2BADB202D7E9600928E2F /* SGProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGProfileHeaderView.xib; sourceTree = "<group>"; };
+		C6A2BADD202D854B00928E2F /* SGFollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFollowButton.swift; sourceTree = "<group>"; };
 		C6B9A15620174AB700AD009D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBar.swift; sourceTree = "<group>"; };
 		C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBarController.swift; sourceTree = "<group>"; };
@@ -374,6 +380,7 @@
 				B26E84422025DCA200B73B66 /* SGToast.swift */,
 				C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */,
 				C6A2BAD4202D501B00928E2F /* SGFontIcon.swift */,
+				C6A2BADD202D854B00928E2F /* SGFollowButton.swift */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -443,6 +450,8 @@
 		C6A2BAC9202C311800928E2F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C6A2BAD9202D7E8500928E2F /* SGProfileHeaderView.swift */,
+				C6A2BADB202D7E9600928E2F /* SGProfileHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,6 +587,7 @@
 				C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */,
 				C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */,
 				C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */,
+				C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C607490A202B0C9900625849 /* SGEntity.swift in Sources */,
+				C6A2BADA202D7E8500928E2F /* SGProfileHeaderView.swift in Sources */,
 				C60748DE202AD77400625849 /* SGWatchEvent.swift in Sources */,
 				C60748F6202AF00200625849 /* SGCommitCommentEvent.swift in Sources */,
 				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
@@ -702,6 +713,7 @@
 				C6074900202AF19600625849 /* SGPullRequestEvent.swift in Sources */,
 				C60748F8202AF15A00625849 /* SGIssueCommentEvent.swift in Sources */,
 				C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */,
+				C6A2BADE202D854B00928E2F /* SGFollowButton.swift in Sources */,
 				C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */,
 				C6074908202B0B0F00625849 /* SGPlan.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,

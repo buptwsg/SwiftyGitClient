@@ -9,13 +9,14 @@
 import UIKit
 
 extension UIView {
-    class func instantiateFromNib() -> UIView? {
+    class func instantiateFromNib<T: UIView>() -> T? {
         let bundle = Bundle(for: self)
-        let nib = UINib(nibName: NSStringFromClass(self), bundle: bundle)
+        let name = String(describing: NSStringFromClass(self).split(separator: ".").last!)
+        let nib = UINib(nibName: name, bundle: bundle)
         if let views = nib.instantiate(withOwner: nil, options: nil) as? [UIView] {
             for view in views {
                 if view.isKind(of: self) {
-                    return view
+                    return view as? T
                 }
             }
         }
