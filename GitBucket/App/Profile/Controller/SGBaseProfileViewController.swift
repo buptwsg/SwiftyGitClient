@@ -150,4 +150,8 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
         view.backgroundColor = UIColor.clear
         return view
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        headerView?.contentOffset = scrollView.contentOffset
+    }
 }

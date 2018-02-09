@@ -41,4 +41,10 @@ class SGProfileHeaderView: UIView {
             }
         }
     }
+    
+    var contentOffset: CGPoint = CGPoint.zero {
+        didSet {
+            
+        }
+    }
 }
