@@ -21,6 +21,7 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
         let path = archivePath
         if FileManager.default.fileExists(atPath: path) {
             if let instance = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? SGGithubOAuth {
+                instance.commonInit()
                 return instance
             }
             else {
@@ -65,7 +66,7 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
      利用Basic Authorization来得到OAuth2的token
     */
     func createAssessTokenByBasicAuthorization(user: String, password: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
-        let request = sessionManager.request(OAuthRouter.basic(user: user, password: password, clientID: clientID, clientSecret: clientSecret))
+        let request = sessionManager.request(SGOAuthRouter.basic(user: user, password: password, clientID: clientID, clientSecret: clientSecret))
         debugPrint(request)
         request.validate().responseJSON{ response in
             print(response)
@@ -92,7 +93,7 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
     */
     var oauthWebFlowUrlRequest: URLRequest? {
         do {
-            return try OAuthRouter.oauth(clientID: self.clientID).asURLRequest()
+            return try SGOAuthRouter.oauth(clientID: self.clientID).asURLRequest()
         }
         catch {
             return nil
@@ -103,7 +104,7 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
      利用临时的token，去交换OAuth2的token
     */
     func exchangeAccessToken(code: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
-        let request = sessionManager.request(OAuthRouter.token(clientID: clientID, clientSecret: clientSecret, code: code))
+        let request = sessionManager.request(SGOAuthRouter.token(clientID: clientID, clientSecret: clientSecret, code: code))
         debugPrint(request)
         
         request.validate().responseJSON { response in

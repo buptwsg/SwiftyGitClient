@@ -41,9 +41,7 @@ class WXMiddleButtonTabBarController: UITabBarController {
         childViewController.navigationItem.title = title
         childViewController.tabBarItem.title = title
         childViewController.tabBarItem.image = image;
-        if let _ = selectedImage {
-            childViewController.tabBarItem.selectedImage = selectedImage
-        }
+        childViewController.tabBarItem.selectedImage = selectedImage
         
         self.addChildViewController(navVC)
     }

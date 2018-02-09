@@ -10,34 +10,34 @@ import Foundation
 import ObjectMapper
 
 /// Represents any GitHub object which is capable of owning repositories.
-class SGEntity: SGObject {
+class SGEntity: ImmutableMappable {
     /// The unique name for this entity, used in GitHub URLs.
-    let login: String
+    let login: String?
     
     /// The full name of this entity.
     /// Returns `login` if no name is explicitly set.
     let name: String?
     
     /// The short biography associated with this account.
-    let bio: String
+    let bio: String?
     
     /// The email address for this account.
-    let email: String
+    let email: String?
     
     /// The URL for any avatar image.
-    let avatarURL: URL
+    let avatarURL: URL?
     
     /// The web URL for this account.
-    let htmlURL: URL
+    let htmlURL: URL?
     
     /// A reference to a blog associated with this account.
-    let blog: String
+    let blog: String?
     
     /// The name of a company associated with this account.
-    let company: String
+    let company: String?
     
     /// The location associated with this account.
-    let location: String
+    let location: String?
     
     /// The total number of collaborators that this account has on their private repositories.
     let collaborators: UInt
@@ -64,21 +64,22 @@ class SGEntity: SGObject {
     let diskUsage: UInt
     
     /// The plan that this account is on.
-    let plan: SGPlan
+    let plan: SGPlan?
     
     ///JSON -> Model
     required init(map: Map) throws {
         let urlTransform = URLTransform()
         
-        login = try map.value("login")
+        login = try? map.value("login")
         name = try? map.value("name")
-        bio = try map.value("bio")
-        email = try map.value("email")
-        avatarURL = try map.value("avatar_url", using: urlTransform)
-        htmlURL = try map.value("html_url", using: urlTransform)
-        blog = try map.value("blog")
-        company = try map.value("company")
-        location = try map.value("location")
+        bio = try? map.value("bio")
+        email = try? map.value("email")
+        avatarURL = try? map.value("avatar_url", using: urlTransform)
+        htmlURL = try? map.value("html_url", using: urlTransform)
+        blog = try? map.value("blog")
+        company = try? map.value("company")
+        location = try? map.value("location")
+        
         collaborators = try map.value("collaborators")
         publicRepoCount = try map.value("public_repos")
         privateRepoCount = try map.value("owned_private_repos")
@@ -87,12 +88,25 @@ class SGEntity: SGObject {
         followers = try map.value("followers")
         following = try map.value("following")
         diskUsage = try map.value("disk_usage")
-        plan = try map.value("plan")
         
-        try super.init(map: map)
+        plan = try? map.value("plan")
     }
     
     ///Model -> JSON
-    override func mapping(map: Map) {
+    func mapping(map: Map) {
+    }
+}
+
+extension SGEntity {
+    var displayName: String {
+        if nil != name {
+            return name!
+        }
+        else if nil != login {
+            return login!
+        }
+        else {
+            return "Unknown Name"
+        }
     }
 }

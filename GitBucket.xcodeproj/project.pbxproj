@@ -12,8 +12,8 @@
 		B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225C70B2026F46400F492CA /* WXNavigationBar.swift */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
-		C60748922029852600625849 /* OAuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748912029852600625849 /* OAuthRouter.swift */; };
-		C60748942029868E00625849 /* EventsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748932029868E00625849 /* EventsRouter.swift */; };
+		C60748922029852600625849 /* SGOAuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748912029852600625849 /* SGOAuthRouter.swift */; };
+		C60748942029868E00625849 /* SGEventsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748932029868E00625849 /* SGEventsRouter.swift */; };
 		C60748A02029924100625849 /* SGNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607489E2029924100625849 /* SGNewsViewController.swift */; };
 		C60748A12029924100625849 /* SGNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C607489F2029924100625849 /* SGNewsViewController.xib */; };
 		C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748A6202993FF00625849 /* SGNewsCell.swift */; };
@@ -41,6 +41,9 @@
 		C6074908202B0B0F00625849 /* SGPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074907202B0B0F00625849 /* SGPlan.swift */; };
 		C607490A202B0C9900625849 /* SGEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074909202B0C9900625849 /* SGEntity.swift */; };
 		C607490C202B115A00625849 /* SGRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607490B202B115A00625849 /* SGRepository.swift */; };
+		C607492F202C010C00625849 /* SGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607492E202C010C00625849 /* SGUser.swift */; };
+		C6074931202C01FB00625849 /* SGUsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074930202C01FB00625849 /* SGUsersRouter.swift */; };
+		C6074933202C0AC100625849 /* SGGithubClient+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074932202C0AC100625849 /* SGGithubClient+User.swift */; };
 		C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */; };
 		C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */; };
 		C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */; };
@@ -59,6 +62,11 @@
 		C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C695129E2012052A00D1DAB9 /* Main.storyboard */; };
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
+		C6A2BACC202C314B00928E2F /* SGBaseProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BACA202C314B00928E2F /* SGBaseProfileViewController.swift */; };
+		C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */; };
+		C6A2BACF202C316A00928E2F /* SGSelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */; };
+		C6A2BAD1202C318400928E2F /* SGOtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD0202C318400928E2F /* SGOtherProfileViewController.swift */; };
+		C6A2BAD3202C3C9000928E2F /* SGTableViewCellStyleValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */; };
 		C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15620174AB700AD009D /* AppDelegate.swift */; };
 		C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */; };
 		C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */; };
@@ -72,8 +80,8 @@
 		B225C70B2026F46400F492CA /* WXNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXNavigationBar.swift; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
-		C60748912029852600625849 /* OAuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthRouter.swift; sourceTree = "<group>"; };
-		C60748932029868E00625849 /* EventsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRouter.swift; sourceTree = "<group>"; };
+		C60748912029852600625849 /* SGOAuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGOAuthRouter.swift; sourceTree = "<group>"; };
+		C60748932029868E00625849 /* SGEventsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEventsRouter.swift; sourceTree = "<group>"; };
 		C607489E2029924100625849 /* SGNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsViewController.swift; sourceTree = "<group>"; };
 		C607489F2029924100625849 /* SGNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGNewsViewController.xib; sourceTree = "<group>"; };
 		C60748A6202993FF00625849 /* SGNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsCell.swift; sourceTree = "<group>"; };
@@ -101,6 +109,9 @@
 		C6074907202B0B0F00625849 /* SGPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPlan.swift; sourceTree = "<group>"; };
 		C6074909202B0C9900625849 /* SGEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEntity.swift; sourceTree = "<group>"; };
 		C607490B202B115A00625849 /* SGRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepository.swift; sourceTree = "<group>"; };
+		C607492E202C010C00625849 /* SGUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUser.swift; sourceTree = "<group>"; };
+		C6074930202C01FB00625849 /* SGUsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUsersRouter.swift; sourceTree = "<group>"; };
+		C6074932202C0AC100625849 /* SGGithubClient+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SGGithubClient+User.swift"; sourceTree = "<group>"; };
 		C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRootTabBarViewController.swift; sourceTree = "<group>"; };
 		C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+WXBorderUIColor.swift"; sourceTree = "<group>"; };
 		C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+WXHelper.swift"; sourceTree = "<group>"; };
@@ -121,6 +132,11 @@
 		C69512A12012052A00D1DAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C69512A42012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C69512A62012052A00D1DAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A2BACA202C314B00928E2F /* SGBaseProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBaseProfileViewController.swift; sourceTree = "<group>"; };
+		C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGBaseProfileViewController.xib; sourceTree = "<group>"; };
+		C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSelfProfileViewController.swift; sourceTree = "<group>"; };
+		C6A2BAD0202C318400928E2F /* SGOtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOtherProfileViewController.swift; sourceTree = "<group>"; };
+		C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTableViewCellStyleValue1.swift; sourceTree = "<group>"; };
 		C6B9A15620174AB700AD009D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBar.swift; sourceTree = "<group>"; };
 		C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBarController.swift; sourceTree = "<group>"; };
@@ -219,6 +235,8 @@
 			children = (
 				C6074907202B0B0F00625849 /* SGPlan.swift */,
 				C6074909202B0C9900625849 /* SGEntity.swift */,
+				C607492E202C010C00625849 /* SGUser.swift */,
+				C6074932202C0AC100625849 /* SGGithubClient+User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -350,6 +368,7 @@
 			children = (
 				C646DE4D20202294001F2E01 /* SGButton.swift */,
 				B26E84422025DCA200B73B66 /* SGToast.swift */,
+				C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -357,8 +376,9 @@
 		C646DED52022FD71001F2E01 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				C60748912029852600625849 /* OAuthRouter.swift */,
-				C60748932029868E00625849 /* EventsRouter.swift */,
+				C60748912029852600625849 /* SGOAuthRouter.swift */,
+				C60748932029868E00625849 /* SGEventsRouter.swift */,
+				C6074930202C01FB00625849 /* SGUsersRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -394,6 +414,33 @@
 			path = GitBucket;
 			sourceTree = "<group>";
 		};
+		C6A2BAC7202C311800928E2F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2BAC8202C311800928E2F /* Controller */,
+				C6A2BAC9202C311800928E2F /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C6A2BAC8202C311800928E2F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2BACA202C314B00928E2F /* SGBaseProfileViewController.swift */,
+				C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */,
+				C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */,
+				C6A2BAD0202C318400928E2F /* SGOtherProfileViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C6A2BAC9202C311800928E2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C6B9A15120174A2800AD009D /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +464,7 @@
 		C6B9A15320174AB700AD009D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C6A2BAC7202C311800928E2F /* Profile */,
 				C6B9A15520174AB700AD009D /* Root */,
 				C646DE20201F3A01001F2E01 /* Login */,
 				C60748992029908000625849 /* Events */,
@@ -508,6 +556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */,
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
 				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
@@ -606,12 +655,13 @@
 				C60748DA202AD29F00625849 /* SGForkEvent.swift in Sources */,
 				B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */,
 				C60748F2202AEAD800625849 /* SGComment.swift in Sources */,
-				C60748942029868E00625849 /* EventsRouter.swift in Sources */,
+				C60748942029868E00625849 /* SGEventsRouter.swift in Sources */,
 				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
 				C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C60748D8202ACC5A00625849 /* SGDateStringTransform.swift in Sources */,
+				C6A2BACF202C316A00928E2F /* SGSelfProfileViewController.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				C60748E0202AD86D00625849 /* SGPushEvent.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
@@ -626,7 +676,10 @@
 				C607490C202B115A00625849 /* SGRepository.swift in Sources */,
 				C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */,
 				C6074904202AF25800625849 /* SGIssueComment.swift in Sources */,
+				C607492F202C010C00625849 /* SGUser.swift in Sources */,
+				C6074931202C01FB00625849 /* SGUsersRouter.swift in Sources */,
 				C646DE27201F3A56001F2E01 /* SGLoginViewController.swift in Sources */,
+				C6A2BACC202C314B00928E2F /* SGBaseProfileViewController.swift in Sources */,
 				C60748D5202AAF8900625849 /* SGEvent.swift in Sources */,
 				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
@@ -636,12 +689,15 @@
 				C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */,
 				C6074908202B0B0F00625849 /* SGPlan.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,
+				C6074933202C0AC100625849 /* SGGithubClient+User.swift in Sources */,
 				C60748A02029924100625849 /* SGNewsViewController.swift in Sources */,
+				C6A2BAD3202C3C9000928E2F /* SGTableViewCellStyleValue1.swift in Sources */,
 				C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */,
 				C60748FC202AF17B00625849 /* SGMemberEvent.swift in Sources */,
 				C60748FA202AF16D00625849 /* SGIssueEvent.swift in Sources */,
 				C646DED42022DFA4001F2E01 /* SGGithubClient.swift in Sources */,
-				C60748922029852600625849 /* OAuthRouter.swift in Sources */,
+				C60748922029852600625849 /* SGOAuthRouter.swift in Sources */,
+				C6A2BAD1202C318400928E2F /* SGOtherProfileViewController.swift in Sources */,
 				C60748DC202AD76700625849 /* SGPublicEvent.swift in Sources */,
 				C60748D3202AAD5700625849 /* SGObject.swift in Sources */,
 				B26E84432025DCA200B73B66 /* SGToast.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 /// Represents the billing plan of a GitHub account.
-class SGPlan: SGObject {
+class SGPlan: ImmutableMappable {
     /// The name of this plan.
     let name: String
     
@@ -29,10 +29,9 @@ class SGPlan: SGObject {
         collaborators = try map.value("collaborators")
         space = try map.value("space")
         privateRepos = try map.value("private_repos")
-        try super.init(map: map)
     }
     
     ///Model -> JSON
-    override func mapping(map: Map) {
+    func mapping(map: Map) {
     }
 }

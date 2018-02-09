@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-enum OAuthRouter: URLRequestConvertible {
+enum SGOAuthRouter: URLRequestConvertible {
     case basic(user: String, password: String, clientID: String, clientSecret: String)
     case oauth(clientID: String)
     case token(clientID: String, clientSecret: String, code: String)

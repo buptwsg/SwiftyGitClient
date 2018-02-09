@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        configAppearance()
         setupInitialViewController()
         return true
     }
@@ -40,7 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    //MARK: private methods
+    //MARK: - private methods
+    private func configAppearance() {
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.barTintColor = UIColor(red: 8.0/215.0, green: 27.0/215.0, blue: 38.0/215.0, alpha: 1)
+        navigationBarAppearance.barStyle = .black
+        navigationBarAppearance.tintColor = UIColor.white
+        
+        UISegmentedControl.appearance().tintColor = UIColor.white
+        
+        UITabBar.appearance().tintColor = SGAppColors.colorI3.color
+    }
+    
     private func setupInitialViewController() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         if SGGithubOAuth.default.tokenExists {

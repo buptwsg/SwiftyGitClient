@@ -20,10 +20,4 @@ class SGGithubClient {
         configuration.httpAdditionalHeaders = defaultHeaders
         return SessionManager(configuration: configuration)
     }()
-    
-    class func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
-        return self.sessionManager.request(urlRequest)
-    }
-    
-    
 }

@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-enum EventsRouter: URLRequestConvertible {
+enum SGEventsRouter: URLRequestConvertible {
     ///List events that a user has received
     ///
     ///- user: github user name
