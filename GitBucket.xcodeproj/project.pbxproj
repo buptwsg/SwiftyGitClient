@@ -67,6 +67,8 @@
 		C6A2BACF202C316A00928E2F /* SGSelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */; };
 		C6A2BAD1202C318400928E2F /* SGOtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD0202C318400928E2F /* SGOtherProfileViewController.swift */; };
 		C6A2BAD3202C3C9000928E2F /* SGTableViewCellStyleValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */; };
+		C6A2BAD5202D501B00928E2F /* SGFontIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD4202D501B00928E2F /* SGFontIcon.swift */; };
+		C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAD7202D744200928E2F /* octicons.ttf */; };
 		C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15620174AB700AD009D /* AppDelegate.swift */; };
 		C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */; };
 		C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */; };
@@ -137,6 +139,8 @@
 		C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSelfProfileViewController.swift; sourceTree = "<group>"; };
 		C6A2BAD0202C318400928E2F /* SGOtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOtherProfileViewController.swift; sourceTree = "<group>"; };
 		C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTableViewCellStyleValue1.swift; sourceTree = "<group>"; };
+		C6A2BAD4202D501B00928E2F /* SGFontIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFontIcon.swift; sourceTree = "<group>"; };
+		C6A2BAD7202D744200928E2F /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
 		C6B9A15620174AB700AD009D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBar.swift; sourceTree = "<group>"; };
 		C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBarController.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 				C646DE4D20202294001F2E01 /* SGButton.swift */,
 				B26E84422025DCA200B73B66 /* SGToast.swift */,
 				C6A2BAD2202C3C9000928E2F /* SGTableViewCellStyleValue1.swift */,
+				C6A2BAD4202D501B00928E2F /* SGFontIcon.swift */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 			children = (
 				C6B9A15320174AB700AD009D /* App */,
 				C6B9A15120174A2800AD009D /* Foundation */,
+				C6A2BAD6202D744200928E2F /* Resource */,
 				C695129E2012052A00D1DAB9 /* Main.storyboard */,
 				C69512A12012052A00D1DAB9 /* Assets.xcassets */,
 				C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */,
@@ -439,6 +445,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C6A2BAD6202D744200928E2F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2BAD7202D744200928E2F /* octicons.ttf */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		C6B9A15120174A2800AD009D /* Foundation */ = {
@@ -558,6 +572,7 @@
 			files = (
 				C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */,
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
+				C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */,
 				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
 				C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */,
@@ -602,7 +617,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/OcticonsKit/OcticonsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/OcticonsIOS/OcticonsIOS.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -615,7 +630,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OcticonsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OcticonsIOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +676,7 @@
 				C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C60748D8202ACC5A00625849 /* SGDateStringTransform.swift in Sources */,
+				C6A2BAD5202D501B00928E2F /* SGFontIcon.swift in Sources */,
 				C6A2BACF202C316A00928E2F /* SGSelfProfileViewController.swift in Sources */,
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				C60748E0202AD86D00625849 /* SGPushEvent.swift in Sources */,

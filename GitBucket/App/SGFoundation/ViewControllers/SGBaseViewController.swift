@@ -8,7 +8,6 @@
 
 import UIKit
 import Toast_Swift
-import OcticonsKit
 
 class SGBaseViewController: UIViewController {
     deinit {

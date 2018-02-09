@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OcticonsKit
 
 class SGSelfProfileViewController: SGBaseProfileViewController {
     
@@ -27,20 +26,20 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
             let iconSize = CGSize(width: 25, height: 25)
             
             var section1 = [SGProfileCellData]()
-            let companyIcon = UIImage.octicon(with: .organization, textColor: UIColor(hex: 0x24AFFC), size: iconSize)
+            let companyIcon = UIImage.icon(with: "Organization", color: UIColor(hex: 0x24AFFC), size: iconSize)
             section1.append(SGProfileCellData(id: .company, icon: companyIcon, text: user.company ?? "Not Set", rightArrow: true))
             
-            let locationIcon = UIImage.octicon(with: .location, textColor: UIColor(hex: 0x30C931), size: iconSize)
+            let locationIcon = UIImage.icon(with: "Location", color: UIColor(hex: 0x30C931), size: iconSize)
             section1.append(SGProfileCellData(id: .location, icon: locationIcon, text: user.location ?? "Not Set", rightArrow: true))
             
-            let mailIcon = UIImage.octicon(with: .mail, textColor: UIColor(hex: 0x5586ED), size: iconSize)
+            let mailIcon = UIImage.icon(with: "Mail", color: UIColor(hex: 0x5586ED), size: iconSize)
             section1.append(SGProfileCellData(id: .email, icon: mailIcon, text: user.email ?? "Not Set", rightArrow: true))
             
-            let blogIcon = UIImage.octicon(with: .link, textColor: UIColor(hex: 0x90DD2F), size: iconSize)
+            let blogIcon = UIImage.icon(with: "Link", color: UIColor(hex: 0x90DD2F), size: iconSize)
             section1.append(SGProfileCellData(id: .blog, icon: blogIcon, text: user.blog ?? "Not Set", rightArrow: true))
             
             var section2 = [SGProfileCellData]()
-            let settingIcon = UIImage.octicon(with: .settings, textColor: UIColor(hex: 0x24AFFC), size: iconSize)
+            let settingIcon = UIImage.icon(with: "Gear", color: UIColor(hex: 0x24AFFC), size: iconSize)
             section2.append(SGProfileCellData(id: .settings, icon: settingIcon, text: "Settings", rightArrow: true))
             
             cellDatas.append(section1)

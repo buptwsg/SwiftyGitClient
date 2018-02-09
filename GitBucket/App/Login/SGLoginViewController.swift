@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OcticonsKit
 import MBProgressHUD
 import Alamofire
 
@@ -28,8 +27,8 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         let size = CGSize(width: 22, height: 22)
-        self.nameIcon.image = UIImage.octicon(with: .person, textColor: UIColor.darkGray, size: size)
-        self.passwordIcon.image = UIImage.octicon(with: .lock, textColor: UIColor.darkGray, size: size)
+        self.nameIcon.image = UIImage.icon(with: "Person", color: UIColor.darkGray, size: size)
+        self.passwordIcon.image = UIImage.icon(with: "Lock", color: UIColor.darkGray, size: size)
         self.githubIcon.image = UIImage(named: "Icon-60")
         
         self.nameTextField.addTarget(self, action: #selector(textDidChanged(_:)), for: .editingChanged)

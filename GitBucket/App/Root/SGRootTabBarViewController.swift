@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OcticonsKit
 
 class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButtonTabBarDelegate {
     static var instance: SGRootTabBarViewController  {
@@ -33,21 +32,21 @@ class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButton
         let iconSize = CGSize(width: 25, height: 25)
         let vc1 = UIViewController()
         vc1.view.backgroundColor = UIColor.red
-        var normalImage = UIImage.octicon(with: .rss, textColor: UIColor.lightGray, size: iconSize)
+        var normalImage = UIImage.icon(with: "Rss", color: UIColor.lightGray, size: iconSize)
         self.addChildViewController(vc1, title: "Events", image: normalImage, selectedImage: nil)
         
         let vc2 = UIViewController()
         vc2.view.backgroundColor = UIColor.green
-        normalImage = UIImage.octicon(with: .repo, textColor: UIColor.lightGray, size: iconSize)
+        normalImage = UIImage.icon(with: "Repo", color: UIColor.lightGray, size: iconSize)
         self.addChildViewController(vc2, title: "Repositories", image: normalImage, selectedImage: nil)
         
         let vc3 = UIViewController()
         vc3.view.backgroundColor = UIColor.blue
-        normalImage = UIImage.octicon(with: .search, textColor: UIColor.lightGray, size: iconSize)
+        normalImage = UIImage.icon(with: "Search", color: UIColor.lightGray, size: iconSize)
         self.addChildViewController(vc3, title: "Search", image: normalImage, selectedImage: nil)
         
         let profileVC = SGSelfProfileViewController(nibName: "SGBaseProfileViewController", bundle: nil)
-        normalImage = UIImage.octicon(with: .person, textColor: UIColor.lightGray, size: iconSize)
+        normalImage = UIImage.icon(with: "Person", color: UIColor.lightGray, size: iconSize)
         self.addChildViewController(profileVC, title: "Profile", image: normalImage, selectedImage: nil)
     }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OcticonsKit
 
 class SGOtherProfileViewController: SGBaseProfileViewController {
 
@@ -27,26 +26,26 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
             let iconSize = CGSize(width: 25, height: 25)
             
             var section0 = [SGProfileCellData]()
-            let nameIcon = UIImage.octicon(with: .person, textColor: UIColor(hex: 0x24AFFC), size: iconSize)
+            let nameIcon = UIImage.icon(with: "Person", color: UIColor(hex: 0x24AFFC), size: iconSize)
             section0.append(SGProfileCellData(id: .name, icon: nameIcon, text: "Name", rightArrow: false, rightText: user.displayName))
             
-            let starIcon = UIImage.octicon(with: .star, textColor: SGAppColors.colorI3.color, size: iconSize)
+            let starIcon = UIImage.icon(with: "Star", color: SGAppColors.colorI3.color, size: iconSize)
             section0.append(SGProfileCellData(id: .stars, icon: starIcon, text: "Starred Repos", rightArrow: true))
             
-            let rssIcon = UIImage.octicon(with: .rss, textColor: UIColor(hex: 0x4078c0), size: iconSize)
+            let rssIcon = UIImage.icon(with: "Rss", color: UIColor(hex: 0x4078c0), size: iconSize)
             section0.append(SGProfileCellData(id: .publicActivity, icon: rssIcon, text: "Public Activity", rightArrow: true))
             
             var section1 = [SGProfileCellData]()
-            let companyIcon = UIImage.octicon(with: .organization, textColor: UIColor(hex: 0x24AFFC), size: iconSize)
+            let companyIcon = UIImage.icon(with: "Organization", color: UIColor(hex: 0x24AFFC), size: iconSize)
             section1.append(SGProfileCellData(id: .company, icon: companyIcon, text: user.company ?? "Not Set", rightArrow: true))
             
-            let locationIcon = UIImage.octicon(with: .location, textColor: UIColor(hex: 0x30C931), size: iconSize)
+            let locationIcon = UIImage.icon(with: "Location", color: UIColor(hex: 0x30C931), size: iconSize)
             section1.append(SGProfileCellData(id: .location, icon: locationIcon, text: user.location ?? "Not Set", rightArrow: true))
             
-            let mailIcon = UIImage.octicon(with: .mail, textColor: UIColor(hex: 0x5586ED), size: iconSize)
+            let mailIcon = UIImage.icon(with: "Mail", color: UIColor(hex: 0x5586ED), size: iconSize)
             section1.append(SGProfileCellData(id: .email, icon: mailIcon, text: user.email ?? "Not Set", rightArrow: true))
             
-            let blogIcon = UIImage.octicon(with: .link, textColor: UIColor(hex: 0x90DD2F), size: iconSize)
+            let blogIcon = UIImage.icon(with: "Link", color: UIColor(hex: 0x90DD2F), size: iconSize)
             section1.append(SGProfileCellData(id: .blog, icon: blogIcon, text: user.blog ?? "Not Set", rightArrow: true))
             
             cellDatas.append(section0)

@@ -13,7 +13,7 @@ target 'GitBucket' do
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'ObjectMapper', '~> 3.1'
   pod 'Toast-Swift', '~> 3.0.1'
-  pod 'OcticonsKit'
+  pod 'OcticonsIOS'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'MJRefresh'
 end
