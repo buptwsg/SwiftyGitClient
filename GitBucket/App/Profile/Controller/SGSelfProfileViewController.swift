@@ -46,4 +46,20 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
             cellDatas.append(section2)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cellData = cellDatas[indexPath.section][indexPath.row]
+        switch cellData.id {
+        case .company, .location, .email, .blog:
+            print("edit these property")
+            
+        case .settings:
+            print("settings")
+            
+        default:
+            break
+        }
+    }
 }
