@@ -10,6 +10,8 @@
 		8451D453149A0B38E3CE81B9 /* Pods_GitBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */; };
 		B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */; };
 		B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225C70B2026F46400F492CA /* WXNavigationBar.swift */; };
+		B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */; };
+		B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
 		C60748922029852600625849 /* SGOAuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748912029852600625849 /* SGOAuthRouter.swift */; };
@@ -83,6 +85,8 @@
 		87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B225C70B2026F46400F492CA /* WXNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXNavigationBar.swift; sourceTree = "<group>"; };
+		B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSettingsViewController.swift; sourceTree = "<group>"; };
+		B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGSettingsViewController.xib; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
 		C60748912029852600625849 /* SGOAuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGOAuthRouter.swift; sourceTree = "<group>"; };
@@ -443,6 +447,8 @@
 				C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */,
 				C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */,
 				C6A2BAD0202C318400928E2F /* SGOtherProfileViewController.swift */,
+				B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */,
+				B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */,
 				C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */,
 				C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */,
+				B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +716,7 @@
 				C6A2BACC202C314B00928E2F /* SGBaseProfileViewController.swift in Sources */,
 				C60748D5202AAF8900625849 /* SGEvent.swift in Sources */,
 				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
+				B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
 				C6074900202AF19600625849 /* SGPullRequestEvent.swift in Sources */,
 				C60748F8202AF15A00625849 /* SGIssueCommentEvent.swift in Sources */,

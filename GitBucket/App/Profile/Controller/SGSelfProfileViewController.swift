@@ -56,7 +56,9 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
             print("edit these property")
             
         case .settings:
-            print("settings")
+            let settingsVC = SGSettingsViewController()
+            settingsVC.user = user
+            navigationController?.pushViewController(settingsVC, animated: true)
             
         default:
             break
