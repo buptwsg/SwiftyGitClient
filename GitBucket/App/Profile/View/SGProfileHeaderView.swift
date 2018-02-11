@@ -30,6 +30,7 @@ class SGProfileHeaderView: UIView {
         
         avatarButton.layer.cornerRadius = avatarButton.width / 2
         avatarButton.layer.masksToBounds = true
+        nameLabel.text = ""
         
         activityIndicator.isHidden = true
         actionButton.isHidden = true

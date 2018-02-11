@@ -56,7 +56,6 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
 
         headerView = SGProfileHeaderView.instantiateFromNib()
         tableView.tableHeaderView = headerView
-        tableView.tableFooterView = UIView()
         tableView.register(SGTableViewCellStyleValue1.self, forCellReuseIdentifier: SGTableViewCellStyleValue1.reuseIdentifier)
         fetchUserInfo()
     }

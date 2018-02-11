@@ -18,6 +18,12 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var githubIcon: UIImageView!
     
+    static let instance: UINavigationController = {
+        let loginVC = SGLoginViewController()
+        let navVC = WXNavigationController(rootViewController: loginVC)
+        return navVC
+    }()
+    
     //MARK: Life Cycle && Overrides
     deinit {
         NotificationCenter.default.removeObserver(self)

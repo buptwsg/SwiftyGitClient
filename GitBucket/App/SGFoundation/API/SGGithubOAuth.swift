@@ -126,6 +126,13 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
             }
         }
     }
+    
+    ///Logout时清除access token
+    func clearAccessToken() {
+        accessToken = ""
+        archiveAccessToken()
+    }
+    
     //
     //MARK: NSCoding
     required init?(coder aDecoder: NSCoder) {

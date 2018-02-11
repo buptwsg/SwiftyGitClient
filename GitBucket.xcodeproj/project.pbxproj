@@ -74,6 +74,9 @@
 		C6A2BADA202D7E8500928E2F /* SGProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAD9202D7E8500928E2F /* SGProfileHeaderView.swift */; };
 		C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BADB202D7E9600928E2F /* SGProfileHeaderView.xib */; };
 		C6A2BADE202D854B00928E2F /* SGFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BADD202D854B00928E2F /* SGFollowButton.swift */; };
+		C6A2BAEC202FFA2600928E2F /* SGAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */; };
+		C6A2BAED202FFA2600928E2F /* SGAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */; };
+		C6A2BAEF2030193900928E2F /* SGDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */; };
 		C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15620174AB700AD009D /* AppDelegate.swift */; };
 		C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */; };
 		C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */; };
@@ -151,6 +154,9 @@
 		C6A2BAD9202D7E8500928E2F /* SGProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGProfileHeaderView.swift; sourceTree = "<group>"; };
 		C6A2BADB202D7E9600928E2F /* SGProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGProfileHeaderView.xib; sourceTree = "<group>"; };
 		C6A2BADD202D854B00928E2F /* SGFollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFollowButton.swift; sourceTree = "<group>"; };
+		C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAboutViewController.swift; sourceTree = "<group>"; };
+		C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGAboutViewController.xib; sourceTree = "<group>"; };
+		C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGDeviceInfo.swift; sourceTree = "<group>"; };
 		C6B9A15620174AB700AD009D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBar.swift; sourceTree = "<group>"; };
 		C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBarController.swift; sourceTree = "<group>"; };
@@ -373,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				C646DE4620201353001F2E01 /* SGAppColors.swift */,
+				C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -449,6 +456,8 @@
 				C6A2BAD0202C318400928E2F /* SGOtherProfileViewController.swift */,
 				B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */,
 				B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */,
+				C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */,
+				C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -594,6 +603,7 @@
 				C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */,
 				C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */,
 				C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */,
+				C6A2BAED202FFA2600928E2F /* SGAboutViewController.xib in Resources */,
 				B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,6 +702,7 @@
 				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
 				C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */,
+				C6A2BAEF2030193900928E2F /* SGDeviceInfo.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C60748D8202ACC5A00625849 /* SGDateStringTransform.swift in Sources */,
 				C6A2BAD5202D501B00928E2F /* SGFontIcon.swift in Sources */,
@@ -728,6 +739,7 @@
 				C6074933202C0AC100625849 /* SGGithubClient+User.swift in Sources */,
 				C60748A02029924100625849 /* SGNewsViewController.swift in Sources */,
 				C6A2BAD3202C3C9000928E2F /* SGTableViewCellStyleValue1.swift in Sources */,
+				C6A2BAEC202FFA2600928E2F /* SGAboutViewController.swift in Sources */,
 				C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */,
 				C60748FC202AF17B00625849 /* SGMemberEvent.swift in Sources */,
 				C60748FA202AF16D00625849 /* SGIssueEvent.swift in Sources */,

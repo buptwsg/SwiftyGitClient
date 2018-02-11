@@ -17,6 +17,7 @@ class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UIT
         title = "Settings"
         
         // Do any additional setup after loading the view.
+        tableView.register(SGTableViewCellStyleValue1.self, forCellReuseIdentifier: SGTableViewCellStyleValue1.reuseIdentifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
     }
 
@@ -35,12 +36,20 @@ class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        var cell: UITableViewCell
+        if 0 == indexPath.section {
+            cell = tableView.dequeueReusableCell(withIdentifier: SGTableViewCellStyleValue1.reuseIdentifier, for: indexPath)
+        }
+        else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        }
+        
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = "My Account"
             cell.detailTextLabel?.text = user!.login
             cell.accessoryType = .none
+            cell.selectionStyle = .none
             
         case 1:
             cell.textLabel?.text = "About"
@@ -66,5 +75,23 @@ class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return (tableView.numberOfSections - 1 == section) ? 20 : 10
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 1:
+            let aboutVC = SGAboutViewController.instance
+            navigationController?.pushViewController(aboutVC, animated: true)
+            break
+            
+        case 2:
+            SGGithubOAuth.default.clearAccessToken()
+            let rootVC = SGLoginViewController.instance
+            self.view.window?.rootViewController = rootVC
+
+        default:
+            break
+        }
     }
 }

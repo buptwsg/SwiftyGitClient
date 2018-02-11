@@ -59,9 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = SGRootTabBarViewController.instance
         }
         else {
-            let loginVC = SGLoginViewController()
-            let navVC = WXNavigationController(rootViewController: loginVC)
-            self.window?.rootViewController = navVC
+            self.window?.rootViewController = SGLoginViewController.instance
         }
 
         self.window?.makeKeyAndVisible()
