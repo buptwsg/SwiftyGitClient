@@ -26,6 +26,12 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
             let iconSize = CGSize(width: 25, height: 25)
             
             var section1 = [SGProfileCellData]()
+            let bioIcon = UIImage.icon(with: "Comment", color: UIColor(hex: 0x24AFFC), size: iconSize)
+            section1.append(SGProfileCellData(id: .bio, icon: bioIcon, text: user.bio ?? "Not Set", rightArrow: true))
+            
+            let hireIcon = UIImage.icon(with: "Info", color: UIColor(hex: 0x24AFFC), size: iconSize)
+            section1.append(SGProfileCellData(id: .hireable, icon: hireIcon, text: (user.hireable != nil) ? "Hireable" : " Not Hireable", rightArrow: true))
+            
             let companyIcon = UIImage.icon(with: "Organization", color: UIColor(hex: 0x24AFFC), size: iconSize)
             section1.append(SGProfileCellData(id: .company, icon: companyIcon, text: user.company ?? "Not Set", rightArrow: true))
             

@@ -42,9 +42,9 @@ class SGProfileHeaderView: UIView {
         didSet {
             if let user = user {
                 bigAvatarImageView.kf.setImage(with: user.avatarURL)
-                followersLabel.text = String(user.followers)
-                reposLabel.text = String(user.publicRepoCount)
-                followingLabel.text = String(user.following)
+                followersLabel.text = String(user.followers!)
+                reposLabel.text = String(user.publicRepoCount!)
+                followingLabel.text = String(user.following!)
                 avatarButton.kf.setImage(with: user.avatarURL, for: .normal)
                 nameLabel.text = user.displayName
             }
@@ -78,5 +78,19 @@ class SGProfileHeaderView: UIView {
                 nameLabel.alpha = alpha
             }
         }
+    }
+    
+    @IBAction func viewFollowers(_ sender: Any) {
+        let userListVC = SGUserListViewController.createInstance(forUser: user, userSourceType: .followers)
+        self.viewController?.navigationController?.pushViewController(userListVC, animated: true)
+    }
+    
+    @IBAction func viewRepos(_ sender: Any) {
+    }
+    
+    
+    @IBAction func viewFollowings(_ sender: Any) {
+        let userListVC = SGUserListViewController.createInstance(forUser: user, userSourceType: .followings)
+        self.viewController?.navigationController?.pushViewController(userListVC, animated: true)
     }
 }

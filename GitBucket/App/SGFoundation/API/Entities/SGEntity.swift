@@ -39,29 +39,32 @@ class SGEntity: ImmutableMappable {
     /// The location associated with this account.
     let location: String?
     
+    ///whether the user is hireable for job
+    let hireable: Bool?
+    
     /// The total number of collaborators that this account has on their private repositories.
-    let collaborators: UInt
+    let collaborators: UInt?
     
     /// The number of public repositories owned by this account.
-    let publicRepoCount: UInt
+    let publicRepoCount: UInt?
     
     /// The number of private repositories owned by this account.
-    let privateRepoCount: UInt
+    let privateRepoCount: UInt?
     
     /// The number of public gists owned by this account.
-    let publicGistCount: UInt
+    let publicGistCount: UInt?
     
     /// The number of private gists owned by this account.
-    let privateGistCount: UInt
+    let privateGistCount: UInt?
     
     /// The number of followers for this account.
-    let followers: UInt
+    let followers: UInt?
     
     /// The number of following for this account.
-    let following: UInt
+    let following: UInt?
     
     /// The number of kilobytes occupied by this account's repositories on disk.
-    let diskUsage: UInt
+    let diskUsage: UInt?
     
     /// The plan that this account is on.
     let plan: SGPlan?
@@ -80,14 +83,15 @@ class SGEntity: ImmutableMappable {
         company = try? map.value("company")
         location = try? map.value("location")
         
-        collaborators = try map.value("collaborators")
-        publicRepoCount = try map.value("public_repos")
-        privateRepoCount = try map.value("owned_private_repos")
-        publicGistCount = try map.value("public_gists")
-        privateGistCount = try map.value("private_gists")
-        followers = try map.value("followers")
-        following = try map.value("following")
-        diskUsage = try map.value("disk_usage")
+        hireable = try? map.value("hireable")
+        collaborators = try? map.value("collaborators")
+        publicRepoCount = try? map.value("public_repos")
+        privateRepoCount = try? map.value("owned_private_repos")
+        publicGistCount = try? map.value("public_gists")
+        privateGistCount = try? map.value("private_gists")
+        followers = try? map.value("followers")
+        following = try? map.value("following")
+        diskUsage = try? map.value("disk_usage")
         
         plan = try? map.value("plan")
     }

@@ -10,6 +10,8 @@ import UIKit
 import MBProgressHUD
 
 enum SGProfileCellID: Int {
+    case bio
+    case hireable
     case company
     case location
     case email
@@ -67,31 +69,23 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
     
     //MARK: - Fetch Data
     func fetchUserInfo() {
+        let completionBlock: (SGUser?, Error?) -> Void = {user, error in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            
+            if nil != user {
+                self.user = user
+            }
+            else if nil != error {
+                self.view.makeToast((error! as NSError).localizedDescription)
+            }
+        }
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         if let name = userName {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
-            SGGithubClient.fetchUserInfo(for: name, completion: { user, error in
-                MBProgressHUD.hide(for: self.view, animated: true)
-                
-                if nil != user {
-                    self.user = user
-                }
-                else if nil != error {
-                    self.view.makeToast((error! as NSError).localizedDescription)
-                }
-            })
+            SGGithubClient.fetchUserInfo(for: name, completion: completionBlock)
         }
         else {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
-            SGGithubClient.fetchUserInfo(completion: { user, error in
-                MBProgressHUD.hide(for: self.view, animated: true)
-                
-                if nil != user {
-                    self.user = user
-                }
-                else if nil != error {
-                    self.view.makeToast((error! as NSError).localizedDescription)
-                }
-            })
+            SGGithubClient.fetchUserInfo(completion: completionBlock)
         }
     }
     
@@ -113,6 +107,7 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
         let cellData = cellDatas[indexPath.section][indexPath.row]
         cell.imageView?.image = cellData.icon
         cell.textLabel?.text = cellData.text
+        cell.textLabel?.numberOfLines = 0
         if cellData.rightArrow {
             cell.accessoryType = .disclosureIndicator
         }

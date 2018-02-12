@@ -13,14 +13,25 @@ enum SGUsersRouter: URLRequestConvertible {
     case me
     case someone(userName: String)
     case updateProfile(name: String?, email: String?, blog: String?, company: String?, location: String?, hireable: Bool?, bio: String?)
+    case followers(login: String, page: Int)
+    case followings(login: String, page: Int)
+    case doesFollow(login: String)
+    case follow(login: String)
+    case unfollow(login: String)
     
     var method: HTTPMethod {
         switch self {
-        case .me, .someone:
+        case .me, .someone, .followers, .followings, .doesFollow:
             return .get
             
         case .updateProfile:
             return .patch
+            
+        case .follow:
+            return .put
+            
+        case.unfollow:
+            return .delete
         }
     }
     
@@ -31,6 +42,15 @@ enum SGUsersRouter: URLRequestConvertible {
             
         case .someone(let userName):
             return "/users/\(userName)"
+            
+        case .followers(let login, _):
+            return "/users/\(login)/followers"
+            
+        case .followings(let login, _):
+            return "/users/\(login)/following"
+            
+        case .doesFollow(let login), .follow(let login), .unfollow(let login):
+            return "/user/following/\(login)"
         }
     }
     
@@ -40,7 +60,11 @@ enum SGUsersRouter: URLRequestConvertible {
         request.httpMethod = method.rawValue
         
         switch self {
-        case .me, .someone:
+        case .me, .someone, .doesFollow, .unfollow:
+            return try URLEncoding.default.encode(request, with: nil)
+            
+        case .follow:
+            request.setValue("0", forHTTPHeaderField: "Content-Length")
             return try URLEncoding.default.encode(request, with: nil)
             
         case .updateProfile(let name, let email, let blog, let company, let location, let hireable, let bio):
@@ -67,6 +91,10 @@ enum SGUsersRouter: URLRequestConvertible {
                 params["bio"] = bio
             }
             return try JSONEncoding.default.encode(request, with: params)
+            
+        case .followers(_, let page), .followings(_, let page):
+            let params: Parameters = ["page": page]
+            return try URLEncoding.default.encode(request, with: params)
         }
     }
 }

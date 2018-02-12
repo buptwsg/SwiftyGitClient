@@ -9,5 +9,5 @@
 import Foundation
 
 class SGUser: SGEntity {
-    
+    var doesFollow: Bool? = nil
 }

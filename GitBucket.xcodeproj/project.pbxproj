@@ -77,6 +77,12 @@
 		C6A2BAEC202FFA2600928E2F /* SGAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */; };
 		C6A2BAED202FFA2600928E2F /* SGAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */; };
 		C6A2BAEF2030193900928E2F /* SGDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */; };
+		C6A2BAF120303A5E00928E2F /* SGUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF020303A5E00928E2F /* SGUserListTableViewCell.xib */; };
+		C6A2BAF520303A7500928E2F /* SGReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */; };
+		C6A2BAF720303B5B00928E2F /* SGUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAF620303B5B00928E2F /* SGUserListTableViewCell.swift */; };
+		C6A2BAFA203049C900928E2F /* SGUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAF8203049C900928E2F /* SGUserListViewController.swift */; };
+		C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF9203049C900928E2F /* SGUserListViewController.xib */; };
+		C6A2BAFE20313E3400928E2F /* SGAPIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAFD20313E3400928E2F /* SGAPIUtility.swift */; };
 		C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15620174AB700AD009D /* AppDelegate.swift */; };
 		C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */; };
 		C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */; };
@@ -157,6 +163,12 @@
 		C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAboutViewController.swift; sourceTree = "<group>"; };
 		C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGAboutViewController.xib; sourceTree = "<group>"; };
 		C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGDeviceInfo.swift; sourceTree = "<group>"; };
+		C6A2BAF020303A5E00928E2F /* SGUserListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGUserListTableViewCell.xib; sourceTree = "<group>"; };
+		C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGReposTableViewCell.xib; sourceTree = "<group>"; };
+		C6A2BAF620303B5B00928E2F /* SGUserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUserListTableViewCell.swift; sourceTree = "<group>"; };
+		C6A2BAF8203049C900928E2F /* SGUserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUserListViewController.swift; sourceTree = "<group>"; };
+		C6A2BAF9203049C900928E2F /* SGUserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGUserListViewController.xib; sourceTree = "<group>"; };
+		C6A2BAFD20313E3400928E2F /* SGAPIUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAPIUtility.swift; sourceTree = "<group>"; };
 		C6B9A15620174AB700AD009D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6B9A1582017528000AD009D /* WXMiddleButtonTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBar.swift; sourceTree = "<group>"; };
 		C6B9A15A201752BF00AD009D /* WXMiddleButtonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXMiddleButtonTabBarController.swift; sourceTree = "<group>"; };
@@ -358,6 +370,7 @@
 		C646DE3E2020035F001F2E01 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				C6A2BAFC20313E1900928E2F /* Utility */,
 				C60748CD202AABD400625849 /* BaseModels */,
 				C60748C9202AABD400625849 /* Commits */,
 				C60748CB202AABD400625849 /* Entities */,
@@ -458,6 +471,8 @@
 				B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */,
 				C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */,
 				C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */,
+				C6A2BAF8203049C900928E2F /* SGUserListViewController.swift */,
+				C6A2BAF9203049C900928E2F /* SGUserListViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -465,6 +480,8 @@
 		C6A2BAC9202C311800928E2F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C6A2BAF620303B5B00928E2F /* SGUserListTableViewCell.swift */,
+				C6A2BAF020303A5E00928E2F /* SGUserListTableViewCell.xib */,
 				C6A2BAD9202D7E8500928E2F /* SGProfileHeaderView.swift */,
 				C6A2BADB202D7E9600928E2F /* SGProfileHeaderView.xib */,
 			);
@@ -477,6 +494,30 @@
 				C6A2BAD7202D744200928E2F /* octicons.ttf */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		C6A2BAF220303A7500928E2F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2BAF320303A7500928E2F /* View */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C6A2BAF320303A7500928E2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C6A2BAFC20313E1900928E2F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2BAFD20313E3400928E2F /* SGAPIUtility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		C6B9A15120174A2800AD009D /* Foundation */ = {
@@ -502,6 +543,7 @@
 		C6B9A15320174AB700AD009D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C6A2BAF220303A7500928E2F /* Repositories */,
 				C6A2BAC7202C311800928E2F /* Profile */,
 				C6B9A15520174AB700AD009D /* Root */,
 				C646DE20201F3A01001F2E01 /* Login */,
@@ -597,12 +639,15 @@
 				C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */,
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
 				C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */,
+				C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */,
 				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
 				C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */,
 				C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */,
 				C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */,
 				C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */,
+				C6A2BAF120303A5E00928E2F /* SGUserListTableViewCell.xib in Resources */,
+				C6A2BAF520303A7500928E2F /* SGReposTableViewCell.xib in Resources */,
 				C6A2BAED202FFA2600928E2F /* SGAboutViewController.xib in Resources */,
 				B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */,
 			);
@@ -700,6 +745,7 @@
 				C60748F2202AEAD800625849 /* SGComment.swift in Sources */,
 				C60748942029868E00625849 /* SGEventsRouter.swift in Sources */,
 				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
+				C6A2BAFA203049C900928E2F /* SGUserListViewController.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
 				C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */,
 				C6A2BAEF2030193900928E2F /* SGDeviceInfo.swift in Sources */,
@@ -734,11 +780,13 @@
 				C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */,
 				C6A2BADE202D854B00928E2F /* SGFollowButton.swift in Sources */,
 				C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */,
+				C6A2BAF720303B5B00928E2F /* SGUserListTableViewCell.swift in Sources */,
 				C6074908202B0B0F00625849 /* SGPlan.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,
 				C6074933202C0AC100625849 /* SGGithubClient+User.swift in Sources */,
 				C60748A02029924100625849 /* SGNewsViewController.swift in Sources */,
 				C6A2BAD3202C3C9000928E2F /* SGTableViewCellStyleValue1.swift in Sources */,
+				C6A2BAFE20313E3400928E2F /* SGAPIUtility.swift in Sources */,
 				C6A2BAEC202FFA2600928E2F /* SGAboutViewController.swift in Sources */,
 				C646DE4720201353001F2E01 /* SGAppColors.swift in Sources */,
 				C60748FC202AF17B00625849 /* SGMemberEvent.swift in Sources */,
