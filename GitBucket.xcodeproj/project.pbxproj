@@ -76,7 +76,7 @@
 		C6A2BADE202D854B00928E2F /* SGFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BADD202D854B00928E2F /* SGFollowButton.swift */; };
 		C6A2BAEC202FFA2600928E2F /* SGAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */; };
 		C6A2BAED202FFA2600928E2F /* SGAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */; };
-		C6A2BAEF2030193900928E2F /* SGDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */; };
+		C6A2BAEF2030193900928E2F /* SGAppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEE2030193900928E2F /* SGAppConstants.swift */; };
 		C6A2BAF120303A5E00928E2F /* SGUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF020303A5E00928E2F /* SGUserListTableViewCell.xib */; };
 		C6A2BAF520303A7500928E2F /* SGReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */; };
 		C6A2BAF720303B5B00928E2F /* SGUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAF620303B5B00928E2F /* SGUserListTableViewCell.swift */; };
@@ -162,7 +162,7 @@
 		C6A2BADD202D854B00928E2F /* SGFollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFollowButton.swift; sourceTree = "<group>"; };
 		C6A2BAEA202FFA2600928E2F /* SGAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAboutViewController.swift; sourceTree = "<group>"; };
 		C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGAboutViewController.xib; sourceTree = "<group>"; };
-		C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGDeviceInfo.swift; sourceTree = "<group>"; };
+		C6A2BAEE2030193900928E2F /* SGAppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAppConstants.swift; sourceTree = "<group>"; };
 		C6A2BAF020303A5E00928E2F /* SGUserListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGUserListTableViewCell.xib; sourceTree = "<group>"; };
 		C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGReposTableViewCell.xib; sourceTree = "<group>"; };
 		C6A2BAF620303B5B00928E2F /* SGUserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUserListTableViewCell.swift; sourceTree = "<group>"; };
@@ -392,7 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				C646DE4620201353001F2E01 /* SGAppColors.swift */,
-				C6A2BAEE2030193900928E2F /* SGDeviceInfo.swift */,
+				C6A2BAEE2030193900928E2F /* SGAppConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -748,7 +748,7 @@
 				C6A2BAFA203049C900928E2F /* SGUserListViewController.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
 				C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */,
-				C6A2BAEF2030193900928E2F /* SGDeviceInfo.swift in Sources */,
+				C6A2BAEF2030193900928E2F /* SGAppConstants.swift in Sources */,
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C60748D8202ACC5A00625849 /* SGDateStringTransform.swift in Sources */,
 				C6A2BAD5202D501B00928E2F /* SGFontIcon.swift in Sources */,

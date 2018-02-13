@@ -12,8 +12,8 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        title = userName
     }
 
     override func didReceiveMemoryWarning() {

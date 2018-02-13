@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import Kingfisher
+
+private struct SGSettingsCellData {
+    let reuseIdentifier: String
+    let text: String
+    var rightText: String?
+    let accessoryType: UITableViewCellAccessoryType
+    let selectionStyle: UITableViewCellSelectionStyle
+}
 
 class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate {
     var user: SGUser?
+    private var cellsData: [[SGSettingsCellData]] = []
     
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
         
-        // Do any additional setup after loading the view.
-        tableView.register(SGTableViewCellStyleValue1.self, forCellReuseIdentifier: SGTableViewCellStyleValue1.reuseIdentifier)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        buildCellData()
+        tableView.register(SGTableViewCellStyleValue1.self, forCellReuseIdentifier: SGStyleValue1ReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: SGStyleDefaultReuseIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,43 +39,24 @@ class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return cellsData.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return cellsData[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
-        if 0 == indexPath.section {
-            cell = tableView.dequeueReusableCell(withIdentifier: SGTableViewCellStyleValue1.reuseIdentifier, for: indexPath)
-        }
-        else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        }
+        let cellData = cellsData[indexPath.section][indexPath.row]
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellData.reuseIdentifier, for: indexPath)
+        cell.textLabel?.text = cellData.text
+        cell.detailTextLabel?.text = cellData.rightText
+        cell.accessoryType = cellData.accessoryType
+        cell.selectionStyle = cellData.selectionStyle
         
-        switch indexPath.section {
-        case 0:
-            cell.textLabel?.text = "My Account"
-            cell.detailTextLabel?.text = user!.login
-            cell.accessoryType = .none
-            cell.selectionStyle = .none
-            
-        case 1:
-            cell.textLabel?.text = "About"
-            cell.detailTextLabel?.text = ""
-            cell.accessoryType = .disclosureIndicator
-            
-        case 2:
-            cell.textLabel?.text = "Logout"
+        if indexPath.section == cellsData.count - 1 {
             cell.textLabel?.textAlignment = .center
-            cell.accessoryType = .none
-            
-        default:
-            break
         }
-        
         return cell
     }
     
@@ -81,9 +73,29 @@ class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UIT
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 1:
-            let aboutVC = SGAboutViewController.instance
-            navigationController?.pushViewController(aboutVC, animated: true)
-            break
+            switch indexPath.row {
+            case 0:
+                let cell = tableView.cellForRow(at: indexPath)
+                cell?.detailTextLabel?.isHidden = true
+                let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                cell?.accessoryView = indicator
+                indicator.startAnimating()
+                
+                ImageCache.default.clearDiskCache(completion: {
+                    indicator.stopAnimating()
+                    cell?.accessoryView = nil
+                    cell?.detailTextLabel?.isHidden = false
+                    self.updateCacheSizeText("0.0MB")
+                })
+                break
+                
+            case 1:
+                let aboutVC = SGAboutViewController.instance
+                navigationController?.pushViewController(aboutVC, animated: true)
+                
+            default:
+                break
+            }
             
         case 2:
             SGGithubOAuth.default.clearAccessToken()
@@ -93,5 +105,25 @@ class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UIT
         default:
             break
         }
+    }
+    
+    //MARK: - private
+    func buildCellData() {
+        let accountData = SGSettingsCellData(reuseIdentifier: SGStyleValue1ReuseIdentifier, text: "My Account", rightText: user!.login, accessoryType: .none, selectionStyle: .none)
+        let cacheData = SGSettingsCellData(reuseIdentifier: SGStyleValue1ReuseIdentifier, text: "清理缓存", rightText: "0.0MB", accessoryType: .none, selectionStyle: .default)
+        let aboutData = SGSettingsCellData(reuseIdentifier: SGStyleDefaultReuseIdentifier, text: "About", rightText: nil, accessoryType: .disclosureIndicator, selectionStyle: .default)
+        let logoutData = SGSettingsCellData(reuseIdentifier: SGStyleDefaultReuseIdentifier, text: "Logout", rightText: nil, accessoryType: .none, selectionStyle: .default)
+        
+        cellsData = [[accountData], [cacheData, aboutData], [logoutData]]
+        
+        ImageCache.default.calculateDiskCacheSize { sizeInbytes in
+            let mb = 1.0 * Double(sizeInbytes) / (1024.0 * 1024.0)
+            self.updateCacheSizeText(String(format: "%.2fMB", mb))
+        }
+    }
+    
+    func updateCacheSizeText(_ text: String) {
+        self.cellsData[1][0].rightText = text
+        self.tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
     }
 }

@@ -13,3 +13,6 @@ let kScreenHeight = UIScreen.main.bounds.size.height
 
 let kPhysicalScreenWidth = fmin(kScreenWidth, kScreenHeight)
 let kPhysicalScreenHeight = fmax(kScreenWidth, kScreenHeight)
+
+let SGStyleValue1ReuseIdentifier = SGTableViewCellStyleValue1.reuseIdentifier
+let SGStyleDefaultReuseIdentifier = "UITableViewCell"

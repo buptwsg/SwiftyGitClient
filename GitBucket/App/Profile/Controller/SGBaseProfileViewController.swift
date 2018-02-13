@@ -108,6 +108,7 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
         cell.imageView?.image = cellData.icon
         cell.textLabel?.text = cellData.text
         cell.textLabel?.numberOfLines = 0
+        cell.detailTextLabel?.text = cellData.rightText
         if cellData.rightArrow {
             cell.accessoryType = .disclosureIndicator
         }
