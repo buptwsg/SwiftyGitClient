@@ -25,12 +25,15 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         return instance
     }
     
+    var isMyself = false
     private var user: SGUser? = nil
     private var users: [SGUser] = []
     private var nextPage: Int? = 0
     private var source: UserSource = .followers
     private var viewTitle: String {
-        return .followers == source ? "粉丝" : "关注"
+        let prefix = isMyself ? "我的" : user!.login! + "的"
+        let suffix = .followers == source ? "粉丝" : "关注"
+        return prefix + suffix
     }
     
     private typealias FetchUsersCompletionBlock = ([SGUser]?, Int?, Error?) -> Void

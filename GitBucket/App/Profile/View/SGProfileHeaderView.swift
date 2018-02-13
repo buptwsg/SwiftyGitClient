@@ -22,6 +22,7 @@ class SGProfileHeaderView: UIView {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var actionButton: SGFollowButton!
     
+    var isMyself = false
     private var initialAvatarHeight: CGFloat = 0
     
     override func awakeFromNib() {
@@ -82,6 +83,7 @@ class SGProfileHeaderView: UIView {
     
     @IBAction func viewFollowers(_ sender: Any) {
         let userListVC = SGUserListViewController.createInstance(forUser: user, userSourceType: .followers)
+        userListVC.isMyself = isMyself
         self.viewController?.navigationController?.pushViewController(userListVC, animated: true)
     }
     
@@ -91,6 +93,7 @@ class SGProfileHeaderView: UIView {
     
     @IBAction func viewFollowings(_ sender: Any) {
         let userListVC = SGUserListViewController.createInstance(forUser: user, userSourceType: .followings)
+        userListVC.isMyself = isMyself
         self.viewController?.navigationController?.pushViewController(userListVC, animated: true)
     }
 }

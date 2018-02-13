@@ -12,8 +12,8 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        headerView?.isMyself = true
     }
 
     override func didReceiveMemoryWarning() {
