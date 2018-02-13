@@ -25,16 +25,7 @@ class SGUserListTableViewCell: UITableViewCell {
                 avatarImageView.kf.setImage(with: user.avatarURL, placeholder: UIImage(named: "avatar_default"))
                 htmlLabel.text = user.htmlURL?.absoluteString
                 loginLabel.text = user.login
-                operationButton.isSelected = user.doesFollow ?? false
-                if nil == user.doesFollow {
-                    activityIndicatorView.startAnimating()
-                    activityIndicatorView.isHidden = false
-                    operationButton.isHidden = true
-                }
-                else {
-                    stopActivityAnimation()
-                    operationButton.isHidden = false
-                }
+                updateFollowStatus()
             }
         }
     }
@@ -52,8 +43,25 @@ class SGUserListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func stopActivityAnimation() {
-        activityIndicatorView.stopAnimating()
-        activityIndicatorView.isHidden = true
+    func updateFollowStatus(forUser updatedUser: SGUser? = nil) {
+        guard let user = user else {
+            return
+        }
+        
+        if nil != updatedUser && user.login != updatedUser!.login {
+            return
+        }
+        
+        operationButton.isSelected = user.doesFollow ?? false
+        if nil == user.doesFollow {
+            activityIndicatorView.startAnimating()
+            activityIndicatorView.isHidden = false
+            operationButton.isHidden = true
+        }
+        else {
+            activityIndicatorView.stopAnimating()
+            activityIndicatorView.isHidden = true
+            operationButton.isHidden = false
+        }
     }
 }

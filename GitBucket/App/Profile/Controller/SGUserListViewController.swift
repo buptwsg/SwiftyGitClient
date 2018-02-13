@@ -83,7 +83,7 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         let user = users[indexPath.row]
         displayCell.user = user
         
-        fetchFollowStatus(user, indexPath: indexPath)
+        fetchFollowStatus(user, cell: displayCell)
     }
     
     //MARK: - private
@@ -116,15 +116,15 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         }
     }
     
-    func fetchFollowStatus(_ user: SGUser, indexPath: IndexPath) {
+    func fetchFollowStatus(_ user: SGUser, cell: SGUserListTableViewCell) {
         if nil != user.doesFollow {
             print("user's doesFollow has been assigned")
             return
         }
         
         weak var weakUser = user
-        SGGithubClient.doesFollowUser(user) { [weak self] (result, error) in
-            guard let strongUser = weakUser, let strongSelf = self else {
+        SGGithubClient.doesFollowUser(user) { (result, error) in
+            guard let strongUser = weakUser else {
                 print("response is late, user is deallocated")
                 return
             }
@@ -134,16 +134,7 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
             }
             else {
                 strongUser.doesFollow = result
-                //需要判断之前对应的indexPath，这时还是不是visible
-                if let _ = strongSelf.tableView.indexPathsForVisibleRows?.contains(indexPath) {
-                    print("the indexPath is still visible, update it")
-                    strongSelf.tableView.beginUpdates()
-                    strongSelf.tableView.reloadRows(at: [indexPath], with: .automatic)
-                    strongSelf.tableView.endUpdates()
-                }
-                else {
-                    print("indexPath : \(indexPath) is already not visible")
-                }
+                cell.updateFollowStatus(forUser: strongUser)
             }
         }
     }
