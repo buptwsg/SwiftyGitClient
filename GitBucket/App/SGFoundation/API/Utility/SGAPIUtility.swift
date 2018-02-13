@@ -14,8 +14,8 @@ func parseNextPage(_ response: HTTPURLResponse) -> Int? {
         let range = linkField.range(of: "rel=\"next\"")
         if range.location != NSNotFound {
             let substring = linkField.substring(to: range.location) as NSString
-            let pageRange = substring.range(of: "?page=")
-            let pageEndRange = substring.range(of: ">;")
+            let pageRange = substring.range(of: "?page=", options: [.backwards])
+            let pageEndRange = substring.range(of: ">;", options: [.backwards])
             let pageString = substring.substring(with: NSRange(location: pageRange.location + pageRange.length, length: pageEndRange.location - pageRange.location - pageRange.length))
             return Int(pageString)
         }

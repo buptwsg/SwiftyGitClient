@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import MJRefresh
 
 class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -18,7 +19,7 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         case followings
     }
     
-    class func createInstance(forUser user: SGUser!, userSourceType source: UserSource) -> SGUserListViewController {
+    class func createInstance(forUser user: SGUser, userSourceType source: UserSource) -> SGUserListViewController {
         let instance = SGUserListViewController()
         instance.user = user
         instance.source = source
@@ -30,6 +31,8 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
     private var users: [SGUser] = []
     private var nextPage: Int? = 0
     private var source: UserSource = .followers
+    private var isFetching = false
+    
     private var viewTitle: String {
         let prefix = isMyself ? "我的" : user!.login! + "的"
         let suffix = .followers == source ? "粉丝" : "关注"
@@ -38,16 +41,14 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     private typealias FetchUsersCompletionBlock = ([SGUser]?, Int?, Error?) -> Void
     
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = viewTitle
+        setupTableView()
         
-        let cellNib = UINib(nibName: SGUserListTableViewCell.reuseIdentifier, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: SGUserListTableViewCell.reuseIdentifier)
-        tableView.tableFooterView = UIView()
-        
-        fetchFirstPageOfUsers()
+        fetchUsers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,33 +87,73 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         fetchFollowStatus(user, cell: displayCell)
     }
     
-    //MARK: - private
-    func fetchFirstPageOfUsers() {
-        guard let user = user else {return}
-
-        let completionBlock: FetchUsersCompletionBlock = {[weak self] usersArray, nextPage, error in
+    //MARK: - UI
+    func setupTableView() {
+        let cellNib = UINib(nibName: SGUserListTableViewCell.reuseIdentifier, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: SGUserListTableViewCell.reuseIdentifier)
+        tableView.tableFooterView = UIView()
+        
+        let mjheader = MJRefreshNormalHeader(refreshingBlock: {[weak self] in
+            self?.nextPage = 0
+            self?.fetchUsers()
+        })
+        mjheader?.lastUpdatedTimeLabel.isHidden = true
+        tableView.mj_header = mjheader
+        
+        let mjfooter = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
+            self?.fetchUsers()
+        })
+        tableView.mj_footer = mjfooter
+    }
+    
+    func endRefresh() {
+        tableView.mj_header.endRefreshing()
+        if nil != nextPage {
+            tableView.mj_footer.endRefreshing()
+            tableView.mj_footer.isHidden = false
+        }
+        else {
+            tableView.mj_footer.endRefreshingWithNoMoreData()
+            tableView.mj_footer.isHidden = true
+        }
+    }
+    
+    //MARK: - Data Fetching
+    func fetchUsers() {
+        guard let user = user, let nextPage = nextPage else {return}
+        if isFetching {
+            return
+        }
+        
+        let completionBlock: FetchUsersCompletionBlock = {[weak self] usersArray, returnedNextPage, error in
             guard let strongSelf = self else {
                 return
             }
             
-            MBProgressHUD.hide(for: strongSelf.view, animated: true)
             if nil == error {
-                strongSelf.nextPage = nextPage
-                strongSelf.users.removeAll()
+                strongSelf.nextPage = returnedNextPage
+                if 0 == nextPage {
+                    strongSelf.users.removeAll()
+                }
                 strongSelf.users.append(contentsOf: usersArray!)
                 strongSelf.tableView.reloadData()
             }
             else {
                 strongSelf.view.makeToast(error?.localizedDescription)
             }
+            
+            MBProgressHUD.hide(for: strongSelf.view, animated: true)
+            strongSelf.isFetching = false
+            strongSelf.endRefresh()
         }
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        isFetching = true
         if .followers == source {
-            SGGithubClient.fetchFollowersForUser(user, page: nextPage!, completion: completionBlock)
+            SGGithubClient.fetchFollowersForUser(user, page: nextPage, completion: completionBlock)
         }
         else {
-            SGGithubClient.fetchFollowingsForUser(user, page: nextPage!, completion: completionBlock)
+            SGGithubClient.fetchFollowingsForUser(user, page: nextPage, completion: completionBlock)
         }
     }
     
