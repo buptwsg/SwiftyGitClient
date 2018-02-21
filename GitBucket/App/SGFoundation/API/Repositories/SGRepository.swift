@@ -54,7 +54,7 @@ class SGRepository: SGObject {
     let openIssuesCount: UInt
     
     /// The number of subscribers for this repository.
-    let subscribersCount: UInt
+    let subscribersCount: UInt?
     
     /// The URL for pushing and pulling this repository over HTTPS.
     let httpsURL: URL
@@ -76,10 +76,12 @@ class SGRepository: SGObject {
     ///
     /// An issue number may be appended (as a path component) to this path to create
     /// an individual issue's HTML URL.
-    let issuesHTMLURL: URL
+    var issuesHTMLURL: URL {
+        return htmlURL.appendingPathComponent("issues")
+    }
     
     /// Text match metadata, uses to highlight the search results.
-    let textMatches: [String]
+    let textMatches: [String]?
     
     /// The parent of the fork, or nil if the repository isn't a fork. This is the
     /// repository from which the receiver was forked.
@@ -102,21 +104,20 @@ class SGRepository: SGObject {
         language = try map.value("language")
         isPrivate = try map.value("private")
         isFork = try map.value("fork")
-        datePushed = try map.value("pushed_at", using: dateTransform)
-        dateCreated = try map.value("created_at", using: dateTransform)
-        dateUpdated = try map.value("updated_at", using: dateTransform)
+        datePushed = try? map.value("pushed_at", using: dateTransform)
+        dateCreated = try? map.value("created_at", using: dateTransform)
+        dateUpdated = try? map.value("updated_at", using: dateTransform)
         watchersCount = try map.value("watchers_count")
         forksCount = try map.value("forks_count")
         stargazersCount = try map.value("stargazers_count")
         openIssuesCount = try map.value("open_issues_count")
-        subscribersCount = try map.value("subscribers_count")
+        subscribersCount = try? map.value("subscribers_count")
         httpsURL = try map.value("clone_url", using: urlTransform)
         sshURL = try map.value("ssh_url", using: urlTransform)
         gitURL = try map.value("git_url", using: urlTransform)
         htmlURL = try map.value("html_url", using: urlTransform)
         defaultBranch = try map.value("default_branch")
-        issuesHTMLURL = try map.value("issuesHTMLURL", using: urlTransform)
-        textMatches = try map.value("text_matches")
+        textMatches = try? map.value("text_matches")
         forkParent = try? map.value("parent")
         forkSource = try? map.value("source")
         try super.init(map: map)

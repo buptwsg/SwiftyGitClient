@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8451D453149A0B38E3CE81B9 /* Pods_GitBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */; };
+		933DD500203D99A700BAC515 /* NSDate+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DD4FF203D99A700BAC515 /* NSDate+Distance.swift */; };
+		93BA31002035CEE7001FB934 /* SGReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA30FF2035CEE7001FB934 /* SGReposTableViewCell.swift */; };
+		93BA31052035D348001FB934 /* SGRepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA31032035D348001FB934 /* SGRepoListViewController.swift */; };
+		93BA31062035D348001FB934 /* SGRepoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BA31042035D348001FB934 /* SGRepoListViewController.xib */; };
+		93BA31082035D716001FB934 /* SGRepositoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA31072035D716001FB934 /* SGRepositoryRouter.swift */; };
+		93BA31142036806A001FB934 /* SGGithubClient+Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA31132036806A001FB934 /* SGGithubClient+Repositories.swift */; };
+		93BA31162036D76D001FB934 /* SGOwnedReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA31152036D76D001FB934 /* SGOwnedReposViewController.swift */; };
+		93BA31182036D77F001FB934 /* SGStarredReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BA31172036D77F001FB934 /* SGStarredReposViewController.swift */; };
 		B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */; };
 		B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225C70B2026F46400F492CA /* WXNavigationBar.swift */; };
 		B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */; };
@@ -92,6 +100,14 @@
 /* Begin PBXFileReference section */
 		7CC118CFC5690ABC5F31A33D /* Pods-GitBucket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBucket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBucket/Pods-GitBucket.release.xcconfig"; sourceTree = "<group>"; };
 		87D257B542E3CBED6B516E07 /* Pods_GitBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		933DD4FF203D99A700BAC515 /* NSDate+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+Distance.swift"; sourceTree = "<group>"; };
+		93BA30FF2035CEE7001FB934 /* SGReposTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGReposTableViewCell.swift; sourceTree = "<group>"; };
+		93BA31032035D348001FB934 /* SGRepoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepoListViewController.swift; sourceTree = "<group>"; };
+		93BA31042035D348001FB934 /* SGRepoListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGRepoListViewController.xib; sourceTree = "<group>"; };
+		93BA31072035D716001FB934 /* SGRepositoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepositoryRouter.swift; sourceTree = "<group>"; };
+		93BA31132036806A001FB934 /* SGGithubClient+Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SGGithubClient+Repositories.swift"; sourceTree = "<group>"; };
+		93BA31152036D76D001FB934 /* SGOwnedReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOwnedReposViewController.swift; sourceTree = "<group>"; };
+		93BA31172036D77F001FB934 /* SGStarredReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGStarredReposViewController.swift; sourceTree = "<group>"; };
 		B21ADB4D201C355D006F3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B225C70B2026F46400F492CA /* WXNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXNavigationBar.swift; sourceTree = "<group>"; };
 		B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSettingsViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +211,25 @@
 				7CC118CFC5690ABC5F31A33D /* Pods-GitBucket.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		933DD4FE203D995000BAC515 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				933DD4FF203D99A700BAC515 /* NSDate+Distance.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		93BA31022035D328001FB934 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93BA31032035D348001FB934 /* SGRepoListViewController.swift */,
+				93BA31042035D348001FB934 /* SGRepoListViewController.xib */,
+				93BA31152036D76D001FB934 /* SGOwnedReposViewController.swift */,
+				93BA31172036D77F001FB934 /* SGStarredReposViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A326844AF4C344C1BA252616 /* Frameworks */ = {
@@ -321,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				C607490B202B115A00625849 /* SGRepository.swift */,
+				93BA31132036806A001FB934 /* SGGithubClient+Repositories.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -415,6 +451,7 @@
 				C60748912029852600625849 /* SGOAuthRouter.swift */,
 				C60748932029868E00625849 /* SGEventsRouter.swift */,
 				C6074930202C01FB00625849 /* SGUsersRouter.swift */,
+				93BA31072035D716001FB934 /* SGRepositoryRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -499,6 +536,7 @@
 		C6A2BAF220303A7500928E2F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				93BA31022035D328001FB934 /* Controller */,
 				C6A2BAF320303A7500928E2F /* View */,
 			);
 			path = Repositories;
@@ -508,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */,
+				93BA30FF2035CEE7001FB934 /* SGReposTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -556,6 +595,7 @@
 		C6B9A15420174AB700AD009D /* SGFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				933DD4FE203D995000BAC515 /* Extension */,
 				C646DE4C2020227E001F2E01 /* AppUI */,
 				C646DE4520201353001F2E01 /* Constants */,
 				C646DE3E2020035F001F2E01 /* API */,
@@ -640,6 +680,7 @@
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
 				C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */,
 				C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */,
+				93BA31062035D348001FB934 /* SGRepoListViewController.xib in Resources */,
 				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
 				C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */,
@@ -756,6 +797,7 @@
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				C60748E0202AD86D00625849 /* SGPushEvent.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
+				93BA31052035D348001FB934 /* SGRepoListViewController.swift in Sources */,
 				C6B9A15D2017530C00AD009D /* WXNavigationController.swift in Sources */,
 				C646DE1F201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift in Sources */,
 				C646DE3A201F3BE2001F2E01 /* SGOAuthViewController.swift in Sources */,
@@ -767,12 +809,15 @@
 				C607490C202B115A00625849 /* SGRepository.swift in Sources */,
 				C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */,
 				C6074904202AF25800625849 /* SGIssueComment.swift in Sources */,
+				93BA31002035CEE7001FB934 /* SGReposTableViewCell.swift in Sources */,
+				933DD500203D99A700BAC515 /* NSDate+Distance.swift in Sources */,
 				C607492F202C010C00625849 /* SGUser.swift in Sources */,
 				C6074931202C01FB00625849 /* SGUsersRouter.swift in Sources */,
 				C646DE27201F3A56001F2E01 /* SGLoginViewController.swift in Sources */,
 				C6A2BACC202C314B00928E2F /* SGBaseProfileViewController.swift in Sources */,
 				C60748D5202AAF8900625849 /* SGEvent.swift in Sources */,
 				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
+				93BA31142036806A001FB934 /* SGGithubClient+Repositories.swift in Sources */,
 				B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
 				C6074900202AF19600625849 /* SGPullRequestEvent.swift in Sources */,
@@ -784,6 +829,7 @@
 				C6074908202B0B0F00625849 /* SGPlan.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,
 				C6074933202C0AC100625849 /* SGGithubClient+User.swift in Sources */,
+				93BA31082035D716001FB934 /* SGRepositoryRouter.swift in Sources */,
 				C60748A02029924100625849 /* SGNewsViewController.swift in Sources */,
 				C6A2BAD3202C3C9000928E2F /* SGTableViewCellStyleValue1.swift in Sources */,
 				C6A2BAFE20313E3400928E2F /* SGAPIUtility.swift in Sources */,
@@ -792,6 +838,8 @@
 				C60748FC202AF17B00625849 /* SGMemberEvent.swift in Sources */,
 				C60748FA202AF16D00625849 /* SGIssueEvent.swift in Sources */,
 				C646DED42022DFA4001F2E01 /* SGGithubClient.swift in Sources */,
+				93BA31162036D76D001FB934 /* SGOwnedReposViewController.swift in Sources */,
+				93BA31182036D77F001FB934 /* SGStarredReposViewController.swift in Sources */,
 				C60748922029852600625849 /* SGOAuthRouter.swift in Sources */,
 				C6A2BAD1202C318400928E2F /* SGOtherProfileViewController.swift in Sources */,
 				C60748DC202AD76700625849 /* SGPublicEvent.swift in Sources */,

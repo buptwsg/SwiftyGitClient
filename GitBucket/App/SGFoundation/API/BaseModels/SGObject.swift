@@ -15,7 +15,7 @@ import ObjectMapper
 class SGObject: ImmutableMappable {
     /// The unique ID for this object. This is only guaranteed to be unique among
     /// objects of the same type, from the same server.
-    let objectID: String
+    let objectID: UInt
     
     ///JSON -> Model
     required init(map: Map) throws {

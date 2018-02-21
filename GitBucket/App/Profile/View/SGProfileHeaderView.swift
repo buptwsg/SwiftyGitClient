@@ -25,20 +25,6 @@ class SGProfileHeaderView: UIView {
     var isMyself = false
     private var initialAvatarHeight: CGFloat = 0
     
-    override func awakeFromNib() {
-        blurEffectView.removeFromSuperview()
-        bigAvatarImageView.addSubview(blurEffectView)
-        
-        avatarButton.layer.cornerRadius = avatarButton.width / 2
-        avatarButton.layer.masksToBounds = true
-        nameLabel.text = ""
-        
-        activityIndicator.isHidden = true
-        actionButton.isHidden = true
-        
-        initialAvatarHeight = bigAvatarImageView.height
-    }
-    
     var user: SGUser? {
         didSet {
             if let user = user {
@@ -81,6 +67,20 @@ class SGProfileHeaderView: UIView {
         }
     }
     
+    override func awakeFromNib() {
+        blurEffectView.removeFromSuperview()
+        bigAvatarImageView.addSubview(blurEffectView)
+        
+        avatarButton.layer.cornerRadius = avatarButton.width / 2
+        avatarButton.layer.masksToBounds = true
+        nameLabel.text = ""
+        
+        activityIndicator.isHidden = true
+        actionButton.isHidden = true
+        
+        initialAvatarHeight = bigAvatarImageView.height
+    }
+    
     @IBAction func viewFollowers(_ sender: Any) {
         let userListVC = SGUserListViewController.createInstance(forUser: user!, userSourceType: .followers)
         userListVC.isMyself = isMyself
@@ -88,8 +88,9 @@ class SGProfileHeaderView: UIView {
     }
     
     @IBAction func viewRepos(_ sender: Any) {
+        let reposVC = SGRepoListViewController.createInstance(for: self.user!, category: .owned)
+        self.viewController?.navigationController?.pushViewController(reposVC, animated: true)
     }
-    
     
     @IBAction func viewFollowings(_ sender: Any) {
         let userListVC = SGUserListViewController.createInstance(forUser: user!, userSourceType: .followings)

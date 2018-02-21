@@ -15,14 +15,14 @@ class SGDateStringTransform: TransformType {
     
     let formatter: DateFormatter = {
         var dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-DD'T'HH:MM:SSZ" //All timestamps in Github API return in ISO 8601 format
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" //All timestamps in Github API return in ISO 8601 format
         return dateFormatter
     }()
     
     open func transformFromJSON(_ value: Any?) -> Date? {
         guard let dateString = value as? String else { return nil }
-        
-        return formatter.date(from: dateString)
+        let date = formatter.date(from: dateString)
+        return date
     }
     
     open func transformToJSON(_ value: Date?) -> String? {
