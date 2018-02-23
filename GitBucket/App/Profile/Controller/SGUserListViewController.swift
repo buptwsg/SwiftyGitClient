@@ -103,6 +103,7 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         let mjfooter = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
             self?.fetchUsers()
         })
+        mjfooter?.isHidden = true
         tableView.mj_footer = mjfooter
     }
     
