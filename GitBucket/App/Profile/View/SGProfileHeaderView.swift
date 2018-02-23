@@ -28,11 +28,11 @@ class SGProfileHeaderView: UIView {
     var user: SGUser? {
         didSet {
             if let user = user {
-                bigAvatarImageView.kf.setImage(with: user.avatarURL)
+                bigAvatarImageView.kf.setImage(with: user.avatarURL, placeholder: UIImage(named: "avatar_default"))
                 followersLabel.text = String(user.followers!)
                 reposLabel.text = String(user.publicRepoCount!)
                 followingLabel.text = String(user.following!)
-                avatarButton.kf.setImage(with: user.avatarURL, for: .normal)
+                avatarButton.kf.setImage(with: user.avatarURL, for: .normal, placeholder: UIImage(named: "avatar_default"))
                 nameLabel.text = user.displayName
             }
         }

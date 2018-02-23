@@ -74,6 +74,11 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
             
             if nil != user {
                 self.user = user
+                if self.userName == nil {
+                    //userName为nil，表明是个人页
+                    AppData.default.user = user
+                    AppData.default.save()
+                }
             }
             else if nil != error {
                 self.view.makeToast((error! as NSError).localizedDescription)

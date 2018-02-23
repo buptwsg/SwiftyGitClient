@@ -38,7 +38,7 @@ class SGReposTableViewCell: UITableViewCell {
             forkIconImageView.image = _gitBranchIcon
             forkCountLabel.text = String(describing: repository!.forksCount)
             updateTimeLabel.text = repository?.dateUpdated?.distanceFromNow
-            layoutConstraint.constant = repository!.language.isEmpty ? 0 : 10
+            layoutConstraint.constant = languageLabel.text == nil ? 0 : 10
         }
     }
     

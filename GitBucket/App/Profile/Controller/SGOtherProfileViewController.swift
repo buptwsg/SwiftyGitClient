@@ -22,7 +22,7 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
     }
     
     override func buildCellDatas() {
-        if let user = self.user {
+        if let user = self.user, cellDatas.isEmpty {
             let iconSize = CGSize(width: 25, height: 25)
             
             var section0 = [SGProfileCellData]()
@@ -57,6 +57,27 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
             
             cellDatas.append(section0)
             cellDatas.append(section1)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cellData = cellDatas[indexPath.section][indexPath.row]
+        switch cellData.id {
+        case .stars:
+            break
+            
+        case .publicActivity:
+            break
+            
+        case .email:
+            break
+            
+        case .blog:
+            break
+            
+        default:
+            break
         }
     }
 }

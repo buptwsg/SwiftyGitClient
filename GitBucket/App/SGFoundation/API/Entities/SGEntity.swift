@@ -98,6 +98,29 @@ class SGEntity: ImmutableMappable {
     
     ///Model -> JSON
     func mapping(map: Map) {
+        let urlTransform = URLTransform()
+        
+        login >>> map["login"]
+        name >>> map["name"]
+        bio >>> map["bio"]
+        email >>> map["email"]
+        avatarURL >>> (map["avatar_url"], urlTransform)
+        htmlURL >>> (map["html_url"], urlTransform)
+        blog >>> map["blog"]
+        company >>> map["company"]
+        location >>> map["location"]
+        
+        hireable >>> map["hireable"]
+        collaborators >>> map["collaborators"]
+        publicRepoCount >>> map["public_repos"]
+        privateRepoCount >>> map["owned_private_repos"]
+        publicGistCount >>> map["public_gists"]
+        privateGistCount >>> map["private_gists"]
+        followers >>> map["followers"]
+        following >>> map["following"]
+        diskUsage >>> map["disk_usage"]
+        
+        plan >>> map["plan"]
     }
 }
 

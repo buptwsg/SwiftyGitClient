@@ -14,6 +14,8 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
         super.viewDidLoad()
         
         headerView?.isMyself = true
+        //使用缓存的用户信息刷新页面
+        self.user = AppData.default.user
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +24,7 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
     }
     
     override func buildCellDatas() {
-        if let user = self.user {
+        if let user = self.user, cellDatas.isEmpty{
             let iconSize = CGSize(width: 25, height: 25)
             
             var section1 = [SGProfileCellData]()

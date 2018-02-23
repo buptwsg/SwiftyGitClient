@@ -21,10 +21,10 @@ class SGRepository: SGObject {
     let ownerAvatarURL: URL
     
     /// The description of this repository.
-    let repoDescription: String
+    let repoDescription: String?
     
     /// The language of this repository.
-    let language: String
+    let language: String?
     
     /// Whether this repository is private to the owner.
     let isPrivate: Bool
@@ -100,8 +100,8 @@ class SGRepository: SGObject {
         name = try map.value("name")
         ownerLogin = try map.value("owner.login")
         ownerAvatarURL = try map.value("owner.avatar_url", using: urlTransform)
-        repoDescription = try map.value("description")
-        language = try map.value("language")
+        repoDescription = try? map.value("description")
+        language = try? map.value("language")
         isPrivate = try map.value("private")
         isFork = try map.value("fork")
         datePushed = try? map.value("pushed_at", using: dateTransform)

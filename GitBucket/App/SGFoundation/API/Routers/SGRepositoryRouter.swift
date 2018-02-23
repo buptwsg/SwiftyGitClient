@@ -38,7 +38,7 @@ enum SGRepositoryRouter: URLRequestConvertible {
             return "/user/starred"
             
         case .userStars(let login, _):
-            return "/users/\(login)/repos"
+            return "/users/\(login)/starred"
         }
     }
     
