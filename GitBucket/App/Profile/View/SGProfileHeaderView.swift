@@ -67,6 +67,14 @@ class SGProfileHeaderView: UIView {
         }
     }
     
+    func updateActionButtonDisplay() {
+        if let doesFollow = user?.doesFollow {
+            actionButton.isHidden = false
+            actionButton.isSelected = doesFollow
+        }
+    }
+    
+    //MARK: - Override
     override func awakeFromNib() {
         blurEffectView.removeFromSuperview()
         bigAvatarImageView.addSubview(blurEffectView)
@@ -81,6 +89,7 @@ class SGProfileHeaderView: UIView {
         initialAvatarHeight = bigAvatarImageView.height
     }
     
+    //MARK: - Actions
     @IBAction func viewFollowers(_ sender: Any) {
         let userListVC = SGUserListViewController.createInstance(forUser: user!, userSourceType: .followers)
         userListVC.isMyself = isMyself

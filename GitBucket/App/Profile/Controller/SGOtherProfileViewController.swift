@@ -57,6 +57,8 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
             
             cellDatas.append(section0)
             cellDatas.append(section1)
+            
+            fetchFollowStatus(user)
         }
     }
     
@@ -83,6 +85,20 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
             
         default:
             break
+        }
+    }
+    
+    func fetchFollowStatus(_ user: SGUser) {
+        SGGithubClient.doesFollowUser(user) { [weak self] result, error in
+            guard let strongSelf = self else {return}
+            
+            if nil == error {
+                user.doesFollow = result
+                strongSelf.headerView?.updateActionButtonDisplay()
+            }
+            else {
+                print("SGOtherProfileViewController fetchFollowStatus error")
+            }
         }
     }
 }
