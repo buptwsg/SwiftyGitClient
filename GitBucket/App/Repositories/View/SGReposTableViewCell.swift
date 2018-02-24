@@ -37,13 +37,15 @@ class SGReposTableViewCell: UITableViewCell {
             startCountLabel.text = String(describing: repository!.stargazersCount)
             forkIconImageView.image = _gitBranchIcon
             forkCountLabel.text = String(describing: repository!.forksCount)
-            updateTimeLabel.text = repository?.dateUpdated?.distanceFromNow
+//            updateTimeLabel.text = repository?.dateUpdated?.distanceFromNow
             layoutConstraint.constant = languageLabel.text == nil ? 0 : 10
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        updateTimeLabel.isHidden = true
+        
         if nil == _repoIcon {
             _repoIcon = UIImage.icon(with: "Repo", color: UIColor.darkGray, size: iconImageView.size)
             _repoForkedIcon = UIImage.icon(with: "RepoForked", color: UIColor.darkGray, size: iconImageView.size)

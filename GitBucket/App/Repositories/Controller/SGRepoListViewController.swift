@@ -82,8 +82,10 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
             else {
                 strongSelf.view.makeToast(error?.localizedDescription)
             }
+            
             MBProgressHUD.hide(for: strongSelf.view, animated: true)
             strongSelf.isFetching = false
+            strongSelf.endRefresh()
         }
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -119,5 +121,29 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 83
+        
+        let mjheader = MJRefreshNormalHeader(refreshingBlock: {[weak self] in
+            self?.nextPage = 0
+            self?.fetchRepositories()
+        })
+        mjheader?.lastUpdatedTimeLabel.isHidden = true
+        tableView.mj_header = mjheader
+        
+        let mjfooter = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
+            self?.fetchRepositories()
+        })
+        mjfooter?.isHidden = true
+        tableView.mj_footer = mjfooter
+    }
+    
+    func endRefresh() {
+        tableView.mj_header.endRefreshing()
+        tableView.mj_footer.isHidden = false
+        if nil != nextPage {
+            tableView.mj_footer.endRefreshing()
+        }
+        else {
+            tableView.mj_footer.endRefreshingWithNoMoreData()
+        }
     }
 }

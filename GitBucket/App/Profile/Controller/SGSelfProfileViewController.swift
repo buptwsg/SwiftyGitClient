@@ -29,22 +29,22 @@ class SGSelfProfileViewController: SGBaseProfileViewController {
             
             var section1 = [SGProfileCellData]()
             let bioIcon = UIImage.icon(with: "Comment", color: UIColor(hex: 0x24AFFC), size: iconSize)
-            section1.append(SGProfileCellData(id: .bio, icon: bioIcon, text: user.bio ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .bio, icon: bioIcon, text: user.displayBio, rightArrow: true))
             
             let hireIcon = UIImage.icon(with: "Info", color: UIColor(hex: 0x24AFFC), size: iconSize)
-            section1.append(SGProfileCellData(id: .hireable, icon: hireIcon, text: (user.hireable != nil) ? "Hireable" : " Not Hireable", rightArrow: true))
+            section1.append(SGProfileCellData(id: .hireable, icon: hireIcon, text: user.displayHireable, rightArrow: true))
             
             let companyIcon = UIImage.icon(with: "Organization", color: UIColor(hex: 0x24AFFC), size: iconSize)
-            section1.append(SGProfileCellData(id: .company, icon: companyIcon, text: user.company ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .company, icon: companyIcon, text: user.displayCompany, rightArrow: true))
             
             let locationIcon = UIImage.icon(with: "Location", color: UIColor(hex: 0x30C931), size: iconSize)
-            section1.append(SGProfileCellData(id: .location, icon: locationIcon, text: user.location ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .location, icon: locationIcon, text: user.displayLocation, rightArrow: true))
             
             let mailIcon = UIImage.icon(with: "Mail", color: UIColor(hex: 0x5586ED), size: iconSize)
-            section1.append(SGProfileCellData(id: .email, icon: mailIcon, text: user.email ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .email, icon: mailIcon, text: user.displayEmail, rightArrow: true))
             
             let blogIcon = UIImage.icon(with: "Link", color: UIColor(hex: 0x90DD2F), size: iconSize)
-            section1.append(SGProfileCellData(id: .blog, icon: blogIcon, text: user.blog ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .blog, icon: blogIcon, text: user.displayBlog, rightArrow: true))
             
             var section2 = [SGProfileCellData]()
             let settingIcon = UIImage.icon(with: "Gear", color: UIColor(hex: 0x24AFFC), size: iconSize)

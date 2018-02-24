@@ -136,4 +136,58 @@ extension SGEntity {
             return "Unknown Name"
         }
     }
+    
+    var displayBio: String {
+        if let bio = self.bio, !bio.isEmpty {
+            return bio
+        }
+        else {
+            return "Not Set"
+        }
+    }
+    
+    var displayEmail: String {
+        if let email = self.email, !email.isEmpty {
+            return email
+        }
+        else {
+            return "Not Set"
+        }
+    }
+    
+    var displayBlog: String {
+        if let blog = self.blog, !blog.isEmpty {
+            return blog
+        }
+        else {
+            return "Not Set"
+        }
+    }
+    
+    var displayCompany: String {
+        if let company = self.company, !company.isEmpty {
+            return company
+        }
+        else {
+            return "Not Set"
+        }
+    }
+    
+    var displayLocation: String {
+        if let location = self.location, !location.isEmpty {
+            return location
+        }
+        else {
+            return "Not Set"
+        }
+    }
+    
+    var displayHireable: String {
+        if let hire = hireable {
+            return hire ? "Hireable" : "Not Hireable"
+        }
+        else {
+            return "Not Hireable"
+        }
+    }
 }

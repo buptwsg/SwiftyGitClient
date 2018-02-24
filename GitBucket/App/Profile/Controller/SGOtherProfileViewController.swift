@@ -38,22 +38,22 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
             var section1 = [SGProfileCellData]()
             
             let bioIcon = UIImage.icon(with: "Comment", color: UIColor(hex: 0x24AFFC), size: iconSize)
-            section1.append(SGProfileCellData(id: .bio, icon: bioIcon, text: user.bio ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .bio, icon: bioIcon, text: user.displayBio, rightArrow: false))
             
             let hireIcon = UIImage.icon(with: "Info", color: UIColor(hex: 0x24AFFC), size: iconSize)
-            section1.append(SGProfileCellData(id: .hireable, icon: hireIcon, text: (user.hireable != nil) ? "Hireable" : " Not Hireable", rightArrow: true))
+            section1.append(SGProfileCellData(id: .hireable, icon: hireIcon, text: user.displayHireable, rightArrow: false))
             
             let companyIcon = UIImage.icon(with: "Organization", color: UIColor(hex: 0x24AFFC), size: iconSize)
-            section1.append(SGProfileCellData(id: .company, icon: companyIcon, text: user.company ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .company, icon: companyIcon, text: user.displayCompany, rightArrow: false))
             
             let locationIcon = UIImage.icon(with: "Location", color: UIColor(hex: 0x30C931), size: iconSize)
-            section1.append(SGProfileCellData(id: .location, icon: locationIcon, text: user.location ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .location, icon: locationIcon, text: user.displayLocation, rightArrow: false))
             
             let mailIcon = UIImage.icon(with: "Mail", color: UIColor(hex: 0x5586ED), size: iconSize)
-            section1.append(SGProfileCellData(id: .email, icon: mailIcon, text: user.email ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .email, icon: mailIcon, text: user.displayEmail, rightArrow: false))
             
             let blogIcon = UIImage.icon(with: "Link", color: UIColor(hex: 0x90DD2F), size: iconSize)
-            section1.append(SGProfileCellData(id: .blog, icon: blogIcon, text: user.blog ?? "Not Set", rightArrow: true))
+            section1.append(SGProfileCellData(id: .blog, icon: blogIcon, text: user.displayBlog, rightArrow: false))
             
             cellDatas.append(section0)
             cellDatas.append(section1)
@@ -65,6 +65,8 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
         let cellData = cellDatas[indexPath.section][indexPath.row]
         switch cellData.id {
         case .stars:
+            let reposVC = SGRepoListViewController.createInstance(for: self.user!, category: .starred)
+            self.navigationController?.pushViewController(reposVC, animated: true)
             break
             
         case .publicActivity:
@@ -74,6 +76,9 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
             break
             
         case .blog:
+            if let blog = user?.blog, let url = URL(string: blog) {
+                UIApplication.shared.openURL(url)
+            }
             break
             
         default:

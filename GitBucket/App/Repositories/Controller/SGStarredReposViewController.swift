@@ -26,6 +26,11 @@ class SGStarredReposViewController: SGRepoListViewController {
     }
     
     override func executeRequestWithCompletionBlock(completion: @escaping FetchReposCompletionBlock) {
-        //判断是自己还是别人，调用不同的接口
+        if AppData.default.isLoggedUser(self.entity!) {
+            SGGithubClient.fetchStarredRepositories(page: nextPage!, completion: completion)
+        }
+        else {
+            SGGithubClient.fetchStarredRepositories(login: self.entity?.login, page: nextPage!, completion: completion)
+        }
     }
 }

@@ -109,13 +109,13 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     func endRefresh() {
         tableView.mj_header.endRefreshing()
+        tableView.mj_footer.isHidden = false
+        
         if nil != nextPage {
             tableView.mj_footer.endRefreshing()
-            tableView.mj_footer.isHidden = false
         }
         else {
             tableView.mj_footer.endRefreshingWithNoMoreData()
-            tableView.mj_footer.isHidden = true
         }
     }
     

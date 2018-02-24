@@ -46,4 +46,25 @@ extension SGGithubClient {
             }
         }
     }
+    
+    class func fetchStarredRepositories(login: String? = nil, page: Int, completion: @escaping (_ repos: [SGRepository]?, _ nextPage: Int?, _ error: Error?) -> Void) {
+        var router: SGRepositoryRouter
+        if let login = login {
+            router = SGRepositoryRouter.userStars(login: login, page: page)
+        }
+        else {
+            router = SGRepositoryRouter.selfStars(page: page)
+        }
+        
+        sessionManager.request(router).validate().responseArray { (response: DataResponse<[SGRepository]>) in
+            switch response.result {
+            case .success(let repos):
+                let nextPage = parseNextPage(response.response!)
+                completion(repos, nextPage, nil)
+                
+            case .failure(let error):
+                completion(nil, nil, error)
+            }
+        }
+    }
 }
