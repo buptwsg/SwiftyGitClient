@@ -26,7 +26,7 @@ class SGReposTableViewCell: UITableViewCell {
     @IBOutlet weak var updateTimeLabel: UILabel!
     @IBOutlet weak var layoutConstraint: NSLayoutConstraint!
     
-    static let reuseIdentifier = "SGReposTableViewCell"
+    static let reuseIdentifier = "SGRepoCell"
     var repository: SGRepository? {
         didSet {
             nameLabel.text = repository?.name

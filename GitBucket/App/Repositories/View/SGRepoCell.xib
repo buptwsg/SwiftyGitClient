@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wF7-C8-S5V" customClass="SGReposTableViewCell" customModule="GitBucket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wF7-C8-S5V" id="Yx9-DJ-U5y">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Uq-AMz" userLabel="RepoIcon">
+                        <rect key="frame" x="8" y="8" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="1MI-uu-uRB"/>
+                            <constraint firstAttribute="height" constant="22" id="ye6-Xs-zyn"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioa-wt-4HG" userLabel="NameLabel">
+                        <rect key="frame" x="38" y="8" width="329" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="r66-A3-nVK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.20392156862745098" green="0.43137254901960786" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X31-a6-cvC" userLabel="DescLabel">
+                        <rect key="frame" x="38" y="36" width="329" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objective-C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dug-10-PS7" userLabel="LanguageLabel">
+                        <rect key="frame" x="38" y="61.5" width="68" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="KUG-D3-Ou6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jh6-Jn-iWm" userLabel="StarIcon">
+                        <rect key="frame" x="116" y="63" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="M8a-wa-men"/>
+                            <constraint firstAttribute="width" constant="12" id="Xgq-DU-8LQ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBC-Tr-d54" userLabel="StarCount">
+                        <rect key="frame" x="132" y="62" width="8" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LXV-Hg-e1d" userLabel="ForkIcon">
+                        <rect key="frame" x="150" y="63.5" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="1RK-qa-2OC"/>
+                            <constraint firstAttribute="width" constant="12" id="CBl-p9-whH"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-dv-KZj" userLabel="ForkCount">
+                        <rect key="frame" x="166" y="62" width="8" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkK-cC-O1Q" userLabel="UpdateTimeLabel">
+                        <rect key="frame" x="305" y="62" width="62" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.66605282738095239" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YkK-cC-O1Q" firstAttribute="centerY" secondItem="kcw-dv-KZj" secondAttribute="centerY" id="1Il-nL-xEH"/>
+                    <constraint firstItem="XbN-Uq-AMz" firstAttribute="leading" secondItem="Yx9-DJ-U5y" secondAttribute="leading" constant="8" id="46f-ZV-r5L"/>
+                    <constraint firstItem="LXV-Hg-e1d" firstAttribute="leading" secondItem="IBC-Tr-d54" secondAttribute="trailing" constant="10" id="5td-Gm-Zgm"/>
+                    <constraint firstItem="YkK-cC-O1Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kcw-dv-KZj" secondAttribute="trailing" constant="10" id="HXO-MI-W0E"/>
+                    <constraint firstItem="Jh6-Jn-iWm" firstAttribute="leading" secondItem="Dug-10-PS7" secondAttribute="trailing" constant="10" id="K95-Zs-JSC"/>
+                    <constraint firstAttribute="trailing" secondItem="ioa-wt-4HG" secondAttribute="trailing" constant="8" id="L3Q-Ip-Vrs"/>
+                    <constraint firstItem="kcw-dv-KZj" firstAttribute="centerY" secondItem="LXV-Hg-e1d" secondAttribute="centerY" id="Otj-Q5-4gw"/>
+                    <constraint firstItem="Dug-10-PS7" firstAttribute="top" secondItem="X31-a6-cvC" secondAttribute="bottom" constant="5" id="PXT-NV-bcE"/>
+                    <constraint firstItem="Dug-10-PS7" firstAttribute="leading" secondItem="ioa-wt-4HG" secondAttribute="leading" id="QhL-GD-Ar1"/>
+                    <constraint firstAttribute="trailing" secondItem="YkK-cC-O1Q" secondAttribute="trailing" constant="8" id="Xzu-SH-Vvc"/>
+                    <constraint firstItem="kcw-dv-KZj" firstAttribute="leading" secondItem="LXV-Hg-e1d" secondAttribute="trailing" constant="4" id="aqs-vp-gkS"/>
+                    <constraint firstItem="X31-a6-cvC" firstAttribute="top" secondItem="ioa-wt-4HG" secondAttribute="bottom" constant="5" id="bLE-2D-Qqh"/>
+                    <constraint firstItem="ioa-wt-4HG" firstAttribute="top" secondItem="Yx9-DJ-U5y" secondAttribute="top" constant="8" id="bsn-tf-K0f"/>
+                    <constraint firstItem="X31-a6-cvC" firstAttribute="leading" secondItem="ioa-wt-4HG" secondAttribute="leading" id="ci3-n6-Voy"/>
+                    <constraint firstItem="IBC-Tr-d54" firstAttribute="centerY" secondItem="Jh6-Jn-iWm" secondAttribute="centerY" id="g9K-Do-2fX"/>
+                    <constraint firstItem="IBC-Tr-d54" firstAttribute="leading" secondItem="Jh6-Jn-iWm" secondAttribute="trailing" constant="4" id="gqu-4i-5aS"/>
+                    <constraint firstItem="XbN-Uq-AMz" firstAttribute="top" secondItem="Yx9-DJ-U5y" secondAttribute="top" constant="8" id="nAl-8v-56w"/>
+                    <constraint firstItem="Jh6-Jn-iWm" firstAttribute="centerY" secondItem="Dug-10-PS7" secondAttribute="centerY" id="oYV-th-xhB"/>
+                    <constraint firstItem="LXV-Hg-e1d" firstAttribute="centerY" secondItem="IBC-Tr-d54" secondAttribute="centerY" id="ss6-rd-Dos"/>
+                    <constraint firstAttribute="bottom" secondItem="Dug-10-PS7" secondAttribute="bottom" constant="5" id="tUj-yC-rxs"/>
+                    <constraint firstItem="ioa-wt-4HG" firstAttribute="leading" secondItem="XbN-Uq-AMz" secondAttribute="trailing" constant="8" id="tVY-sB-fHl"/>
+                    <constraint firstAttribute="trailing" secondItem="X31-a6-cvC" secondAttribute="trailing" constant="8" id="yoq-f7-FZY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="desLabel" destination="X31-a6-cvC" id="WfQ-pk-yVF"/>
+                <outlet property="forkCountLabel" destination="kcw-dv-KZj" id="yes-BG-Fxw"/>
+                <outlet property="forkIconImageView" destination="LXV-Hg-e1d" id="hxr-aj-h9d"/>
+                <outlet property="iconImageView" destination="XbN-Uq-AMz" id="mag-FD-KPe"/>
+                <outlet property="languageLabel" destination="Dug-10-PS7" id="cRV-Np-Bzb"/>
+                <outlet property="layoutConstraint" destination="K95-Zs-JSC" id="eeE-3a-C9E"/>
+                <outlet property="nameLabel" destination="ioa-wt-4HG" id="lTu-4X-RU7"/>
+                <outlet property="starIconImageView" destination="Jh6-Jn-iWm" id="cTi-QL-o6w"/>
+                <outlet property="startCountLabel" destination="IBC-Tr-d54" id="moE-cw-sqm"/>
+                <outlet property="updateTimeLabel" destination="YkK-cC-O1Q" id="tKI-X2-q8O"/>
+            </connections>
+            <point key="canvasLocation" x="-161" y="61"/>
+        </tableViewCell>
+    </objects>
+</document>

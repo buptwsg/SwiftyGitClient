@@ -54,6 +54,7 @@
 		C607492F202C010C00625849 /* SGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607492E202C010C00625849 /* SGUser.swift */; };
 		C6074931202C01FB00625849 /* SGUsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074930202C01FB00625849 /* SGUsersRouter.swift */; };
 		C6074933202C0AC100625849 /* SGGithubClient+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6074932202C0AC100625849 /* SGGithubClient+User.swift */; };
+		C63F76F42040FD8900DACF63 /* SGRepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C63F76F32040FD8900DACF63 /* SGRepoCell.xib */; };
 		C6455A4E201B5AA4005110C3 /* SGRootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */; };
 		C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */; };
 		C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */; };
@@ -86,7 +87,6 @@
 		C6A2BAED202FFA2600928E2F /* SGAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */; };
 		C6A2BAEF2030193900928E2F /* SGAppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAEE2030193900928E2F /* SGAppConstants.swift */; };
 		C6A2BAF120303A5E00928E2F /* SGUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF020303A5E00928E2F /* SGUserListTableViewCell.xib */; };
-		C6A2BAF520303A7500928E2F /* SGReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */; };
 		C6A2BAF720303B5B00928E2F /* SGUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAF620303B5B00928E2F /* SGUserListTableViewCell.swift */; };
 		C6A2BAFA203049C900928E2F /* SGUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BAF8203049C900928E2F /* SGUserListViewController.swift */; };
 		C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BAF9203049C900928E2F /* SGUserListViewController.xib */; };
@@ -146,6 +146,7 @@
 		C607492E202C010C00625849 /* SGUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUser.swift; sourceTree = "<group>"; };
 		C6074930202C01FB00625849 /* SGUsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUsersRouter.swift; sourceTree = "<group>"; };
 		C6074932202C0AC100625849 /* SGGithubClient+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SGGithubClient+User.swift"; sourceTree = "<group>"; };
+		C63F76F32040FD8900DACF63 /* SGRepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGRepoCell.xib; sourceTree = "<group>"; };
 		C6455A4D201B5AA4005110C3 /* SGRootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRootTabBarViewController.swift; sourceTree = "<group>"; };
 		C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+WXBorderUIColor.swift"; sourceTree = "<group>"; };
 		C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+WXHelper.swift"; sourceTree = "<group>"; };
@@ -180,7 +181,6 @@
 		C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGAboutViewController.xib; sourceTree = "<group>"; };
 		C6A2BAEE2030193900928E2F /* SGAppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAppConstants.swift; sourceTree = "<group>"; };
 		C6A2BAF020303A5E00928E2F /* SGUserListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGUserListTableViewCell.xib; sourceTree = "<group>"; };
-		C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGReposTableViewCell.xib; sourceTree = "<group>"; };
 		C6A2BAF620303B5B00928E2F /* SGUserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUserListTableViewCell.swift; sourceTree = "<group>"; };
 		C6A2BAF8203049C900928E2F /* SGUserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUserListViewController.swift; sourceTree = "<group>"; };
 		C6A2BAF9203049C900928E2F /* SGUserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGUserListViewController.xib; sourceTree = "<group>"; };
@@ -545,8 +545,8 @@
 		C6A2BAF320303A7500928E2F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C6A2BAF420303A7500928E2F /* SGReposTableViewCell.xib */,
 				93BA30FF2035CEE7001FB934 /* SGReposTableViewCell.swift */,
+				C63F76F32040FD8900DACF63 /* SGRepoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -688,9 +688,9 @@
 				C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */,
 				C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */,
 				C6A2BAF120303A5E00928E2F /* SGUserListTableViewCell.xib in Resources */,
-				C6A2BAF520303A7500928E2F /* SGReposTableViewCell.xib in Resources */,
 				C6A2BAED202FFA2600928E2F /* SGAboutViewController.xib in Resources */,
 				B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */,
+				C63F76F42040FD8900DACF63 /* SGRepoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -102,12 +102,9 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SGReposTableViewCell.reuseIdentifier, for: indexPath)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let repoCell = cell as! SGReposTableViewCell
         repoCell.repository = self.reposArray[indexPath.row]
+        return cell
     }
     
     //MARK: - UITableViewDelegate
@@ -121,6 +118,6 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
         tableView.register(cellNib, forCellReuseIdentifier: SGReposTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 78
+        tableView.estimatedRowHeight = 83
     }
 }
