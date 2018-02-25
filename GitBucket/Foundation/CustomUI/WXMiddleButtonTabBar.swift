@@ -8,9 +8,13 @@
 
 import UIKit
 
-protocol WXMiddleButtonTabBarDelegate: NSObjectProtocol {
+protocol WXMiddleButtonTabBarDelegate: class {
     func tabBarMiddleButtonDidSelected(_ tabBar: WXMiddleButtonTabBar)
     func tabBarMiddleButtonDidLongPressed(_ tabBar: WXMiddleButtonTabBar)
+}
+
+extension WXMiddleButtonTabBarDelegate {
+    func tabBarMiddleButtonDidLongPressed(_ tabBar: WXMiddleButtonTabBar) {}
 }
 
 class WXMiddleButtonTabBar: UITabBar {

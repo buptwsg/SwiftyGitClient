@@ -15,7 +15,6 @@ protocol SGProfileHeaderViewDelegate: class {
 
 extension SGProfileHeaderViewDelegate {
     func profileHeaderView(_ headerView: SGProfileHeaderView, didTouchFollowButton button: SGFollowButton) {
-        
     }
 }
 

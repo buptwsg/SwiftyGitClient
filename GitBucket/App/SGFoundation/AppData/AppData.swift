@@ -41,7 +41,7 @@ class AppData: NSObject, NSCoding {
         return user?.login == anotherEntity.login
     }
     
-    //MARK: - NSSecureCoding
+    //MARK: - NSCoding
     private static let archivePath: String = {
         let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         return docURL.appendingPathComponent("appdata.bin").path

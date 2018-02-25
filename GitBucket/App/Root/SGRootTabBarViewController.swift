@@ -55,11 +55,7 @@ class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButton
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: WXMiddleButtonTabBarDelegate
+    //MARK: - WXMiddleButtonTabBarDelegate
     func tabBarMiddleButtonDidSelected(_ tabBar: WXMiddleButtonTabBar) {
-    }
-    
-    func tabBarMiddleButtonDidLongPressed(_ tabBar: WXMiddleButtonTabBar) {
-        
     }
 }
