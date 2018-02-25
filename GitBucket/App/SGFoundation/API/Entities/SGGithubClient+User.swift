@@ -81,10 +81,28 @@ extension SGGithubClient {
     }
     
     class func followUser(_ user: SGUser, completion: @escaping (_ result: Bool, _ error: Error?) -> Void) {
-        
+        let request = sessionManager.request(SGUsersRouter.follow(login: user.login!))
+        request.validate(statusCode: [204]).responseJSON { response in
+            switch response.result {
+            case .success(_):
+                completion(true, nil)
+                
+            case .failure(let error):
+                completion(false, error)
+            }
+        }
     }
     
     class func unfollowUser(_ user: SGUser, completion: @escaping (_ result: Bool, _ error: Error?) -> Void) {
-        
+        let request = sessionManager.request(SGUsersRouter.unfollow(login: user.login!))
+        request.validate(statusCode: [204]).responseJSON { response in
+            switch response.result {
+            case .success(_):
+                completion(true, nil)
+                
+            case .failure(let error):
+                completion(false, error)
+            }
+        }
     }
 }

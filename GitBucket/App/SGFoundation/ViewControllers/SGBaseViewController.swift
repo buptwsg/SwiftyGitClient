@@ -53,7 +53,7 @@ extension UIViewController {
             message = "\(classString)已释放"
         }
         
-        keyWindow.makeToast(message, duration: ToastManager.shared.duration, position: .center)
+        keyWindow.showToast(message!)
     }
     
     func createCustomBarButton(normalImage: UIImage, highlightImage: UIImage? = nil, selector: Selector) -> UIBarButtonItem {
@@ -68,10 +68,10 @@ extension UIViewController {
     
     func handleRequestError(_ error: Error?) {
         if let nserror = error, (nserror as NSError).code == -1009 {
-            self.view.makeToast("您的网络不给力，请检查网络连接")
+            self.view.showToast("您的网络不给力，请检查网络连接")
         }
         else {
-            self.view.makeToast("网络错误，请稍后再试")
+            self.view.showToast("网络错误，请稍后再试")
         }
     }
 }

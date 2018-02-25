@@ -9,7 +9,7 @@
 import Toast_Swift
 
 extension UIView {
-    func makeToast(_ message: String) {
+    func showToast(_ message: String) {
         makeToast(message, duration: ToastManager.shared.duration, position: .center)
     }
 }

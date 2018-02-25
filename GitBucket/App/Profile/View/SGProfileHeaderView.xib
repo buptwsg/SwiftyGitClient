@@ -171,6 +171,9 @@
                             <state key="normal">
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="clickFollowButton:" destination="2qj-uR-5sM" eventType="touchUpInside" id="sRu-vs-izj"/>
+                            </connections>
                         </button>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-6H-DSE">
                             <rect key="frame" x="367" y="77" width="20" height="20"/>

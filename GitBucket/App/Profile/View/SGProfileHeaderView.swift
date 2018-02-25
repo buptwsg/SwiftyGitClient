@@ -9,6 +9,16 @@
 import UIKit
 import Kingfisher
 
+protocol SGProfileHeaderViewDelegate: class {
+    func profileHeaderView(_ headerView: SGProfileHeaderView, didTouchFollowButton button: SGFollowButton)
+}
+
+extension SGProfileHeaderViewDelegate {
+    func profileHeaderView(_ headerView: SGProfileHeaderView, didTouchFollowButton button: SGFollowButton) {
+        
+    }
+}
+
 class SGProfileHeaderView: UIView {
     @IBOutlet weak var bigAvatarImageView: UIImageView!
     @IBOutlet weak var blurEffectView: UIVisualEffectView!
@@ -22,6 +32,7 @@ class SGProfileHeaderView: UIView {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var actionButton: SGFollowButton!
     
+    weak var delegate: SGProfileHeaderViewDelegate? = nil
     var isMyself = false
     private var initialAvatarHeight: CGFloat = 0
     
@@ -105,5 +116,11 @@ class SGProfileHeaderView: UIView {
         let userListVC = SGUserListViewController.createInstance(forUser: user!, userSourceType: .followings)
         userListVC.isMyself = isMyself
         self.viewController?.navigationController?.pushViewController(userListVC, animated: true)
+    }
+    
+    @IBAction func clickFollowButton(_ sender: SGFollowButton) {
+        if let delegate = delegate {
+            delegate.profileHeaderView(self, didTouchFollowButton: self.actionButton)
+        }
     }
 }

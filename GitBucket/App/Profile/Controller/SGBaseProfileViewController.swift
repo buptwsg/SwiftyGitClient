@@ -81,7 +81,7 @@ class SGBaseProfileViewController: SGBaseViewController, UITableViewDataSource, 
                 }
             }
             else if nil != error {
-                self.view.makeToast((error! as NSError).localizedDescription)
+                self.view.showToast(error!.localizedDescription)
             }
         }
         

@@ -47,7 +47,7 @@ class SGWebViewController: SGBaseViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         MBProgressHUD.hide(for: webView, animated: true)
-        self.view.makeToast("网页加载失败，请稍后再试")
+        self.view.showToast("网页加载失败，请稍后再试")
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

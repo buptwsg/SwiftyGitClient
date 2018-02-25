@@ -140,7 +140,7 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
                 strongSelf.tableView.reloadData()
             }
             else {
-                strongSelf.view.makeToast(error?.localizedDescription)
+                strongSelf.view.showToast(error!.localizedDescription)
             }
             
             MBProgressHUD.hide(for: strongSelf.view, animated: true)

@@ -74,10 +74,10 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
                 self.view.window?.rootViewController = rootVC
             }
             else if let aferror = error as? AFError, aferror.responseCode == 401 {
-                self.view.makeToast("请输入正确的用户名和密码")
+                self.view.showToast("请输入正确的用户名和密码")
             }
             else if let aferror = error as? AFError, aferror.responseCode == 403 {
-                self.view.makeToast("用户名或密码错误次数太多，请稍后再试")
+                self.view.showToast("用户名或密码错误次数太多，请稍后再试")
             }
             else {
                 self.handleRequestError(error)
@@ -111,7 +111,7 @@ class SGLoginViewController: SGBaseViewController, UITextFieldDelegate {
                     self.view.window?.rootViewController = rootVC
                 }
                 else {
-                    self.view.makeToast("交换Token失败！")
+                    self.view.showToast("交换Token失败！")
                 }
             }
         }

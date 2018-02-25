@@ -8,12 +8,13 @@
 
 import UIKit
 
-class SGOtherProfileViewController: SGBaseProfileViewController {
+class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeaderViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = userName
+        headerView?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,6 +100,36 @@ class SGOtherProfileViewController: SGBaseProfileViewController {
             else {
                 print("SGOtherProfileViewController fetchFollowStatus error")
             }
+        }
+    }
+    
+    //MARK: - SGProfileHeaderViewDelegate
+    func profileHeaderView(_ headerView: SGProfileHeaderView, didTouchFollowButton button: SGFollowButton) {
+        button.isEnabled = false
+        
+        if button.isSelected {
+            SGGithubClient.unfollowUser(self.user!, completion: { [weak self] result, error in
+                guard let strongSelf = self else {return}
+                button.isEnabled = true
+                if nil != error {
+                    strongSelf.view.showToast(error!.localizedDescription)
+                }
+                else {
+                    button.isSelected = false
+                }
+            })
+        }
+        else {
+            SGGithubClient.followUser(self.user!, completion: { [weak self] result, error in
+                guard let strongSelf = self else {return}
+                button.isEnabled = true
+                if nil != error {
+                    strongSelf.view.showToast(error!.localizedDescription)
+                }
+                else {
+                    button.isSelected = true
+                }
+            })
         }
     }
 }
