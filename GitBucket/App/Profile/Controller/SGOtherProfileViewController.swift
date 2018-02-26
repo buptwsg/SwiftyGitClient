@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeaderViewDelegate {
 
@@ -76,6 +77,9 @@ class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeader
             break
             
         case .email:
+            if let displayEmail = self.user?.displayEmail, displayEmail != "Not Set" {
+                sendEmailTo(displayEmail)
+            }
             break
             
         case .blog:
@@ -131,5 +135,38 @@ class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeader
                 }
             })
         }
+    }
+}
+
+//MARK: - Email
+extension SGOtherProfileViewController: MFMailComposeViewControllerDelegate {
+    func sendEmailTo(_ receiver: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposerVC = configuredMailComposeViewController(receiver)
+            present(mailComposerVC, animated: true, completion: nil)
+        }
+        else {
+            showSendMailErrorAlert()
+        }
+    }
+    
+    func configuredMailComposeViewController(_ receiver: String) -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients([receiver])
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let alertController = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
