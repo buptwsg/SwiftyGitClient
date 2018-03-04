@@ -17,6 +17,8 @@ class SGUserListTableViewCell: UITableViewCell {
     @IBOutlet weak var operationButton: SGFollowButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
+    var actionHandler: ((_ button: SGFollowButton) -> Void)? = nil
+    
     static let reuseIdentifier = "SGUserListTableViewCell"
     
     var user: SGUser? = nil {
@@ -62,6 +64,12 @@ class SGUserListTableViewCell: UITableViewCell {
             activityIndicatorView.stopAnimating()
             activityIndicatorView.isHidden = true
             operationButton.isHidden = false
+        }
+    }
+    
+    @IBAction func didClickOperationButton(_ button: SGFollowButton) {
+        if let actionHandler = actionHandler {
+            actionHandler(button)
         }
     }
 }

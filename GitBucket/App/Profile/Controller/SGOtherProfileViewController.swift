@@ -109,10 +109,12 @@ class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeader
     
     //MARK: - SGProfileHeaderViewDelegate
     func profileHeaderView(_ headerView: SGProfileHeaderView, didTouchFollowButton button: SGFollowButton) {
+        guard let user = self.user else {return}
+        
         button.isEnabled = false
         
         if button.isSelected {
-            SGGithubClient.unfollowUser(self.user!, completion: { [weak self] result, error in
+            SGGithubClient.unfollowUser(user, completion: { [weak self] result, error in
                 guard let strongSelf = self else {return}
                 button.isEnabled = true
                 if nil != error {
@@ -124,7 +126,7 @@ class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeader
             })
         }
         else {
-            SGGithubClient.followUser(self.user!, completion: { [weak self] result, error in
+            SGGithubClient.followUser(user, completion: { [weak self] result, error in
                 guard let strongSelf = self else {return}
                 button.isEnabled = true
                 if nil != error {

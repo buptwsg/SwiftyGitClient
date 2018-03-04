@@ -66,7 +66,13 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SGUserListTableViewCell.reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SGUserListTableViewCell.reuseIdentifier, for: indexPath) as! SGUserListTableViewCell
+        let user = users[indexPath.row]
+        cell.user = user
+        cell.actionHandler = {[weak self] button in
+            self?.changeFollowStatus(button)
+        }
+        fetchFollowStatus(user, cell: cell)
         return cell
     }
     
@@ -77,14 +83,6 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         let userForCell = users[indexPath.row]
         profileVC.userName = userForCell.login
         navigationController?.pushViewController(profileVC, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let displayCell = cell as! SGUserListTableViewCell
-        let user = users[indexPath.row]
-        displayCell.user = user
-        
-        fetchFollowStatus(user, cell: displayCell)
     }
     
     //MARK: - UI
@@ -178,6 +176,37 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
                 strongUser.doesFollow = result
                 cell.updateFollowStatus(forUser: strongUser)
             }
+        }
+    }
+    
+    func changeFollowStatus(_ button: SGFollowButton) {
+        guard let user = self.user else {return}
+        
+        button.isEnabled = false
+        
+        if button.isSelected {
+            SGGithubClient.unfollowUser(user, completion: { [weak self] result, error in
+                guard let strongSelf = self else {return}
+                button.isEnabled = true
+                if nil != error {
+                    strongSelf.view.showToast(error!.localizedDescription)
+                }
+                else {
+                    button.isSelected = false
+                }
+            })
+        }
+        else {
+            SGGithubClient.followUser(user, completion: { [weak self] result, error in
+                guard let strongSelf = self else {return}
+                button.isEnabled = true
+                if nil != error {
+                    strongSelf.view.showToast(error!.localizedDescription)
+                }
+                else {
+                    button.isSelected = true
+                }
+            })
         }
     }
 }
