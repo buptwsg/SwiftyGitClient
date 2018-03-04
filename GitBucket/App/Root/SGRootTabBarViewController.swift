@@ -33,21 +33,20 @@ class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButton
         let vc1 = UIViewController()
         vc1.view.backgroundColor = UIColor.red
         var normalImage = UIImage.icon(with: "Rss", color: UIColor.lightGray, size: iconSize)
-        self.addChildViewController(vc1, title: "Events", image: normalImage, selectedImage: nil)
+        self.addChildViewController(vc1, title: "Events", image: normalImage)
         
-        let vc2 = UIViewController()
-        vc2.view.backgroundColor = UIColor.green
+        let reposVC = SGRepositoriesViewController()
         normalImage = UIImage.icon(with: "Repo", color: UIColor.lightGray, size: iconSize)
-        self.addChildViewController(vc2, title: "Repositories", image: normalImage, selectedImage: nil)
+        self.addChildViewController(reposVC, title: "Repositories", image: normalImage)
         
         let vc3 = UIViewController()
         vc3.view.backgroundColor = UIColor.blue
         normalImage = UIImage.icon(with: "Search", color: UIColor.lightGray, size: iconSize)
-        self.addChildViewController(vc3, title: "Search", image: normalImage, selectedImage: nil)
+        self.addChildViewController(vc3, title: "Search", image: normalImage)
         
         let profileVC = SGSelfProfileViewController(nibName: "SGBaseProfileViewController", bundle: nil)
         normalImage = UIImage.icon(with: "Person", color: UIColor.lightGray, size: iconSize)
-        self.addChildViewController(profileVC, title: "Profile", image: normalImage, selectedImage: nil)
+        self.addChildViewController(profileVC, title: "Profile", image: normalImage)
     }
 
     override func didReceiveMemoryWarning() {

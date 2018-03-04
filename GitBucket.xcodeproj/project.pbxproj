@@ -22,6 +22,11 @@
 		B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
+		B2C8F2E4204BA4C40014A50D /* SGRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */; };
+		B2C8F2E5204BA4C40014A50D /* SGRepositoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C8F2E3204BA4C40014A50D /* SGRepositoriesViewController.xib */; };
+		B2C8F2EB204BEB400014A50D /* SGSegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */; };
+		B2C8F2EE204C11700014A50D /* SGAllReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2EC204C11700014A50D /* SGAllReposViewController.swift */; };
+		B2C8F2EF204C11700014A50D /* SGAllReposViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C8F2ED204C11700014A50D /* SGAllReposViewController.xib */; };
 		C60748922029852600625849 /* SGOAuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748912029852600625849 /* SGOAuthRouter.swift */; };
 		C60748942029868E00625849 /* SGEventsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60748932029868E00625849 /* SGEventsRouter.swift */; };
 		C60748A02029924100625849 /* SGNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607489E2029924100625849 /* SGNewsViewController.swift */; };
@@ -114,6 +119,11 @@
 		B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGSettingsViewController.xib; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
+		B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepositoriesViewController.swift; sourceTree = "<group>"; };
+		B2C8F2E3204BA4C40014A50D /* SGRepositoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGRepositoriesViewController.xib; sourceTree = "<group>"; };
+		B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSegmentedControlViewController.swift; sourceTree = "<group>"; };
+		B2C8F2EC204C11700014A50D /* SGAllReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAllReposViewController.swift; sourceTree = "<group>"; };
+		B2C8F2ED204C11700014A50D /* SGAllReposViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGAllReposViewController.xib; sourceTree = "<group>"; };
 		C60748912029852600625849 /* SGOAuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGOAuthRouter.swift; sourceTree = "<group>"; };
 		C60748932029868E00625849 /* SGEventsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEventsRouter.swift; sourceTree = "<group>"; };
 		C607489E2029924100625849 /* SGNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNewsViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +238,10 @@
 				93BA31042035D348001FB934 /* SGRepoListViewController.xib */,
 				93BA31152036D76D001FB934 /* SGOwnedReposViewController.swift */,
 				93BA31172036D77F001FB934 /* SGStarredReposViewController.swift */,
+				B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */,
+				B2C8F2E3204BA4C40014A50D /* SGRepositoriesViewController.xib */,
+				B2C8F2EC204C11700014A50D /* SGAllReposViewController.swift */,
+				B2C8F2ED204C11700014A50D /* SGAllReposViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -391,6 +405,7 @@
 			children = (
 				C646DE35201F3B98001F2E01 /* SGWebViewController.swift */,
 				C646DE4120200AA0001F2E01 /* SGBaseViewController.swift */,
+				B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -678,8 +693,10 @@
 			files = (
 				C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */,
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
+				B2C8F2EF204C11700014A50D /* SGAllReposViewController.xib in Resources */,
 				C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */,
 				C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */,
+				B2C8F2E5204BA4C40014A50D /* SGRepositoriesViewController.xib in Resources */,
 				93BA31062035D348001FB934 /* SGRepoListViewController.xib in Resources */,
 				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
@@ -776,6 +793,7 @@
 				C607490A202B0C9900625849 /* SGEntity.swift in Sources */,
 				C6A2BADA202D7E8500928E2F /* SGProfileHeaderView.swift in Sources */,
 				C60748DE202AD77400625849 /* SGWatchEvent.swift in Sources */,
+				B2C8F2EE204C11700014A50D /* SGAllReposViewController.swift in Sources */,
 				C60748F6202AF00200625849 /* SGCommitCommentEvent.swift in Sources */,
 				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
 				C60748EE202AE47300625849 /* SGRefEvent.swift in Sources */,
@@ -786,6 +804,7 @@
 				C60748F2202AEAD800625849 /* SGComment.swift in Sources */,
 				C60748942029868E00625849 /* SGEventsRouter.swift in Sources */,
 				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
+				B2C8F2EB204BEB400014A50D /* SGSegmentedControlViewController.swift in Sources */,
 				C6A2BAFA203049C900928E2F /* SGUserListViewController.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
 				C60748FE202AF18B00625849 /* SGPullRequestCommentEvent.swift in Sources */,
@@ -806,6 +825,7 @@
 				C646DE4220200AA0001F2E01 /* SGBaseViewController.swift in Sources */,
 				C6074902202AF24500625849 /* SGIssue.swift in Sources */,
 				C646DE37201F3B98001F2E01 /* SGWebViewController.swift in Sources */,
+				B2C8F2E4204BA4C40014A50D /* SGRepositoriesViewController.swift in Sources */,
 				C607490C202B115A00625849 /* SGRepository.swift in Sources */,
 				C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */,
 				C6074904202AF25800625849 /* SGIssueComment.swift in Sources */,
