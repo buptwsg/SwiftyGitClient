@@ -18,6 +18,7 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
         case starred
     }
     
+    static var contentInset: UIEdgeInsets = UIEdgeInsets.zero
     var category: RepoCategory = RepoCategory.owned
     var allRepos: [SGRepository] = []
     var nextPage: Int? = 0
@@ -42,7 +43,18 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
             self.fetchAllRepositories()
         }
     }
-
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if type(of: self).contentInset == UIEdgeInsets.zero {
+            type(of: self).contentInset = tableView.contentInset
+        }
+        else {
+            tableView.contentInset = type(of: self).contentInset
+            tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -133,7 +145,12 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return indexTitles
+        if category == .starred {
+            return indexTitles
+        }
+        else {
+            return nil
+        }
     }
     
     //MARK: - UITableViewDelegate
