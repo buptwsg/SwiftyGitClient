@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate {
+class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -67,6 +67,16 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 83
+        tableView.sectionIndexBackgroundColor = UIColor.clear
+        tableView.sectionIndexColor = UIColor.darkGray
+        
+//        let header = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 44))
+//        header.addSubview(searchBar)
+//        tableView.tableHeaderView = header
+        
+        searchBar.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resignSearchBar))
+        tableView.addGestureRecognizer(tapGesture)
     }
     
     //MARK: - Fetch All Repos
@@ -146,15 +156,45 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if category == .starred {
-            return indexTitles
+            return [UITableViewIndexSearch] + indexTitles
         }
         else {
             return nil
         }
     }
     
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        if 0 == index {
+            tableView.scrollRectToVisible(tableView.tableHeaderView!.frame, animated: true)
+            return -1
+        }
+        else {
+            return index - 1
+        }
+    }
+    
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //MARK: - UISearchBarDelegate
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        tableView.allowsSelection = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        tableView.allowsSelection = true
+    }
+    
+    @objc
+    func resignSearchBar() {
+        searchBar.resignFirstResponder()
+        tableView.allowsSelection = true
     }
 }
