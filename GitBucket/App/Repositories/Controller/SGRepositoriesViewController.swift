@@ -23,6 +23,8 @@ class SGRepositoriesViewController: SGSegmentedControlViewController {
     
     //MARK: - UI
     func setupUI() {
+        automaticallyAdjustsScrollViewInsets = false
+        
         let ownedReposVC = SGAllReposViewController.allReposViewController(category: .owned)
         ownedReposVC.segmentedTitle = "Owned"
         let starredReposVC = SGAllReposViewController.allReposViewController(category: .starred)

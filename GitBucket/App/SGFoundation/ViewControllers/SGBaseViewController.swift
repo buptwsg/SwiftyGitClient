@@ -19,23 +19,6 @@ class SGBaseViewController: UIViewController {
         
         setupBackButton()
     }
-    
-    @objc
-    func tapBackButton(_ button: UIButton) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    private func setupBackButton() {
-        //如果对应的NavigationController，栈中控制器的数量大于1，那么设置返回按钮
-        if let count = self.navigationController?.viewControllers.count, count > 1 {
-            let normalImage = UIImage(named: "titlebar_back_normal")!
-            let backButton = createCustomBarButton(normalImage: normalImage, selector: #selector(tapBackButton(_:)))
-            
-            let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-            fixedSpace.width = -18
-            navigationItem.leftBarButtonItems = [fixedSpace, backButton]
-        }
-    }
 }
 
 extension UIViewController {
@@ -54,6 +37,23 @@ extension UIViewController {
         }
         
         keyWindow.showToast(message!)
+    }
+    
+    @objc
+    func tapBackButton(_ button: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func setupBackButton() {
+        //如果对应的NavigationController，栈中控制器的数量大于1，那么设置返回按钮
+        if let count = self.navigationController?.viewControllers.count, count > 1 {
+            let normalImage = UIImage(named: "titlebar_back_normal")!
+            let backButton = createCustomBarButton(normalImage: normalImage, selector: #selector(tapBackButton(_:)))
+            
+            let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+            fixedSpace.width = -18
+            navigationItem.leftBarButtonItems = [fixedSpace, backButton]
+        }
     }
     
     func createCustomBarButton(normalImage: UIImage, highlightImage: UIImage? = nil, selector: Selector) -> UIBarButtonItem {

@@ -11,14 +11,13 @@ import MBProgressHUD
 
 class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var searchBar: UISearchBar!
     
     enum RepoCategory: Int {
         case owned
         case starred
     }
     
-    static var contentInset: UIEdgeInsets = UIEdgeInsets.zero
     var category: RepoCategory = RepoCategory.owned
     var allRepos: [SGRepository] = []
     var nextPage: Int? = 0
@@ -46,13 +45,12 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        if type(of: self).contentInset == UIEdgeInsets.zero {
-            type(of: self).contentInset = tableView.contentInset
-        }
-        else {
-            tableView.contentInset = type(of: self).contentInset
-            tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
-        }
+        
+        let topInset = parent!.topLayoutGuide.length
+        let bottomInset = parent!.bottomLayoutGuide.length
+        let contentInset = UIEdgeInsetsMake(topInset, 0, bottomInset, 0)
+        tableView.contentInset = contentInset
+        tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,6 +60,8 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     //MARK: - UI
     func setupUI() {
+        automaticallyAdjustsScrollViewInsets = false
+        
         let cellNib = UINib(nibName: SGReposTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: SGReposTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
@@ -70,9 +70,10 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
         tableView.sectionIndexBackgroundColor = UIColor.clear
         tableView.sectionIndexColor = UIColor.darkGray
         
-//        let header = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 44))
-//        header.addSubview(searchBar)
-//        tableView.tableHeaderView = header
+        tableView.tableHeaderView = nil
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 44))
+        tableView.tableHeaderView = header
+        header.addSubview(searchBar)
         
         searchBar.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resignSearchBar))
@@ -194,7 +195,9 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     @objc
     func resignSearchBar() {
-        searchBar.resignFirstResponder()
-        tableView.allowsSelection = true
+        if (searchBar.isFirstResponder) {
+            searchBar.resignFirstResponder()
+            tableView.allowsSelection = true
+        }
     }
 }
