@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import MJRefresh
 
 class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +24,7 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     var nextPage: Int? = 0
     var indexTitles: [String] = []
     var reposBySection: [[SGRepository]] = []
+    var tapGesture: UITapGestureRecognizer? = nil
     
     typealias FetchReposCompletionBlock = ([SGRepository]?, Int?, Error?) -> Void
     
@@ -56,7 +58,7 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     }
     
     //MARK: - UI
-    func setupUI() {
+    private func setupUI() {
         automaticallyAdjustsScrollViewInsets = false
         
         let cellNib = UINib(nibName: SGReposTableViewCell.reuseIdentifier, bundle: nil)
@@ -72,9 +74,26 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
         tableView.tableHeaderView = header
         header.addSubview(searchBar)
         
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(resignSearchBar))
+        tapGesture?.isEnabled = false
+        tableView.addGestureRecognizer(tapGesture!)
+        
+        let mjheader = MJRefreshNormalHeader(refreshingBlock: {[weak self] in
+            self?.searchBar.resignFirstResponder()
+            self?.searchBar.text = nil
+            self?.tapGesture?.isEnabled = false
+            self?.nextPage = 0
+            self?.allRepos.removeAll(keepingCapacity: true)
+            self?.fetchAllRepositories()
+        })
+        mjheader?.lastUpdatedTimeLabel.isHidden = true
+        tableView.mj_header = mjheader
+        
         searchBar.delegate = self
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resignSearchBar))
-        tableView.addGestureRecognizer(tapGesture)
+    }
+    
+    private func endRefresh() {
+        tableView.mj_header.endRefreshing()
     }
     
     //MARK: - Fetch All Repos
@@ -88,6 +107,7 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
                 }
                 else {
                     MBProgressHUD.hide(for: self.view, animated: true)
+                    self.endRefresh()
                     self.processDataAndUpdateUI()
                 }
             }
@@ -195,7 +215,7 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     //MARK: - UISearchBarDelegate
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        tableView.allowsSelection = false
+        tapGesture?.isEnabled = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -204,14 +224,14 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        tableView.allowsSelection = true
+        tapGesture?.isEnabled = false
     }
     
     @objc
     func resignSearchBar() {
         if (searchBar.isFirstResponder) {
             searchBar.resignFirstResponder()
-            tableView.allowsSelection = true
+            tapGesture?.isEnabled = false
         }
     }
 }
