@@ -46,10 +46,7 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let topInset = parent!.topLayoutGuide.length
-        let bottomInset = parent!.bottomLayoutGuide.length
-        let contentInset = UIEdgeInsetsMake(topInset, 0, bottomInset, 0)
-        tableView.contentInset = contentInset
+        tableView.contentInset = parent!.contentInset
         tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
     }
     
@@ -109,10 +106,25 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
         }
     }
     
-    func processDataAndUpdateUI() {
+    func processDataAndUpdateUI(searchText: String? = nil) {
         if allRepos.count > 0 {
+            var filteredRepos: [SGRepository] = []
+            if let searchText = searchText, !searchText.isEmpty {
+                filteredRepos = allRepos.filter({ (repository) -> Bool in
+                    let nameContains = repository.name.localizedCaseInsensitiveContains(searchText)
+                    var descContains = false
+                    if let description = repository.repoDescription {
+                        descContains = description.localizedCaseInsensitiveContains(searchText)
+                    }
+                    return nameContains || descContains
+                })
+            }
+            else {
+                filteredRepos = allRepos
+            }
+            
             var tempDict: [String : [SGRepository]] = [:]
-            for repo in allRepos {
+            for repo in filteredRepos {
                 let key = String(repo.name.prefix(1)).uppercased()
                 
                 var reposArray = tempDict[key]
@@ -129,6 +141,8 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
                 return title.uppercased()
             }
             indexTitles.sort()
+            
+            reposBySection.removeAll(keepingCapacity: true)
             for title in indexTitles {
                 reposBySection.append(tempDict[title]!)
             }
@@ -185,7 +199,7 @@ class SGAllReposViewController: SGBaseViewController, UITableViewDataSource, UIT
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        processDataAndUpdateUI(searchText: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
