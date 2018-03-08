@@ -11,13 +11,8 @@ import UIKit
 class SGAboutViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    static let instance = {
-        return SGAboutViewController()
-    }()
-    
     let cellTitles = ["Rate GitBucket", "Source Code", "Author", "Feedback"]
     let headerView: UIView = {
-        
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 114))
         view.autoresizingMask = .flexibleWidth
         view.backgroundColor = UIColor.clear
@@ -44,6 +39,7 @@ class SGAboutViewController: SGBaseViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "About"
         
         tableView.tableHeaderView = headerView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
@@ -77,5 +73,15 @@ class SGAboutViewController: SGBaseViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 2:
+            let profileVC = SGOtherProfileViewController.createInstance()
+            profileVC.userName = "buptwsg"
+            navigationController?.pushViewController(profileVC, animated: true)
+            
+        default:
+            break
+        }
     }
 }

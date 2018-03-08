@@ -10,7 +10,10 @@ import UIKit
 import MessageUI
 
 class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeaderViewDelegate {
-
+    class func createInstance() -> SGOtherProfileViewController {
+        return SGOtherProfileViewController(nibName: "SGBaseProfileViewController", bundle: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,6 +97,10 @@ class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeader
     }
     
     func fetchFollowStatus(_ user: SGUser) {
+        if user.login == AppData.default.user?.login {
+            return
+        }
+        
         SGGithubClient.doesFollowUser(user) { [weak self] result, error in
             guard let strongSelf = self else {return}
             

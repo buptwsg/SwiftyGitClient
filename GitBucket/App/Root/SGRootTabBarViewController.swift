@@ -39,12 +39,11 @@ class SGRootTabBarViewController: WXMiddleButtonTabBarController, WXMiddleButton
         normalImage = UIImage.icon(with: "Repo", color: UIColor.lightGray, size: iconSize)
         self.addChildViewController(reposVC, title: "Repositories", image: normalImage)
         
-        let vc3 = UIViewController()
-        vc3.view.backgroundColor = UIColor.blue
+        let exploreVC = SGExploreViewController()
         normalImage = UIImage.icon(with: "Search", color: UIColor.lightGray, size: iconSize)
-        self.addChildViewController(vc3, title: "Search", image: normalImage)
+        self.addChildViewController(exploreVC, title: "Explore", image: normalImage)
         
-        let profileVC = SGSelfProfileViewController(nibName: "SGBaseProfileViewController", bundle: nil)
+        let profileVC = SGSelfProfileViewController.createInstance()
         normalImage = UIImage.icon(with: "Person", color: UIColor.lightGray, size: iconSize)
         self.addChildViewController(profileVC, title: "Profile", image: normalImage)
     }

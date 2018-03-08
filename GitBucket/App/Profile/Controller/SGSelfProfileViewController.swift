@@ -9,6 +9,9 @@
 import UIKit
 
 class SGSelfProfileViewController: SGBaseProfileViewController {
+    class func createInstance() -> SGSelfProfileViewController {
+        return SGSelfProfileViewController(nibName: "SGBaseProfileViewController", bundle: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -90,7 +90,7 @@ class SGSettingsViewController: SGBaseViewController, UITableViewDataSource, UIT
                 break
                 
             case 1:
-                let aboutVC = SGAboutViewController.instance
+                let aboutVC = SGAboutViewController()
                 navigationController?.pushViewController(aboutVC, animated: true)
                 
             default:

@@ -79,7 +79,7 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let profileVC = SGOtherProfileViewController(nibName: "SGBaseProfileViewController", bundle: nil)
+        let profileVC = SGOtherProfileViewController.createInstance()
         let userForCell = users[indexPath.row]
         profileVC.userName = userForCell.login
         navigationController?.pushViewController(profileVC, animated: true)

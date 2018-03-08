@@ -65,7 +65,7 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
     /**
      利用Basic Authorization来得到OAuth2的token
     */
-    func createAssessTokenByBasicAuthorization(user: String, password: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+    func createAssessTokenByBasicAuthorization(user: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let request = sessionManager.request(SGOAuthRouter.basic(user: user, password: password, clientID: clientID, clientSecret: clientSecret))
         debugPrint(request)
         request.validate().responseJSON{ response in
@@ -103,7 +103,7 @@ class SGGithubOAuth: NSObject, NSCoding, RequestAdapter, RequestRetrier {
     /**
      利用临时的token，去交换OAuth2的token
     */
-    func exchangeAccessToken(code: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+    func exchangeAccessToken(code: String, completion: @escaping (Bool, Error?) -> Void) {
         let request = sessionManager.request(SGOAuthRouter.token(clientID: clientID, clientSecret: clientSecret, code: code))
         debugPrint(request)
         

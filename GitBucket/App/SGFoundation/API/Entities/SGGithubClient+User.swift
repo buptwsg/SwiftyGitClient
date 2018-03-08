@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 extension SGGithubClient {
-    class func fetchUserInfo(completion: @escaping (_ user: SGUser?, _ error: Error?) -> Void) {
+    class func fetchUserInfo(completion: @escaping (SGUser?, Error?) -> Void) {
         sessionManager.request(SGUsersRouter.me).validate().responseObject { (response: DataResponse<SGUser>) in
             switch response.result {
             case .success(let user):
@@ -23,7 +23,7 @@ extension SGGithubClient {
         }
     }
     
-    class func fetchUserInfo(`for` user: String, completion: @escaping (_ user: SGUser?, _ error: Error?) -> Void) {
+    class func fetchUserInfo(`for` user: String, completion: @escaping (SGUser?, Error?) -> Void) {
         sessionManager.request(SGUsersRouter.someone(userName: user)).validate().responseObject { (response: DataResponse<SGUser>) in
             switch response.result {
             case .success(let user):
@@ -39,7 +39,7 @@ extension SGGithubClient {
         
     }
     
-    class func fetchFollowersForUser(_ user: SGUser, page: Int, completion: @escaping (_ users: [SGUser]?, _ nextPage: Int?, _ error: Error?) -> Void) {
+    class func fetchFollowersForUser(_ user: SGUser, page: Int, completion: @escaping ([SGUser]?, Int?, Error?) -> Void) {
         sessionManager.request(SGUsersRouter.followers(login: user.login!, page: page)).validate().responseArray { (response: DataResponse<[SGUser]>) in
             switch response.result {
             case .success(let usersArray):
@@ -52,7 +52,7 @@ extension SGGithubClient {
         }
     }
     
-    class func fetchFollowingsForUser(_ user: SGUser, page: Int, completion: @escaping (_ users: [SGUser]?, _ nextPage: Int?, _ error: Error?) -> Void) {
+    class func fetchFollowingsForUser(_ user: SGUser, page: Int, completion: @escaping ([SGUser]?, Int?, Error?) -> Void) {
         let request = sessionManager.request(SGUsersRouter.followings(login: user.login!, page: page))
         request.responseArray { (response: DataResponse<[SGUser]>) in
             switch response.result {
@@ -66,7 +66,7 @@ extension SGGithubClient {
         }
     }
     
-    class func doesFollowUser(_ user: SGUser, completion: @escaping (_ result: Bool, _ error: Error?) -> Void) {
+    class func doesFollowUser(_ user: SGUser, completion: @escaping (Bool, Error?) -> Void) {
         let request = sessionManager.request(SGUsersRouter.doesFollow(login: user.login!))
         request.validate(statusCode: [204, 404]).responseJSON { response in
             switch response.result {
@@ -80,7 +80,7 @@ extension SGGithubClient {
         }
     }
     
-    class func followUser(_ user: SGUser, completion: @escaping (_ result: Bool, _ error: Error?) -> Void) {
+    class func followUser(_ user: SGUser, completion: @escaping (Bool, Error?) -> Void) {
         let request = sessionManager.request(SGUsersRouter.follow(login: user.login!))
         request.validate(statusCode: [204]).responseJSON { response in
             switch response.result {
@@ -93,7 +93,7 @@ extension SGGithubClient {
         }
     }
     
-    class func unfollowUser(_ user: SGUser, completion: @escaping (_ result: Bool, _ error: Error?) -> Void) {
+    class func unfollowUser(_ user: SGUser, completion: @escaping (Bool, Error?) -> Void) {
         let request = sessionManager.request(SGUsersRouter.unfollow(login: user.login!))
         request.validate(statusCode: [204]).responseJSON { response in
             switch response.result {
