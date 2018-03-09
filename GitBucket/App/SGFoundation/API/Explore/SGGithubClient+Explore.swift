@@ -13,7 +13,7 @@ import AlamofireObjectMapper
 extension SGGithubClient {
     class func fetchShowCases(completion: @escaping ([SGShowCase]?, Error?) -> Void) {
         let request = sessionManager.request(SGExploreRouter.showcases)
-        request.responseArray { (response: DataResponse<[SGShowCase]>) in
+        request.responseArray{ (response: DataResponse<[SGShowCase]>) in
             switch response.result {
             case .success(let showcases):
                 completion(showcases, nil)
@@ -52,7 +52,7 @@ extension SGGithubClient {
     
     class func fetchPopularRepos(language: String, completion: @escaping ([SGRepository]?, Error?) -> Void) {
         let request = sessionManager.request(SGExploreRouter.popularRepos(language: language))
-        request.responseArray { (response: DataResponse<[SGRepository]>) in
+        request.responseArray(keyPath: "items") { (response: DataResponse<[SGRepository]>) in
             switch response.result {
             case .success(let repositories):
                 completion(repositories, nil)
@@ -65,7 +65,7 @@ extension SGGithubClient {
     
     class func fetchPopularUsers(location: String, language: String, completion: @escaping ([SGUser]?, Error?) -> Void) {
         let request = sessionManager.request(SGExploreRouter.popularUsers(location: location, language: language))
-        request.responseArray { (response: DataResponse<[SGUser]>) in
+        request.responseArray(keyPath: "items") { (response: DataResponse<[SGUser]>) in
             switch response.result {
             case .success(let users):
                 completion(users, nil)

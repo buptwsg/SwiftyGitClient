@@ -81,6 +81,10 @@
 		C64CCB47204FFA9F00C2F753 /* SGShowCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CCB46204FFA9F00C2F753 /* SGShowCase.swift */; };
 		C64CCB49204FFC5600C2F753 /* SGGithubClient+Explore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CCB48204FFC5600C2F753 /* SGGithubClient+Explore.swift */; };
 		C654799E20512E6C00A9F306 /* SGExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C654799D20512E6C00A9F306 /* SGExploreViewController.swift */; };
+		C65479A3205156BC00A9F306 /* SGExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65479A1205156BC00A9F306 /* SGExploreCollectionViewCell.xib */; };
+		C65479A4205156BC00A9F306 /* SGExploreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65479A2205156BC00A9F306 /* SGExploreTableViewCell.xib */; };
+		C65479A62051585700A9F306 /* SGExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65479A52051585700A9F306 /* SGExploreTableViewCell.swift */; };
+		C65479A82051587D00A9F306 /* SGExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65479A72051587D00A9F306 /* SGExploreCollectionViewCell.swift */; };
 		C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C695129E2012052A00D1DAB9 /* Main.storyboard */; };
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
@@ -184,6 +188,10 @@
 		C64CCB46204FFA9F00C2F753 /* SGShowCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGShowCase.swift; sourceTree = "<group>"; };
 		C64CCB48204FFC5600C2F753 /* SGGithubClient+Explore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SGGithubClient+Explore.swift"; sourceTree = "<group>"; };
 		C654799D20512E6C00A9F306 /* SGExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGExploreViewController.swift; sourceTree = "<group>"; };
+		C65479A1205156BC00A9F306 /* SGExploreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGExploreCollectionViewCell.xib; sourceTree = "<group>"; };
+		C65479A2205156BC00A9F306 /* SGExploreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SGExploreTableViewCell.xib; sourceTree = "<group>"; };
+		C65479A52051585700A9F306 /* SGExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGExploreTableViewCell.swift; sourceTree = "<group>"; };
+		C65479A72051587D00A9F306 /* SGExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		C69512972012052A00D1DAB9 /* GitBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C695129F2012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C69512A12012052A00D1DAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -499,9 +507,29 @@
 		C654799C20512DC600A9F306 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				C654799D20512E6C00A9F306 /* SGExploreViewController.swift */,
+				C65479A02051558C00A9F306 /* Controller */,
+				C654799F2051558C00A9F306 /* View */,
 			);
 			path = Explore;
+			sourceTree = "<group>";
+		};
+		C654799F2051558C00A9F306 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C65479A72051587D00A9F306 /* SGExploreCollectionViewCell.swift */,
+				C65479A1205156BC00A9F306 /* SGExploreCollectionViewCell.xib */,
+				C65479A52051585700A9F306 /* SGExploreTableViewCell.swift */,
+				C65479A2205156BC00A9F306 /* SGExploreTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C65479A02051558C00A9F306 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C654799D20512E6C00A9F306 /* SGExploreViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C695128E2012052A00D1DAB9 = {
@@ -726,11 +754,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */,
+				C65479A4205156BC00A9F306 /* SGExploreTableViewCell.xib in Resources */,
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
 				B2C8F2EF204C11700014A50D /* SGAllReposViewController.xib in Resources */,
 				C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */,
 				C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */,
 				B2C8F2E5204BA4C40014A50D /* SGRepositoriesViewController.xib in Resources */,
+				C65479A3205156BC00A9F306 /* SGExploreCollectionViewCell.xib in Resources */,
 				93BA31062035D348001FB934 /* SGRepoListViewController.xib in Resources */,
 				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
@@ -827,6 +857,7 @@
 				C607490A202B0C9900625849 /* SGEntity.swift in Sources */,
 				C6A2BADA202D7E8500928E2F /* SGProfileHeaderView.swift in Sources */,
 				C60748DE202AD77400625849 /* SGWatchEvent.swift in Sources */,
+				C65479A62051585700A9F306 /* SGExploreTableViewCell.swift in Sources */,
 				B2C8F2EE204C11700014A50D /* SGAllReposViewController.swift in Sources */,
 				C60748F6202AF00200625849 /* SGCommitCommentEvent.swift in Sources */,
 				C646DEB82021D602001F2E01 /* SGGithubOAuth.swift in Sources */,
@@ -835,6 +866,7 @@
 				C646DE4E20202294001F2E01 /* SGButton.swift in Sources */,
 				C60748DA202AD29F00625849 /* SGForkEvent.swift in Sources */,
 				B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */,
+				C65479A82051587D00A9F306 /* SGExploreCollectionViewCell.swift in Sources */,
 				C60748F2202AEAD800625849 /* SGComment.swift in Sources */,
 				C60748942029868E00625849 /* SGEventsRouter.swift in Sources */,
 				C654799E20512E6C00A9F306 /* SGExploreViewController.swift in Sources */,
