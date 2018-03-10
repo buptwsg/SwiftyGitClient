@@ -22,6 +22,10 @@
 		B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
+		B28164AF205400C300293765 /* Languages.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AC205400C200293765 /* Languages.json */; };
+		B28164B0205400C300293765 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AD205400C200293765 /* Countries.json */; };
+		B28164B1205400C300293765 /* Sinces.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AE205400C300293765 /* Sinces.json */; };
+		B28164B82054074700293765 /* SGExploreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164B72054074700293765 /* SGExploreData.swift */; };
 		B2C8F2E4204BA4C40014A50D /* SGRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */; };
 		B2C8F2E5204BA4C40014A50D /* SGRepositoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C8F2E3204BA4C40014A50D /* SGRepositoriesViewController.xib */; };
 		B2C8F2EB204BEB400014A50D /* SGSegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */; };
@@ -129,6 +133,10 @@
 		B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGSettingsViewController.xib; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
+		B28164AC205400C200293765 /* Languages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Languages.json; sourceTree = "<group>"; };
+		B28164AD205400C200293765 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
+		B28164AE205400C300293765 /* Sinces.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sinces.json; sourceTree = "<group>"; };
+		B28164B72054074700293765 /* SGExploreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGExploreData.swift; sourceTree = "<group>"; };
 		B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepositoriesViewController.swift; sourceTree = "<group>"; };
 		B2C8F2E3204BA4C40014A50D /* SGRepositoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGRepositoriesViewController.xib; sourceTree = "<group>"; };
 		B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSegmentedControlViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +294,25 @@
 				B2F29CC8204E187C000BDFC0 /* UIViewController+ContentInset.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B28164AA205400B400293765 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B28164AB205400B400293765 /* JSON */,
+				B28164B72054074700293765 /* SGExploreData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B28164AB205400B400293765 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B28164AD205400C200293765 /* Countries.json */,
+				B28164AC205400C200293765 /* Languages.json */,
+				B28164AE205400C300293765 /* Sinces.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		C60748992029908000625849 /* Events */ = {
@@ -507,6 +534,7 @@
 		C654799C20512DC600A9F306 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				B28164AA205400B400293765 /* Model */,
 				C65479A02051558C00A9F306 /* Controller */,
 				C654799F2051558C00A9F306 /* View */,
 			);
@@ -754,8 +782,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */,
+				B28164AF205400C300293765 /* Languages.json in Resources */,
+				B28164B1205400C300293765 /* Sinces.json in Resources */,
 				C65479A4205156BC00A9F306 /* SGExploreTableViewCell.xib in Resources */,
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
+				B28164B0205400C300293765 /* Countries.json in Resources */,
 				B2C8F2EF204C11700014A50D /* SGAllReposViewController.xib in Resources */,
 				C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */,
 				C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */,
@@ -911,6 +942,7 @@
 				93BA31142036806A001FB934 /* SGGithubClient+Repositories.swift in Sources */,
 				B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
+				B28164B82054074700293765 /* SGExploreData.swift in Sources */,
 				C6074900202AF19600625849 /* SGPullRequestEvent.swift in Sources */,
 				C60748F8202AF15A00625849 /* SGIssueCommentEvent.swift in Sources */,
 				C6B9A1592017528000AD009D /* WXMiddleButtonTabBar.swift in Sources */,
