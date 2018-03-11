@@ -11,41 +11,44 @@ import MBProgressHUD
 import MJRefresh
 
 class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate {
-
     @IBOutlet weak var tableView: UITableView!
     
     enum UserSource: Int {
         case followers
         case followings
+        case popular
     }
     
-    class func createInstance(forUser user: SGUser, userSourceType source: UserSource) -> SGUserListViewController {
-        let instance = SGUserListViewController()
+    class func createInstance(forUser user: SGUser?, userSourceType source: UserSource, supportPullUpRefresh: Bool = true) -> SGUserListViewController {
+        var instance: SGUserListViewController
+        let nibName = "SGUserListViewController"
+        switch source {
+        case .followings:
+            instance = SGFollowingsViewController(nibName: nibName, bundle: nil)
+            
+        case .followers:
+            instance = SGFollowersViewController(nibName: nibName, bundle: nil)
+            
+        case .popular:
+            instance = SGPopularUsersViewController(nibName: nibName, bundle: nil)
+        }
+        
         instance.user = user
-        instance.source = source
+        instance.pullUpToRefresh = supportPullUpRefresh
         return instance
     }
     
-    var isMyself = false
-    private var user: SGUser? = nil
+    var pullUpToRefresh = true
+    var user: SGUser? = nil
     private var users: [SGUser] = []
-    private var nextPage: Int? = 0
-    private var source: UserSource = .followers
+    var nextPage: Int? = 0
     private var isFetching = false
     
-    private var viewTitle: String {
-        let prefix = isMyself ? "我的" : user!.login! + "的"
-        let suffix = .followers == source ? "粉丝" : "关注"
-        return prefix + suffix
-    }
-    
-    private typealias FetchUsersCompletionBlock = ([SGUser]?, Int?, Error?) -> Void
+    typealias FetchUsersCompletionBlock = ([SGUser]?, Int?, Error?) -> Void
     
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = viewTitle
         setupTableView()
         
         fetchUsers()
@@ -98,28 +101,33 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         mjheader?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = mjheader
         
-        let mjfooter = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
-            self?.fetchUsers()
-        })
-        mjfooter?.isHidden = true
-        tableView.mj_footer = mjfooter
+        if (pullUpToRefresh) {
+            let mjfooter = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
+                self?.fetchUsers()
+            })
+            mjfooter?.isHidden = true
+            tableView.mj_footer = mjfooter
+        }
     }
     
     func endRefresh() {
         tableView.mj_header.endRefreshing()
-        tableView.mj_footer.isHidden = false
         
-        if nil != nextPage {
-            tableView.mj_footer.endRefreshing()
-        }
-        else {
-            tableView.mj_footer.endRefreshingWithNoMoreData()
+        if (pullUpToRefresh) {
+            tableView.mj_footer.isHidden = false
+            
+            if nil != nextPage {
+                tableView.mj_footer.endRefreshing()
+            }
+            else {
+                tableView.mj_footer.endRefreshingWithNoMoreData()
+            }
         }
     }
     
     //MARK: - Data Fetching
     func fetchUsers() {
-        guard let user = user, let nextPage = nextPage else {return}
+        guard let nextPage = nextPage else {return}
         if isFetching {
             return
         }
@@ -148,12 +156,11 @@ class SGUserListViewController: SGBaseViewController, UITableViewDataSource, UIT
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         isFetching = true
-        if .followers == source {
-            SGGithubClient.fetchFollowersForUser(user, page: nextPage, completion: completionBlock)
-        }
-        else {
-            SGGithubClient.fetchFollowingsForUser(user, page: nextPage, completion: completionBlock)
-        }
+        executeRequestWithCompletionBlock(completion: completionBlock)
+    }
+    
+    func executeRequestWithCompletionBlock(completion: @escaping FetchUsersCompletionBlock) {
+        
     }
     
     func fetchFollowStatus(_ user: SGUser, cell: SGUserListTableViewCell) {

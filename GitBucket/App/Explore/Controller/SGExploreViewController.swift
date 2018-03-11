@@ -150,6 +150,9 @@ class SGExploreViewController: SGBaseTableViewController {
     //MARK: - Actions
     @objc
     func seeAllData(button: UIButton) {
-        print("clicked button tag is \(button.tag)")
+        if (2 == button.tag) {
+            let popularUsersVC = SGUserListViewController.createInstance(forUser: nil, userSourceType: .popular, supportPullUpRefresh: false)
+            navigationController?.pushViewController(popularUsersVC, animated: true)
+        }
     }
 }

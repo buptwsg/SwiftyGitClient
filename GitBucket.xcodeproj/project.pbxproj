@@ -26,6 +26,9 @@
 		B28164B0205400C300293765 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AD205400C200293765 /* Countries.json */; };
 		B28164B1205400C300293765 /* Sinces.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AE205400C300293765 /* Sinces.json */; };
 		B28164B82054074700293765 /* SGExploreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164B72054074700293765 /* SGExploreData.swift */; };
+		B28164BA2054B38300293765 /* SGFollowingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164B92054B38300293765 /* SGFollowingsViewController.swift */; };
+		B28164BC2054B39200293765 /* SGFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164BB2054B39200293765 /* SGFollowersViewController.swift */; };
+		B28164BE2054B3A600293765 /* SGPopularUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164BD2054B3A600293765 /* SGPopularUsersViewController.swift */; };
 		B2C8F2E4204BA4C40014A50D /* SGRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */; };
 		B2C8F2E5204BA4C40014A50D /* SGRepositoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C8F2E3204BA4C40014A50D /* SGRepositoriesViewController.xib */; };
 		B2C8F2EB204BEB400014A50D /* SGSegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */; };
@@ -137,6 +140,9 @@
 		B28164AD205400C200293765 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
 		B28164AE205400C300293765 /* Sinces.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sinces.json; sourceTree = "<group>"; };
 		B28164B72054074700293765 /* SGExploreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGExploreData.swift; sourceTree = "<group>"; };
+		B28164B92054B38300293765 /* SGFollowingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFollowingsViewController.swift; sourceTree = "<group>"; };
+		B28164BB2054B39200293765 /* SGFollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFollowersViewController.swift; sourceTree = "<group>"; };
+		B28164BD2054B3A600293765 /* SGPopularUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPopularUsersViewController.swift; sourceTree = "<group>"; };
 		B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepositoriesViewController.swift; sourceTree = "<group>"; };
 		B2C8F2E3204BA4C40014A50D /* SGRepositoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGRepositoriesViewController.xib; sourceTree = "<group>"; };
 		B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSegmentedControlViewController.swift; sourceTree = "<group>"; };
@@ -556,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				C654799D20512E6C00A9F306 /* SGExploreViewController.swift */,
+				B28164BD2054B3A600293765 /* SGPopularUsersViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -614,6 +621,8 @@
 				C6A2BAEB202FFA2600928E2F /* SGAboutViewController.xib */,
 				C6A2BAF8203049C900928E2F /* SGUserListViewController.swift */,
 				C6A2BAF9203049C900928E2F /* SGUserListViewController.xib */,
+				B28164B92054B38300293765 /* SGFollowingsViewController.swift */,
+				B28164BB2054B39200293765 /* SGFollowersViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -887,6 +896,7 @@
 			files = (
 				C607490A202B0C9900625849 /* SGEntity.swift in Sources */,
 				C6A2BADA202D7E8500928E2F /* SGProfileHeaderView.swift in Sources */,
+				B28164BC2054B39200293765 /* SGFollowersViewController.swift in Sources */,
 				C60748DE202AD77400625849 /* SGWatchEvent.swift in Sources */,
 				C65479A62051585700A9F306 /* SGExploreTableViewCell.swift in Sources */,
 				B2C8F2EE204C11700014A50D /* SGAllReposViewController.swift in Sources */,
@@ -932,6 +942,7 @@
 				C60748A8202993FF00625849 /* SGNewsCell.swift in Sources */,
 				C6074904202AF25800625849 /* SGIssueComment.swift in Sources */,
 				93BA31002035CEE7001FB934 /* SGReposTableViewCell.swift in Sources */,
+				B28164BA2054B38300293765 /* SGFollowingsViewController.swift in Sources */,
 				933DD500203D99A700BAC515 /* NSDate+Distance.swift in Sources */,
 				C607492F202C010C00625849 /* SGUser.swift in Sources */,
 				C6074931202C01FB00625849 /* SGUsersRouter.swift in Sources */,
@@ -940,6 +951,7 @@
 				C60748D5202AAF8900625849 /* SGEvent.swift in Sources */,
 				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
 				93BA31142036806A001FB934 /* SGGithubClient+Repositories.swift in Sources */,
+				B28164BE2054B3A600293765 /* SGPopularUsersViewController.swift in Sources */,
 				B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
 				B28164B82054074700293765 /* SGExploreData.swift in Sources */,

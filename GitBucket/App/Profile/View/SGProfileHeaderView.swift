@@ -102,7 +102,6 @@ class SGProfileHeaderView: UIView {
     //MARK: - Actions
     @IBAction func viewFollowers(_ sender: Any) {
         let userListVC = SGUserListViewController.createInstance(forUser: user!, userSourceType: .followers)
-        userListVC.isMyself = isMyself
         self.viewController?.navigationController?.pushViewController(userListVC, animated: true)
     }
     
@@ -113,7 +112,6 @@ class SGProfileHeaderView: UIView {
     
     @IBAction func viewFollowings(_ sender: Any) {
         let userListVC = SGUserListViewController.createInstance(forUser: user!, userSourceType: .followings)
-        userListVC.isMyself = isMyself
         self.viewController?.navigationController?.pushViewController(userListVC, animated: true)
     }
     
