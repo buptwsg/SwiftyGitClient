@@ -1,5 +1,5 @@
 //
-//  SGLanguagePickerViewController.swift
+//  SGPickerViewController.swift
 //  GitBucket
 //
 //  Created by Shuguang Wang on 2018/3/11.
@@ -8,28 +8,37 @@
 
 import UIKit
 
-class SGLanguagePickerViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate {
-    
+protocol SGPickerDelegate: NSObjectProtocol {
+    func picker(_ picker: SGPickerViewController, didPickExploreData data: SGExploreData)
+}
+
+class SGPickerViewController: SGBaseViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    private var allLanguages: [SGExploreData] = []
+    
+    weak var delegate: SGPickerDelegate? = nil
+    var resource: String = ""
+    var navTitle: String = ""
+    var selectedData: SGExploreData? = nil
+    
+    private var allData: [SGExploreData] = []
     private var sectionIndexTitles: [String] = []
-    private var languagesBySection: [[SGExploreData]] = []
+    private var dataBySection: [[SGExploreData]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
-        title = "Language"
+        title = segmentedTitle
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: SGStyleDefaultReuseIdentifier)
         
-        allLanguages = exploreDataFromResouce("Languages")
-        for data in allLanguages {
+        allData = exploreDataFromResouce(resource)
+        for data in allData {
             let indexString = data.name.prefix(1).uppercased()
             if sectionIndexTitles.isEmpty || indexString != sectionIndexTitles.last {
                 sectionIndexTitles.append(indexString)
-                languagesBySection.append([data])
+                dataBySection.append([data])
             }
             else {
-                languagesBySection[languagesBySection.count - 1].append(data)
+                dataBySection[dataBySection.count - 1].append(data)
             }
         }
     }
@@ -43,20 +52,27 @@ class SGLanguagePickerViewController: SGBaseViewController, UITableViewDataSourc
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return languagesBySection.count
+        return dataBySection.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languagesBySection[section].count
+        return dataBySection[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SGStyleDefaultReuseIdentifier, for: indexPath)
-        cell.textLabel?.text = languagesBySection[indexPath.section][indexPath.row].name
+        cell.textLabel?.text = dataBySection[indexPath.section][indexPath.row].name
+        if (cell.textLabel?.text == selectedData?.name) {
+            cell.accessoryType = .checkmark
+        }
+        else {
+            cell.accessoryType = .none
+        }
         return cell
     }
     
@@ -73,4 +89,14 @@ class SGLanguagePickerViewController: SGBaseViewController, UITableViewDataSourc
     }
     
     //MARK: - Table view delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let data = dataBySection[indexPath.section][indexPath.row]
+        selectedData = data
+        if nil != self.delegate {
+            self.delegate?.picker(self, didPickExploreData: data)
+        }
+        tableView.reloadData()
+    }
 }

@@ -9,9 +9,14 @@
 import Foundation
 import ObjectMapper
 
-class SGExploreData: ImmutableMappable, CustomStringConvertible {
+class SGExploreData: ImmutableMappable, CustomStringConvertible, Equatable {
     let name: String
     let slug: String
+    
+    init(name: String, slug: String) {
+        self.name = name
+        self.slug = slug
+    }
     
     ///JSON -> Model
     required init(map: Map) throws {
@@ -21,10 +26,20 @@ class SGExploreData: ImmutableMappable, CustomStringConvertible {
     
     ///Model -> JSON
     func mapping(map: Map) {
+        name >>> map["name"]
+        slug >>> map["slug"]
     }
     
     var description: String {
         return "{name=\(name), slug=\(slug)}"
+    }
+    
+    static func == (lhs: SGExploreData, rhs: SGExploreData) -> Bool {
+        return lhs.name == rhs.name && lhs.slug == rhs.slug
+    }
+    
+    static func != (lhs: SGExploreData, rhs: SGExploreData) -> Bool {
+        return !(lhs == rhs)
     }
 }
 

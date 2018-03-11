@@ -9,13 +9,34 @@
 import UIKit
 
 class SGPopularUsersViewController: SGUserListViewController {
-
+    var country: String {
+        return AppData.default.countryDataOfPopularUsers!.name
+    }
+    
+    var countrySlug: String {
+        return AppData.default.countryDataOfPopularUsers!.slug
+    }
+    
+    var language: String {
+        return AppData.default.languageDataOfPopularUsers!.name
+    }
+    
+    var languageSlug: String {
+        return AppData.default.languageDataOfPopularUsers!.slug
+    }
+    
+    var titleText: String {
+        return "\(country)\n\(language)"
+    }
+    
+    private var searchQueryChanged = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "All Countries\nAll Languages"
+        label.text = titleText
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 14)
         label.textAlignment = .center
@@ -30,13 +51,24 @@ class SGPopularUsersViewController: SGUserListViewController {
         navigationItem.rightBarButtonItems = [fixedSpace, settingButton]
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if searchQueryChanged {
+            searchQueryChanged = false
+            if let label = navigationItem.titleView as? UILabel {
+                label.text = titleText
+                label.sizeToFit()
+            }
+            tableView.mj_header.beginRefreshing()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func executeRequestWithCompletionBlock(completion: @escaping ([SGUser]?, Int?, Error?) -> Void) {
-        SGGithubClient.fetchPopularUsers(location: "", language: "") { (users, error) in
+        SGGithubClient.fetchPopularUsers(location: countrySlug, language: languageSlug) { (users, error) in
             completion(users, nil, error)
         }
     }
@@ -44,6 +76,9 @@ class SGPopularUsersViewController: SGUserListViewController {
     @objc
     func tapSettingButton() {
         let countryAndLanguagePicker = SGCountryAndLanguagePicker()
+        countryAndLanguagePicker.notifyChangeBlock = {
+            self.searchQueryChanged = true
+        }
         navigationController?.pushViewController(countryAndLanguagePicker, animated: true)
     }
 }

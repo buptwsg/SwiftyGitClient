@@ -29,11 +29,9 @@
 		B28164BA2054B38300293765 /* SGFollowingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164B92054B38300293765 /* SGFollowingsViewController.swift */; };
 		B28164BC2054B39200293765 /* SGFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164BB2054B39200293765 /* SGFollowersViewController.swift */; };
 		B28164BE2054B3A600293765 /* SGPopularUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164BD2054B3A600293765 /* SGPopularUsersViewController.swift */; };
-		B28164C02054ECBA00293765 /* SGCountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164BF2054ECBA00293765 /* SGCountryPickerViewController.swift */; };
-		B28164C62054ED2D00293765 /* SGLanguagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164C52054ED2D00293765 /* SGLanguagePickerViewController.swift */; };
+		B28164C02054ECBA00293765 /* SGPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164BF2054ECBA00293765 /* SGPickerViewController.swift */; };
 		B28164C82054EF1500293765 /* SGCountryAndLanguagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28164C72054EF1500293765 /* SGCountryAndLanguagePicker.swift */; };
-		B28164CA2054FF2500293765 /* SGCountryPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28164C92054FF2500293765 /* SGCountryPickerViewController.xib */; };
-		B28164CC2054FF9B00293765 /* SGLanguagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28164CB2054FF9B00293765 /* SGLanguagePickerViewController.xib */; };
+		B28164CA2054FF2500293765 /* SGPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28164C92054FF2500293765 /* SGPickerViewController.xib */; };
 		B2C8F2E4204BA4C40014A50D /* SGRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */; };
 		B2C8F2EB204BEB400014A50D /* SGSegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */; };
 		B2C8F2EE204C11700014A50D /* SGAllReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8F2EC204C11700014A50D /* SGAllReposViewController.swift */; };
@@ -147,11 +145,9 @@
 		B28164B92054B38300293765 /* SGFollowingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFollowingsViewController.swift; sourceTree = "<group>"; };
 		B28164BB2054B39200293765 /* SGFollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGFollowersViewController.swift; sourceTree = "<group>"; };
 		B28164BD2054B3A600293765 /* SGPopularUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPopularUsersViewController.swift; sourceTree = "<group>"; };
-		B28164BF2054ECBA00293765 /* SGCountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCountryPickerViewController.swift; sourceTree = "<group>"; };
-		B28164C52054ED2D00293765 /* SGLanguagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGLanguagePickerViewController.swift; sourceTree = "<group>"; };
+		B28164BF2054ECBA00293765 /* SGPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPickerViewController.swift; sourceTree = "<group>"; };
 		B28164C72054EF1500293765 /* SGCountryAndLanguagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCountryAndLanguagePicker.swift; sourceTree = "<group>"; };
-		B28164C92054FF2500293765 /* SGCountryPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGCountryPickerViewController.xib; sourceTree = "<group>"; };
-		B28164CB2054FF9B00293765 /* SGLanguagePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGLanguagePickerViewController.xib; sourceTree = "<group>"; };
+		B28164C92054FF2500293765 /* SGPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGPickerViewController.xib; sourceTree = "<group>"; };
 		B2C8F2E2204BA4C40014A50D /* SGRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRepositoriesViewController.swift; sourceTree = "<group>"; };
 		B2C8F2EA204BEB400014A50D /* SGSegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSegmentedControlViewController.swift; sourceTree = "<group>"; };
 		B2C8F2EC204C11700014A50D /* SGAllReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGAllReposViewController.swift; sourceTree = "<group>"; };
@@ -570,10 +566,8 @@
 			children = (
 				C654799D20512E6C00A9F306 /* SGExploreViewController.swift */,
 				B28164BD2054B3A600293765 /* SGPopularUsersViewController.swift */,
-				B28164BF2054ECBA00293765 /* SGCountryPickerViewController.swift */,
-				B28164C92054FF2500293765 /* SGCountryPickerViewController.xib */,
-				B28164C52054ED2D00293765 /* SGLanguagePickerViewController.swift */,
-				B28164CB2054FF9B00293765 /* SGLanguagePickerViewController.xib */,
+				B28164BF2054ECBA00293765 /* SGPickerViewController.swift */,
+				B28164C92054FF2500293765 /* SGPickerViewController.xib */,
 				B28164C72054EF1500293765 /* SGCountryAndLanguagePicker.swift */,
 			);
 			path = Controller;
@@ -805,7 +799,6 @@
 				C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */,
 				B28164AF205400C300293765 /* Languages.json in Resources */,
 				B28164B1205400C300293765 /* Sinces.json in Resources */,
-				B28164CC2054FF9B00293765 /* SGLanguagePickerViewController.xib in Resources */,
 				C65479A4205156BC00A9F306 /* SGExploreTableViewCell.xib in Resources */,
 				C60748A9202993FF00625849 /* SGNewsCell.xib in Resources */,
 				B28164B0205400C300293765 /* Countries.json in Resources */,
@@ -818,7 +811,7 @@
 				C646DE28201F3A56001F2E01 /* SGLoginViewController.xib in Resources */,
 				C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */,
 				C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */,
-				B28164CA2054FF2500293765 /* SGCountryPickerViewController.xib in Resources */,
+				B28164CA2054FF2500293765 /* SGPickerViewController.xib in Resources */,
 				C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */,
 				C6A2BADC202D7E9600928E2F /* SGProfileHeaderView.xib in Resources */,
 				C6A2BAF120303A5E00928E2F /* SGUserListTableViewCell.xib in Resources */,
@@ -927,7 +920,6 @@
 				C654799E20512E6C00A9F306 /* SGExploreViewController.swift in Sources */,
 				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
 				B2C8F2EB204BEB400014A50D /* SGSegmentedControlViewController.swift in Sources */,
-				B28164C62054ED2D00293765 /* SGLanguagePickerViewController.swift in Sources */,
 				C6A2BAFA203049C900928E2F /* SGUserListViewController.swift in Sources */,
 				B2F29CC9204E187C000BDFC0 /* UIViewController+ContentInset.swift in Sources */,
 				B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */,
@@ -942,7 +934,7 @@
 				C6B9A15B201752BF00AD009D /* WXMiddleButtonTabBarController.swift in Sources */,
 				C60748E0202AD86D00625849 /* SGPushEvent.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
-				B28164C02054ECBA00293765 /* SGCountryPickerViewController.swift in Sources */,
+				B28164C02054ECBA00293765 /* SGPickerViewController.swift in Sources */,
 				C64CCB49204FFC5600C2F753 /* SGGithubClient+Explore.swift in Sources */,
 				93BA31052035D348001FB934 /* SGRepoListViewController.swift in Sources */,
 				C6B9A15D2017530C00AD009D /* WXNavigationController.swift in Sources */,

@@ -7,17 +7,33 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class AppData: NSObject, NSCoding {
+class AppData: Mappable {
     var user: SGUser? = nil
+    var countryDataOfPopularUsers: SGExploreData? = nil
+    var languageDataOfPopularUsers: SGExploreData? = nil
+    var languageDataOfPopularRepos: SGExploreData? = nil
+    var languageDataOfTrendingRepos: SGExploreData? = nil
+    
+    private static let archivePath: String = {
+        let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        return docURL.appendingPathComponent("appdata.bin").path
+    }()
     
     static let `default`: AppData = {
         let path = archivePath
         if FileManager.default.fileExists(atPath: path) {
-            if let savedAppData = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? AppData {
-                return savedAppData
+            do {
+                let jsonString = try String(contentsOfFile: path)
+                if let instance = AppData(JSONString: jsonString) {
+                    return instance
+                }
+                else {
+                    return AppData()
+                }
             }
-            else {
+            catch {
                 return AppData()
             }
         }
@@ -26,35 +42,36 @@ class AppData: NSObject, NSCoding {
         }
     }()
     
-    override init() {
+    init() {
+        countryDataOfPopularUsers = SGExploreData(name: "All Countries", slug: "")
+        languageDataOfPopularUsers = SGExploreData(name: "All Languages", slug: "")
+        languageDataOfPopularRepos = SGExploreData(name: "All Languages", slug: "")
+        languageDataOfTrendingRepos = SGExploreData(name: "All Languages", slug: "")
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        user <- map["user"]
+        countryDataOfPopularUsers <- map["countryDataOfPopularUsers"]
+        languageDataOfPopularUsers <- map["languageDataOfPopularUsers"]
+        languageDataOfPopularRepos <- map["languageDataOfPopularRepos"]
+        languageDataOfTrendingRepos <- map["languageDataOfTrendingRepos"]
     }
     
     func save() {
         let path = type(of: self).archivePath
-        let result = NSKeyedArchiver.archiveRootObject(self, toFile: path)
-        if !result {
-            print("archive appdata failed")
+        let jsonString = self.toJSONString(prettyPrint: true)
+        do {
+            try jsonString?.write(toFile: path, atomically: true, encoding: .utf8)
+        }
+        catch (let error) {
+            print("save app data error: \(error.localizedDescription)")
         }
     }
     
     func isLoggedUser(_ anotherEntity: SGEntity) -> Bool {
         return user?.login == anotherEntity.login
-    }
-    
-    //MARK: - NSCoding
-    private static let archivePath: String = {
-        let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        return docURL.appendingPathComponent("appdata.bin").path
-    }()
-    
-    required init?(coder aDecoder: NSCoder) {
-        if let userJSON = aDecoder.decodeObject(forKey: "user") as? String {
-            user = SGUser(JSONString: userJSON)
-        }
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        let json = self.user?.toJSONString(prettyPrint: true)
-        aCoder.encode(json, forKey: "user")
     }
 }

@@ -8,8 +8,13 @@
 
 import UIKit
 
-class SGCountryAndLanguagePicker: SGSegmentedControlViewController {
-
+class SGCountryAndLanguagePicker: SGSegmentedControlViewController, SGPickerDelegate {
+    var languagePicker: SGPickerViewController? = nil
+    var countryPicker: SGPickerViewController? = nil
+    var originCountryData: SGExploreData? = nil
+    var originLanguageData: SGExploreData? = nil
+    var notifyChangeBlock: (() -> Void)? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,14 +25,47 @@ class SGCountryAndLanguagePicker: SGSegmentedControlViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func tapBackButton(_ button: UIButton) {
+        if originLanguageData != AppData.default.languageDataOfPopularUsers || originCountryData != AppData.default.countryDataOfPopularUsers {
+            AppData.default.save()
+            if nil != notifyChangeBlock {
+                notifyChangeBlock?()
+            }
+        }
+        
+        super.tapBackButton(button)
+    }
+    
     func setupUI() {
         automaticallyAdjustsScrollViewInsets = false
+        originCountryData = AppData.default.countryDataOfPopularUsers
+        originLanguageData = AppData.default.languageDataOfPopularUsers
         
-        let languagePicker = SGLanguagePickerViewController()
-        languagePicker.segmentedTitle = "Language"
-        let countryPicker = SGCountryPickerViewController()
-        countryPicker.segmentedTitle = "Country"
-        self.viewControllers = [countryPicker, languagePicker]
+        languagePicker = SGPickerViewController()
+        languagePicker?.segmentedTitle = "Language"
+        languagePicker?.resource = "Languages"
+        languagePicker?.delegate = self
+        languagePicker?.selectedData = originLanguageData
+        
+        countryPicker = SGPickerViewController()
+        countryPicker?.segmentedTitle = "Country"
+        countryPicker?.resource = "Countries"
+        countryPicker?.delegate = self
+        countryPicker?.selectedData = originCountryData
+        
+        self.viewControllers = [countryPicker!, languagePicker!]
+    }
+    
+    func picker(_ picker: SGPickerViewController, didPickExploreData data: SGExploreData) {
+        if picker == languagePicker {
+            AppData.default.languageDataOfPopularUsers = data
+        }
+        else if picker == countryPicker {
+            AppData.default.countryDataOfPopularUsers = data
+        }
+        else {
+            
+        }
     }
 }
