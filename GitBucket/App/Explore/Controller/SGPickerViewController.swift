@@ -17,8 +17,8 @@ class SGPickerViewController: SGBaseViewController, UITableViewDataSource, UITab
     
     weak var delegate: SGPickerDelegate? = nil
     var resource: String = ""
-    var navTitle: String = ""
     var selectedData: SGExploreData? = nil
+    var manualAdjustInset = true
     
     private var allData: [SGExploreData] = []
     private var sectionIndexTitles: [String] = []
@@ -26,7 +26,11 @@ class SGPickerViewController: SGBaseViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
+        
+        if manualAdjustInset {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        
         title = segmentedTitle
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: SGStyleDefaultReuseIdentifier)
         
@@ -46,8 +50,10 @@ class SGPickerViewController: SGBaseViewController, UITableViewDataSource, UITab
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        tableView.contentInset = parent!.contentInset
-        tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
+        if manualAdjustInset {
+            tableView.contentInset = parent!.contentInset
+            tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
+        }
     }
     
     override func didReceiveMemoryWarning() {

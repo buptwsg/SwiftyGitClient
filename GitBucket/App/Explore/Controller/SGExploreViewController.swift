@@ -154,5 +154,12 @@ class SGExploreViewController: SGBaseTableViewController {
             let popularUsersVC = SGUserListViewController.createInstance(forUser: nil, userSourceType: .popular, supportPullUpRefresh: false)
             navigationController?.pushViewController(popularUsersVC, animated: true)
         }
+        else if (1 == button.tag) {
+            let popularReposVC = SGRepoListViewController.createInstance(for: nil, category: .popular)
+            navigationController?.pushViewController(popularReposVC, animated: true)
+        }
+        else {
+            
+        }
     }
 }

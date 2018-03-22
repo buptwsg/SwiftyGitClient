@@ -17,12 +17,14 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
     enum RepoCategory: Int {
         case owned
         case starred
+        case popular
     }
     
     var entity: SGEntity?
     var reposArray = [SGRepository]()
     var nextPage: Int? = 0
     var isFetching = false
+    var pullUpToRefresh = true
     typealias FetchReposCompletionBlock = ([SGRepository]?, Int?, Error?) -> Void
     
     //MARK: - Life cycle
@@ -41,15 +43,20 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
     }
     
     //MARK: - Public
-    class func createInstance(`for` entity: SGEntity, category: RepoCategory) -> SGRepoListViewController{
+    class func createInstance(`for` entity: SGEntity?, category: RepoCategory, supportPullUpRefresh: Bool = true) -> SGRepoListViewController{
         var controller: SGRepoListViewController
+        let nibName = "SGRepoListViewController"
         if RepoCategory.starred == category {
-            controller = SGStarredReposViewController(nibName: "SGRepoListViewController", bundle: nil)
+            controller = SGStarredReposViewController(nibName: nibName, bundle: nil)
+        }
+        else if RepoCategory.owned == category {
+            controller = SGOwnedReposViewController(nibName: nibName, bundle: nil)
         }
         else {
-            controller = SGOwnedReposViewController(nibName: "SGRepoListViewController", bundle: nil)
+            controller = SGPopularReposViewController(nibName: nibName, bundle: nil)
         }
         controller.entity = entity
+        controller.pullUpToRefresh = supportPullUpRefresh
         return controller
     }
     
@@ -62,7 +69,7 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
     }
     
     private func fetchRepositories() {
-        guard let _ = entity, let nextPage = nextPage else {return}
+        guard let nextPage = nextPage else {return}
         
         if isFetching {
             return
@@ -129,21 +136,26 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
         mjheader?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = mjheader
         
-        let mjfooter = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
-            self?.fetchRepositories()
-        })
-        mjfooter?.isHidden = true
-        tableView.mj_footer = mjfooter
+        if pullUpToRefresh {
+            let mjfooter = MJRefreshAutoNormalFooter(refreshingBlock: {[weak self] in
+                self?.fetchRepositories()
+            })
+            mjfooter?.isHidden = true
+            tableView.mj_footer = mjfooter
+        }
     }
     
     func endRefresh() {
         tableView.mj_header.endRefreshing()
-        tableView.mj_footer.isHidden = false
-        if nil != nextPage {
-            tableView.mj_footer.endRefreshing()
-        }
-        else {
-            tableView.mj_footer.endRefreshingWithNoMoreData()
+        
+        if pullUpToRefresh {
+            tableView.mj_footer.isHidden = false
+            if nil != nextPage {
+                tableView.mj_footer.endRefreshing()
+            }
+            else {
+                tableView.mj_footer.endRefreshingWithNoMoreData()
+            }
         }
     }
 }

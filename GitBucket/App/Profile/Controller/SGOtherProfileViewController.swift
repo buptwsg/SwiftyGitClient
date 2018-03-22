@@ -72,7 +72,7 @@ class SGOtherProfileViewController: SGBaseProfileViewController, SGProfileHeader
         let cellData = cellDatas[indexPath.section][indexPath.row]
         switch cellData.id {
         case .stars:
-            let reposVC = SGRepoListViewController.createInstance(for: self.user!, category: .starred)
+            let reposVC = SGRepoListViewController.createInstance(for: self.user, category: .starred)
             self.navigationController?.pushViewController(reposVC, animated: true)
             break
             

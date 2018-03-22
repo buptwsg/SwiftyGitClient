@@ -106,7 +106,7 @@ class SGProfileHeaderView: UIView {
     }
     
     @IBAction func viewRepos(_ sender: Any) {
-        let reposVC = SGRepoListViewController.createInstance(for: self.user!, category: .owned)
+        let reposVC = SGRepoListViewController.createInstance(for: self.user, category: .owned)
         self.viewController?.navigationController?.pushViewController(reposVC, animated: true)
     }
     

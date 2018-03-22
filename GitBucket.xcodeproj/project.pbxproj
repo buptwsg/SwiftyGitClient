@@ -97,6 +97,7 @@
 		C69512A02012052A00D1DAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C695129E2012052A00D1DAB9 /* Main.storyboard */; };
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
+		C6979A6C206395EE00430F00 /* SGPopularReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6979A6B206395EE00430F00 /* SGPopularReposViewController.swift */; };
 		C6A2BACC202C314B00928E2F /* SGBaseProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BACA202C314B00928E2F /* SGBaseProfileViewController.swift */; };
 		C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */; };
 		C6A2BACF202C316A00928E2F /* SGSelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */; };
@@ -215,6 +216,7 @@
 		C69512A12012052A00D1DAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C69512A42012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C69512A62012052A00D1DAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6979A6B206395EE00430F00 /* SGPopularReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPopularReposViewController.swift; sourceTree = "<group>"; };
 		C6A2BACA202C314B00928E2F /* SGBaseProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBaseProfileViewController.swift; sourceTree = "<group>"; };
 		C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGBaseProfileViewController.xib; sourceTree = "<group>"; };
 		C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSelfProfileViewController.swift; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				B28164BF2054ECBA00293765 /* SGPickerViewController.swift */,
 				B28164C92054FF2500293765 /* SGPickerViewController.xib */,
 				B28164C72054EF1500293765 /* SGCountryAndLanguagePicker.swift */,
+				C6979A6B206395EE00430F00 /* SGPopularReposViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				C6B9A15720174AB700AD009D /* AppDelegate.swift in Sources */,
 				C60748D8202ACC5A00625849 /* SGDateStringTransform.swift in Sources */,
 				C64CCB47204FFA9F00C2F753 /* SGShowCase.swift in Sources */,
+				C6979A6C206395EE00430F00 /* SGPopularReposViewController.swift in Sources */,
 				C6A2BAD5202D501B00928E2F /* SGFontIcon.swift in Sources */,
 				C6A2BACF202C316A00928E2F /* SGSelfProfileViewController.swift in Sources */,
 				C64CCB42204FD1A800C2F753 /* SGExploreRouter.swift in Sources */,
