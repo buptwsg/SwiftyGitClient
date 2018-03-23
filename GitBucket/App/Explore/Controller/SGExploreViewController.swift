@@ -159,7 +159,8 @@ class SGExploreViewController: SGBaseTableViewController {
             navigationController?.pushViewController(popularReposVC, animated: true)
         }
         else {
-            
+            let trendingReposVC = SGTrendingReposViewController()
+            navigationController?.pushViewController(trendingReposVC, animated: true)
         }
     }
 }

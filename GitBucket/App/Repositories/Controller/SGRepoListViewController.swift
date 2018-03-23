@@ -18,6 +18,7 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
         case owned
         case starred
         case popular
+        case trending
     }
     
     var entity: SGEntity?
@@ -52,9 +53,13 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
         else if RepoCategory.owned == category {
             controller = SGOwnedReposViewController(nibName: nibName, bundle: nil)
         }
-        else {
+        else if RepoCategory.popular == category {
             controller = SGPopularReposViewController(nibName: nibName, bundle: nil)
         }
+        else {
+            controller = SGTimedTrendingsViewController(nibName: nibName, bundle: nil)
+        }
+        
         controller.entity = entity
         controller.pullUpToRefresh = supportPullUpRefresh
         return controller

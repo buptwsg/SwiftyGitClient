@@ -98,6 +98,9 @@
 		C69512A22012052A00D1DAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69512A12012052A00D1DAB9 /* Assets.xcassets */; };
 		C69512A52012052A00D1DAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69512A32012052A00D1DAB9 /* LaunchScreen.storyboard */; };
 		C6979A6C206395EE00430F00 /* SGPopularReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6979A6B206395EE00430F00 /* SGPopularReposViewController.swift */; };
+		C6979A702063CB0B00430F00 /* SGTimedTrendingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6979A6F2063CB0B00430F00 /* SGTimedTrendingsViewController.swift */; };
+		C6979A732063CC9200430F00 /* SGTrendingReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6979A712063CC9200430F00 /* SGTrendingReposViewController.swift */; };
+		C6979A742063CC9200430F00 /* SGTrendingReposViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6979A722063CC9200430F00 /* SGTrendingReposViewController.xib */; };
 		C6A2BACC202C314B00928E2F /* SGBaseProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BACA202C314B00928E2F /* SGBaseProfileViewController.swift */; };
 		C6A2BACD202C314B00928E2F /* SGBaseProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */; };
 		C6A2BACF202C316A00928E2F /* SGSelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */; };
@@ -217,6 +220,9 @@
 		C69512A42012052A00D1DAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C69512A62012052A00D1DAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6979A6B206395EE00430F00 /* SGPopularReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPopularReposViewController.swift; sourceTree = "<group>"; };
+		C6979A6F2063CB0B00430F00 /* SGTimedTrendingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTimedTrendingsViewController.swift; sourceTree = "<group>"; };
+		C6979A712063CC9200430F00 /* SGTrendingReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTrendingReposViewController.swift; sourceTree = "<group>"; };
+		C6979A722063CC9200430F00 /* SGTrendingReposViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGTrendingReposViewController.xib; sourceTree = "<group>"; };
 		C6A2BACA202C314B00928E2F /* SGBaseProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBaseProfileViewController.swift; sourceTree = "<group>"; };
 		C6A2BACB202C314B00928E2F /* SGBaseProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGBaseProfileViewController.xib; sourceTree = "<group>"; };
 		C6A2BACE202C316A00928E2F /* SGSelfProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSelfProfileViewController.swift; sourceTree = "<group>"; };
@@ -572,6 +578,9 @@
 				B28164C92054FF2500293765 /* SGPickerViewController.xib */,
 				B28164C72054EF1500293765 /* SGCountryAndLanguagePicker.swift */,
 				C6979A6B206395EE00430F00 /* SGPopularReposViewController.swift */,
+				C6979A6F2063CB0B00430F00 /* SGTimedTrendingsViewController.swift */,
+				C6979A712063CC9200430F00 /* SGTrendingReposViewController.swift */,
+				C6979A722063CC9200430F00 /* SGTrendingReposViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -808,6 +817,7 @@
 				B2C8F2EF204C11700014A50D /* SGAllReposViewController.xib in Resources */,
 				C6A2BAD8202D744200928E2F /* octicons.ttf in Resources */,
 				C6A2BAFB203049C900928E2F /* SGUserListViewController.xib in Resources */,
+				C6979A742063CC9200430F00 /* SGTrendingReposViewController.xib in Resources */,
 				C65479A3205156BC00A9F306 /* SGExploreCollectionViewCell.xib in Resources */,
 				93BA31062035D348001FB934 /* SGRepoListViewController.xib in Resources */,
 				C60748A12029924100625849 /* SGNewsViewController.xib in Resources */,
@@ -922,6 +932,7 @@
 				C60748942029868E00625849 /* SGEventsRouter.swift in Sources */,
 				C654799E20512E6C00A9F306 /* SGExploreViewController.swift in Sources */,
 				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
+				C6979A702063CB0B00430F00 /* SGTimedTrendingsViewController.swift in Sources */,
 				B2C8F2EB204BEB400014A50D /* SGSegmentedControlViewController.swift in Sources */,
 				C6A2BAFA203049C900928E2F /* SGUserListViewController.swift in Sources */,
 				B2F29CC9204E187C000BDFC0 /* UIViewController+ContentInset.swift in Sources */,
@@ -973,6 +984,7 @@
 				C6A2BADE202D854B00928E2F /* SGFollowButton.swift in Sources */,
 				C646DE502020253E001F2E01 /* UIImage+Extensions.swift in Sources */,
 				C6A2BAF720303B5B00928E2F /* SGUserListTableViewCell.swift in Sources */,
+				C6979A732063CC9200430F00 /* SGTrendingReposViewController.swift in Sources */,
 				C6074908202B0B0F00625849 /* SGPlan.swift in Sources */,
 				C646DE3D201F3D6C001F2E01 /* AppData.swift in Sources */,
 				B2F29CC7204E0B94000BDFC0 /* SGBaseTableViewController.swift in Sources */,
