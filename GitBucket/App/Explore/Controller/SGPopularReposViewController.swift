@@ -17,9 +17,6 @@ class SGPopularReposViewController: SGRepoListViewController, SGPickerDelegate {
         return AppData.default.languageDataOfPopularRepos!.slug
     }
     
-    private let originLanguageData = AppData.default.languageDataOfPopularRepos
-    private var searchQueryChanged = false
-    
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,13 +55,15 @@ class SGPopularReposViewController: SGRepoListViewController, SGPickerDelegate {
     }
     
     //MARK: - Actions
+    private var searchQueryChanged = false
+    
     @objc
     func tapSettingButton() {
         let languagePicker = SGPickerViewController()
         languagePicker.segmentedTitle = "Language"
         languagePicker.resource = "Languages"
         languagePicker.delegate = self
-        languagePicker.selectedData = originLanguageData
+        languagePicker.selectedData = AppData.default.languageDataOfPopularRepos
         languagePicker.manualAdjustInset = false
         
         navigationController?.pushViewController(languagePicker, animated: true)
@@ -72,7 +71,7 @@ class SGPopularReposViewController: SGRepoListViewController, SGPickerDelegate {
     
     //MARK: - SGPickerDelegate
     func picker(_ picker: SGPickerViewController, didPickExploreData data: SGExploreData) {
-        if data != originLanguageData {
+        if data != AppData.default.languageDataOfPopularRepos {
             AppData.default.languageDataOfPopularRepos = data
             AppData.default.save()
             searchQueryChanged = true

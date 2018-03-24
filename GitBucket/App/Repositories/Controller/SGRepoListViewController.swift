@@ -65,6 +65,11 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
         return controller
     }
     
+    func refreshRepositories() {
+        nextPage = 0
+        fetchRepositories()
+    }
+    
     //MARK: - Data
     var viewTitle: String {
         return ""

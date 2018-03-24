@@ -9,15 +9,32 @@
 import UIKit
 
 class SGTimedTrendingsViewController: SGRepoListViewController {
-
+    var needsRefresh: Bool = false
+    var timeSlug: String = ""
+    var language: String {
+        return AppData.default.languageDataOfTrendingRepos!.slug
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if needsRefresh {
+            needsRefresh = false
+            refreshRepositories()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func executeRequestWithCompletionBlock(completion: @escaping SGRepoListViewController.FetchReposCompletionBlock) {
+        SGGithubClient.fetchTrendingRepos(since: timeSlug, language: language) { (repos, error) in
+            completion(repos, nil, error)
+        }
     }
 }
