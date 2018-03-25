@@ -17,6 +17,14 @@ class SGExploreViewController: SGBaseTableViewController {
     private let dispatchGroup = DispatchGroup()
     private var cellTitles = [String]()
     
+    private var resultsController: SGSearchReposResultViewController?
+    private var searchController: UISearchController?
+    private var searchBar: UISearchBar!
+    private var switchLanguageButton: UIButton?
+    private var placeholder: String {
+        return "Search for \(AppData.default.languageDataOfSearch!.name)"
+    }
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +39,32 @@ class SGExploreViewController: SGBaseTableViewController {
     
     //MARK: - UI
     private func setupUI() {
+        //table view
         tableView.tableFooterView = nil
         tableView.separatorStyle = .none
         tableView.rowHeight = 168
         let nib = UINib(nibName: SGExploreTableViewCell.identifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SGExploreTableViewCell.identifier)
+        
+        //search controller
+        definesPresentationContext = true
+        
+        resultsController = SGSearchReposResultViewController(nibName: "SGRepoListViewController", bundle: nil)
+        searchController = UISearchController(searchResultsController: resultsController)
+        searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.dimsBackgroundDuringPresentation = true
+        
+        searchBar = searchController?.searchBar
+        searchBar?.placeholder = placeholder
+        searchBar.showsCancelButton = false
+        searchBar?.delegate = self
+        navigationItem.titleView = searchBar
+        
+        switchLanguageButton = UIButton(type: .custom)
+        switchLanguageButton?.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        switchLanguageButton?.backgroundColor = UIColor.white
+        switchLanguageButton?.setImage(UIImage.icon(with: "TriangleDown", color: UIColor.darkGray, size: CGSize(width: 20, height: 20)), for: .normal)
+        switchLanguageButton?.addTarget(self, action: #selector(changeLanguageSetting), for: .touchUpInside)
     }
     
     //MARK: - Fetch Data
@@ -86,7 +115,7 @@ class SGExploreViewController: SGBaseTableViewController {
     
     private func fetchPopularRepositories() {
         dispatchGroup.enter()
-        SGGithubClient.fetchPopularRepos(language: "") {[weak self] (responseRepos, error) in
+        SGGithubClient.fetchPopularRepos(language: "") {[weak self] (responseRepos, nextPage, error) in
             guard let strongSelf = self else {return}
             strongSelf.dispatchGroup.leave()
             
@@ -101,7 +130,7 @@ class SGExploreViewController: SGBaseTableViewController {
     
     private func fetchPopularUsers() {
         dispatchGroup.enter()
-        SGGithubClient.fetchPopularUsers(location: "", language: "") {[weak self] (responseUsers, error) in
+        SGGithubClient.fetchPopularUsers(location: "", language: "") {[weak self] (responseUsers, nextPage, error) in
             guard let strongSelf = self else {return}
             strongSelf.dispatchGroup.leave()
             
@@ -161,6 +190,53 @@ class SGExploreViewController: SGBaseTableViewController {
         else {
             let trendingReposVC = SGTrendingReposViewController()
             navigationController?.pushViewController(trendingReposVC, animated: true)
+        }
+    }
+    
+    @objc
+    func changeLanguageSetting() {
+        let languagePicker = SGPickerViewController()
+        languagePicker.segmentedTitle = "Language"
+        languagePicker.resource = "Languages"
+        languagePicker.delegate = self
+        languagePicker.selectedData = AppData.default.languageDataOfSearch
+        languagePicker.manualAdjustInset = false
+        
+        navigationController?.pushViewController(languagePicker, animated: true)
+    }
+}
+
+extension SGExploreViewController : UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let imageView = searchBar.searchIconView
+        imageView.isUserInteractionEnabled = true
+        imageView.addSubview(switchLanguageButton!)
+        switchLanguageButton?.center = CGPoint(x: imageView.width / 2, y: imageView.height / 2)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        switchLanguageButton?.removeFromSuperview()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if let text = searchBar.text, !text.isEmpty {
+            resultsController?.keyword = text
+            resultsController?.language = AppData.default.languageDataOfSearch!.slug
+            resultsController?.refreshRepositories()
+        }
+    }
+}
+
+extension SGExploreViewController : SGPickerDelegate {
+    func picker(_ picker: SGPickerViewController, didPickExploreData data: SGExploreData) {
+        if AppData.default.languageDataOfSearch != data {
+            AppData.default.languageDataOfSearch = data
+            AppData.default.save()
+            searchBar.placeholder = placeholder
         }
     }
 }

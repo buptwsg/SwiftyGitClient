@@ -15,7 +15,7 @@ enum SGExploreRouter: URLRequestConvertible {
     case trendingRepos(since: String, language: String)
     case popularRepos(language: String)
     case popularUsers(location: String, language: String)
-    case searchRepos(query: String, language: String, ascending: Bool)
+    case searchRepos(query: String, language: String, ascending: Bool, page: Int?)
     
     var baseURL: String {
         switch self {
@@ -82,10 +82,13 @@ enum SGExploreRouter: URLRequestConvertible {
             params["sort"] = "followers"
             params["order"] = "desc"
             
-        case .searchRepos(let query, let language, let ascending):
+        case .searchRepos(let query, let language, let ascending, let page):
             params["q"] = "\(query) language:\(language)"
             params["sort"] = "stars"
             params["order"] = ascending ? "asc" : "desc"
+            if nil != page {
+                params["page"] = page
+            }
         }
         return try URLEncoding.default.encode(request, with: params)
     }

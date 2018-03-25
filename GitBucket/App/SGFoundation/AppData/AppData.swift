@@ -15,6 +15,7 @@ class AppData: Mappable {
     var languageDataOfPopularUsers: SGExploreData? = nil
     var languageDataOfPopularRepos: SGExploreData? = nil
     var languageDataOfTrendingRepos: SGExploreData? = nil
+    var languageDataOfSearch: SGExploreData? = nil
     
     private static let archivePath: String = {
         let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -47,6 +48,7 @@ class AppData: Mappable {
         languageDataOfPopularUsers = SGExploreData(name: "All Languages", slug: "")
         languageDataOfPopularRepos = SGExploreData(name: "All Languages", slug: "")
         languageDataOfTrendingRepos = SGExploreData(name: "All Languages", slug: "")
+        languageDataOfSearch = SGExploreData(name: "All Languages", slug: "")
     }
     
     required init?(map: Map) {
@@ -58,6 +60,7 @@ class AppData: Mappable {
         languageDataOfPopularUsers <- map["languageDataOfPopularUsers"]
         languageDataOfPopularRepos <- map["languageDataOfPopularRepos"]
         languageDataOfTrendingRepos <- map["languageDataOfTrendingRepos"]
+        languageDataOfSearch <- map["languageDataOfSearch"]
     }
     
     func save() {

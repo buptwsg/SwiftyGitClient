@@ -50,41 +50,44 @@ extension SGGithubClient {
         }
     }
     
-    class func fetchPopularRepos(language: String, completion: @escaping ([SGRepository]?, Error?) -> Void) {
+    class func fetchPopularRepos(language: String, completion: @escaping ([SGRepository]?, Int?, Error?) -> Void) {
         let request = sessionManager.request(SGExploreRouter.popularRepos(language: language))
         request.responseArray(keyPath: "items") { (response: DataResponse<[SGRepository]>) in
             switch response.result {
             case .success(let repositories):
-                completion(repositories, nil)
+                let nextPage = parseNextPage(response.response!)
+                completion(repositories, nextPage, nil)
                 
             case .failure(let error):
-                completion(nil, error)
+                completion(nil, nil, error)
             }
         }
     }
     
-    class func fetchPopularUsers(location: String, language: String, completion: @escaping ([SGUser]?, Error?) -> Void) {
+    class func fetchPopularUsers(location: String, language: String, completion: @escaping ([SGUser]?, Int?, Error?) -> Void) {
         let request = sessionManager.request(SGExploreRouter.popularUsers(location: location, language: language))
         request.responseArray(keyPath: "items") { (response: DataResponse<[SGUser]>) in
             switch response.result {
             case .success(let users):
-                completion(users, nil)
+                let nextPage = parseNextPage(response.response!)
+                completion(users, nextPage, nil)
                 
             case .failure(let error):
-                completion(nil, error)
+                completion(nil, nil, error)
             }
         }
     }
     
-    class func searchRepos(query: String, language: String, ascending: Bool, completion: @escaping ([SGRepository]?, Error?) -> Void) {
-        let request = sessionManager.request(SGExploreRouter.searchRepos(query: query, language: language, ascending: ascending))
-        request.responseArray { (response: DataResponse<[SGRepository]>) in
+    class func searchRepos(query: String, language: String, ascending: Bool, page: Int?, completion: @escaping ([SGRepository]?, Int?, Error?) -> Void) {
+        let request = sessionManager.request(SGExploreRouter.searchRepos(query: query, language: language, ascending: ascending, page: page))
+        request.responseArray(keyPath: "items") { (response: DataResponse<[SGRepository]>) in
             switch response.result {
             case .success(let repositories):
-                completion(repositories, nil)
+                let nextPage = parseNextPage(response.response!)
+                completion(repositories, nextPage, nil)
                 
             case .failure(let error):
-                completion(nil, error)
+                completion(nil, nil, error)
             }
         }
     }

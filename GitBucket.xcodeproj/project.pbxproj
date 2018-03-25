@@ -20,6 +20,9 @@
 		B225C70C2026F46400F492CA /* WXNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225C70B2026F46400F492CA /* WXNavigationBar.swift */; };
 		B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */; };
 		B22AA997202EA6E1004C44B0 /* SGSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */; };
+		B244E380206777DD0037587D /* SGSearchReposResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E37F206777DD0037587D /* SGSearchReposResultViewController.swift */; };
+		B244E38220679B6E0037587D /* UIView+Find.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E38120679B6E0037587D /* UIView+Find.swift */; };
+		B244E38420679D310037587D /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E38320679D310037587D /* UISearchBar+Extensions.swift */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
 		B28164AF205400C300293765 /* Languages.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AC205400C200293765 /* Languages.json */; };
@@ -140,6 +143,9 @@
 		B225C70B2026F46400F492CA /* WXNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXNavigationBar.swift; sourceTree = "<group>"; };
 		B22AA994202EA6E1004C44B0 /* SGSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSettingsViewController.swift; sourceTree = "<group>"; };
 		B22AA995202EA6E1004C44B0 /* SGSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SGSettingsViewController.xib; sourceTree = "<group>"; };
+		B244E37F206777DD0037587D /* SGSearchReposResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSearchReposResultViewController.swift; sourceTree = "<group>"; };
+		B244E38120679B6E0037587D /* UIView+Find.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Find.swift"; sourceTree = "<group>"; };
+		B244E38320679D310037587D /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
 		B28164AC205400C200293765 /* Languages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Languages.json; sourceTree = "<group>"; };
@@ -307,8 +313,10 @@
 				C646DE18201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift */,
 				C646DE1C201F1694001F2E01 /* UIView+WXHelper.swift */,
 				C646DE1E201F26DE001F2E01 /* UIView+WXAutoResizingMaskLayout.swift */,
+				B244E38120679B6E0037587D /* UIView+Find.swift */,
 				B26E84402025938E00B73B66 /* NSURL+Extensions.swift */,
 				B2F29CC8204E187C000BDFC0 /* UIViewController+ContentInset.swift */,
+				B244E38320679D310037587D /* UISearchBar+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -581,6 +589,7 @@
 				C6979A6F2063CB0B00430F00 /* SGTimedTrendingsViewController.swift */,
 				C6979A712063CC9200430F00 /* SGTrendingReposViewController.swift */,
 				C6979A722063CC9200430F00 /* SGTrendingReposViewController.xib */,
+				B244E37F206777DD0037587D /* SGSearchReposResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -926,6 +935,7 @@
 				C60748F0202AE8D000625849 /* SGCommitComment.swift in Sources */,
 				C646DE4E20202294001F2E01 /* SGButton.swift in Sources */,
 				C60748DA202AD29F00625849 /* SGForkEvent.swift in Sources */,
+				B244E38220679B6E0037587D /* UIView+Find.swift in Sources */,
 				B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */,
 				C65479A82051587D00A9F306 /* SGExploreCollectionViewCell.swift in Sources */,
 				C60748F2202AEAD800625849 /* SGComment.swift in Sources */,
@@ -950,6 +960,7 @@
 				C60748E0202AD86D00625849 /* SGPushEvent.swift in Sources */,
 				B21ADB4E201C355D006F3334 /* UIColor+Extension.swift in Sources */,
 				B28164C02054ECBA00293765 /* SGPickerViewController.swift in Sources */,
+				B244E380206777DD0037587D /* SGSearchReposResultViewController.swift in Sources */,
 				C64CCB49204FFC5600C2F753 /* SGGithubClient+Explore.swift in Sources */,
 				93BA31052035D348001FB934 /* SGRepoListViewController.swift in Sources */,
 				C6B9A15D2017530C00AD009D /* WXNavigationController.swift in Sources */,
@@ -975,6 +986,7 @@
 				C646DE1D201F1694001F2E01 /* UIView+WXHelper.swift in Sources */,
 				93BA31142036806A001FB934 /* SGGithubClient+Repositories.swift in Sources */,
 				B28164BE2054B3A600293765 /* SGPopularUsersViewController.swift in Sources */,
+				B244E38420679D310037587D /* UISearchBar+Extensions.swift in Sources */,
 				B22AA996202EA6E1004C44B0 /* SGSettingsViewController.swift in Sources */,
 				C646DE19201F13FB001F2E01 /* CALayer+WXBorderUIColor.swift in Sources */,
 				B28164B82054074700293765 /* SGExploreData.swift in Sources */,

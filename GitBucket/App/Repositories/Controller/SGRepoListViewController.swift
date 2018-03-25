@@ -24,6 +24,7 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
     var entity: SGEntity?
     var reposArray = [SGRepository]()
     var nextPage: Int? = 0
+    var fetchAtViewDidLoad: Bool {return true}
     var isFetching = false
     var pullUpToRefresh = true
     typealias FetchReposCompletionBlock = ([SGRepository]?, Int?, Error?) -> Void
@@ -35,7 +36,9 @@ class SGRepoListViewController: SGBaseViewController, UITableViewDataSource, UIT
         title = viewTitle
         setupTableView()
         
-        fetchRepositories()
+        if fetchAtViewDidLoad {
+            fetchRepositories()
+        }
     }
 
     override func didReceiveMemoryWarning() {
