@@ -25,6 +25,7 @@
 		B244E38420679D310037587D /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E38320679D310037587D /* UISearchBar+Extensions.swift */; };
 		B26E84412025938E00B73B66 /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84402025938E00B73B66 /* NSURL+Extensions.swift */; };
 		B26E84432025DCA200B73B66 /* SGToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E84422025DCA200B73B66 /* SGToast.swift */; };
+		B26ED7EF20775864000C812C /* NSString+ComposedSubstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26ED7EE20775864000C812C /* NSString+ComposedSubstring.swift */; };
 		B28164AF205400C300293765 /* Languages.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AC205400C200293765 /* Languages.json */; };
 		B28164B0205400C300293765 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AD205400C200293765 /* Countries.json */; };
 		B28164B1205400C300293765 /* Sinces.json in Resources */ = {isa = PBXBuildFile; fileRef = B28164AE205400C300293765 /* Sinces.json */; };
@@ -148,6 +149,7 @@
 		B244E38320679D310037587D /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84402025938E00B73B66 /* NSURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+Extensions.swift"; sourceTree = "<group>"; };
 		B26E84422025DCA200B73B66 /* SGToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGToast.swift; sourceTree = "<group>"; };
+		B26ED7EE20775864000C812C /* NSString+ComposedSubstring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+ComposedSubstring.swift"; sourceTree = "<group>"; };
 		B28164AC205400C200293765 /* Languages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Languages.json; sourceTree = "<group>"; };
 		B28164AD205400C200293765 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
 		B28164AE205400C300293765 /* Sinces.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sinces.json; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				B26E84402025938E00B73B66 /* NSURL+Extensions.swift */,
 				B2F29CC8204E187C000BDFC0 /* UIViewController+ContentInset.swift */,
 				B244E38320679D310037587D /* UISearchBar+Extensions.swift */,
+				B26ED7EE20775864000C812C /* NSString+ComposedSubstring.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -785,7 +788,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = CleanAirGames;
 				TargetAttributes = {
 					C69512962012052A00D1DAB9 = {
@@ -940,6 +943,7 @@
 				C65479A82051587D00A9F306 /* SGExploreCollectionViewCell.swift in Sources */,
 				C60748F2202AEAD800625849 /* SGComment.swift in Sources */,
 				C60748942029868E00625849 /* SGEventsRouter.swift in Sources */,
+				B26ED7EF20775864000C812C /* NSString+ComposedSubstring.swift in Sources */,
 				C654799E20512E6C00A9F306 /* SGExploreViewController.swift in Sources */,
 				C6074906202B06BC00625849 /* SGPullRequest.swift in Sources */,
 				C6979A702063CB0B00430F00 /* SGTimedTrendingsViewController.swift in Sources */,
@@ -1056,6 +1060,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1063,6 +1068,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1113,6 +1119,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1120,6 +1127,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

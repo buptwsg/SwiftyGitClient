@@ -68,7 +68,7 @@ class SGPopularUsersViewController: SGUserListViewController {
     }
     
     override func executeRequestWithCompletionBlock(completion: @escaping ([SGUser]?, Int?, Error?) -> Void) {
-        SGGithubClient.fetchPopularUsers(location: countrySlug, language: languageSlug) { (users, nextPage, error) in
+        SGGithubClient.fetchPopularUsers(location: countrySlug, language: languageSlug, page: nextPage) { (users, nextPage, error) in
             completion(users, nextPage, error)
         }
     }

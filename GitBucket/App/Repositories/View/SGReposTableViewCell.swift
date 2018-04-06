@@ -30,7 +30,13 @@ class SGReposTableViewCell: UITableViewCell {
     var repository: SGRepository? {
         didSet {
             nameLabel.text = repository?.name
-            desLabel.text = repository?.repoDescription
+            if let desc = repository?.repoDescription {
+                let descString = desc as NSString
+                desLabel.text = descString.composedSubstring(of: 200)
+            }
+            else {
+                desLabel.text = repository?.repoDescription
+            }
             iconImageView.image = iconForRepo()
             languageLabel.text = repository?.language
             starIconImageView.image = _starIcon

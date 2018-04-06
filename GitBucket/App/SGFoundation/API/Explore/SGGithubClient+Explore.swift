@@ -50,8 +50,8 @@ extension SGGithubClient {
         }
     }
     
-    class func fetchPopularRepos(language: String, completion: @escaping ([SGRepository]?, Int?, Error?) -> Void) {
-        let request = sessionManager.request(SGExploreRouter.popularRepos(language: language))
+    class func fetchPopularRepos(language: String, page: Int? = nil, completion: @escaping ([SGRepository]?, Int?, Error?) -> Void) {
+        let request = sessionManager.request(SGExploreRouter.popularRepos(language: language, page: page))
         request.responseArray(keyPath: "items") { (response: DataResponse<[SGRepository]>) in
             switch response.result {
             case .success(let repositories):
@@ -64,8 +64,8 @@ extension SGGithubClient {
         }
     }
     
-    class func fetchPopularUsers(location: String, language: String, completion: @escaping ([SGUser]?, Int?, Error?) -> Void) {
-        let request = sessionManager.request(SGExploreRouter.popularUsers(location: location, language: language))
+    class func fetchPopularUsers(location: String, language: String, page: Int? = nil, completion: @escaping ([SGUser]?, Int?, Error?) -> Void) {
+        let request = sessionManager.request(SGExploreRouter.popularUsers(location: location, language: language, page: page))
         request.responseArray(keyPath: "items") { (response: DataResponse<[SGUser]>) in
             switch response.result {
             case .success(let users):

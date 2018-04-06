@@ -49,7 +49,7 @@ class SGPopularReposViewController: SGRepoListViewController, SGPickerDelegate {
     }
     
     override func executeRequestWithCompletionBlock(completion: @escaping SGRepoListViewController.FetchReposCompletionBlock) {
-        SGGithubClient.fetchPopularRepos(language: languageSlug) { (repos, nextPage, error) in
+        SGGithubClient.fetchPopularRepos(language: languageSlug, page: nextPage) { (repos, nextPage, error) in
             completion(repos, nextPage, error)
         }
     }

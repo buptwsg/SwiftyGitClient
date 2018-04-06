@@ -13,8 +13,8 @@ enum SGExploreRouter: URLRequestConvertible {
     case showcases
     case reposOfCases(cases: String)
     case trendingRepos(since: String, language: String)
-    case popularRepos(language: String)
-    case popularUsers(location: String, language: String)
+    case popularRepos(language: String, page: Int?)
+    case popularUsers(location: String, language: String, page: Int?)
     case searchRepos(query: String, language: String, ascending: Bool, page: Int?)
     
     var baseURL: String {
@@ -54,6 +54,7 @@ enum SGExploreRouter: URLRequestConvertible {
         let url = try baseURL.asURL()
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method.rawValue
+        request.timeoutInterval = 30
         
         var params: Parameters = [:]
         switch self {
@@ -64,12 +65,15 @@ enum SGExploreRouter: URLRequestConvertible {
             params["since"] = since
             params["language"] = language
             
-        case .popularRepos(let language):
+        case .popularRepos(let language, let page):
             params["q"] = " language:\(language)"
             params["sort"] = "stars"
             params["order"] = "desc"
+            if nil != page {
+                params["page"] = page
+            }
             
-        case .popularUsers(let location, let language):
+        case .popularUsers(let location, let language, let page):
             var query = " followers:>=1"
             if !location.isEmpty {
                 query += " location:\(location)"
@@ -81,6 +85,9 @@ enum SGExploreRouter: URLRequestConvertible {
             params["q"] = query
             params["sort"] = "followers"
             params["order"] = "desc"
+            if nil != page {
+                params["page"] = page
+            }
             
         case .searchRepos(let query, let language, let ascending, let page):
             params["q"] = "\(query) language:\(language)"

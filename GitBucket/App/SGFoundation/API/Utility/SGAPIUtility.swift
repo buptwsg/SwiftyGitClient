@@ -16,13 +16,21 @@ import Foundation
 func parseNextPage(_ response: HTTPURLResponse) -> Int? {
     let allHeaderFields = response.allHeaderFields
     if let linkField = allHeaderFields["Link"] as? NSString {
-        let range = linkField.range(of: "rel=\"next\"")
+        let range = linkField.range(of: ">; rel=\"next\"")
         if range.location != NSNotFound {
-            let substring = linkField.substring(to: range.location) as NSString
-            let pageRange = substring.range(of: "page=", options: [.backwards])
-            let pageEndRange = substring.range(of: ">;", options: [.backwards])
-            let pageString = substring.substring(with: NSRange(location: pageRange.location + pageRange.length, length: pageEndRange.location - pageRange.location - pageRange.length))
-            return Int(pageString)
+            let questionMarkRange = linkField.range(of: "?")
+            let paramsRange = NSRange(location: questionMarkRange.location + 1, length: range.location - questionMarkRange.location - 1)
+            let substring = linkField.substring(with: paramsRange) as NSString
+            let components = substring.components(separatedBy: "&")
+            var paramsDict = [String : String]()
+            for paramPair in components {
+                let pair = paramPair.components(separatedBy: "=")
+                paramsDict[pair[0]] = pair[1]
+            }
+            
+            if let pageString = paramsDict["page"] {
+                return Int(pageString)
+            }
         }
         else {
             return nil
